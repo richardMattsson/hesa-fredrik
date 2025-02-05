@@ -1,18 +1,18 @@
 <script>
-  export default {
-    props: {
-      msg: String
-    }
-  };
+export default {
+  props: {
+    msg: String,
+  },
+};
 </script>
 
 <template>
-  <img alt="" src="/assets/fox.jpeg" />
+  <img alt="" src="/assets/icon-hesa-fredrik.png" />
   <p>{{ msg }}</p>
 </template>
 
 <style>
-  p {
-    font-weight: bold;
-  }
+p {
+  font-weight: bold;
+}
 </style>
