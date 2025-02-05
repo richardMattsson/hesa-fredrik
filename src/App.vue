@@ -11,6 +11,6 @@
 </script>
 
 <template>
-  <HelloWorld msg="Hello World!" />
+  <HelloWorld msg="Hello Hesa Fredrik!" />
   <CitiesList />
 </template>
