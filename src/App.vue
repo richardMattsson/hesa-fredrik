@@ -19,6 +19,9 @@ export default {
       <li>
         <RouterLink to="/about">Om</RouterLink>
       </li>
+      <li>
+      <RouterLink to="/contact">Kontakt</RouterLink>
+    </li>
     </ul>
   </nav>
   <main>
