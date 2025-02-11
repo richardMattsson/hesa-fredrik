@@ -18,5 +18,6 @@
 <template>
   <ol>
     <li v-for="city in cities">{{ city.name }}</li>
+    <li>Här skriver jag en random text</li>
   </ol>
 </template>
