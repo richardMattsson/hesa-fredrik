@@ -1,10 +1,8 @@
 <script>
-import CitiesList from './components/CitiesList.vue';
 import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   components: {
-    CitiesList,
     HelloWorld,
   },
 };
@@ -27,6 +25,5 @@ export default {
   <main>
     <RouterView />
   </main>
-  <HelloWorld msg="Hello Hesa Fredrik!" />
-  <CitiesList />
+  <HelloWorld />
 </template>
