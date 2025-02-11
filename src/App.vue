@@ -1,12 +1,4 @@
-<script>
-import HelloWorld from './components/HelloWorld.vue';
-
-export default {
-  components: {
-    HelloWorld,
-  },
-};
-</script>
+<script></script>
 
 <template>
   <nav>
@@ -18,12 +10,11 @@ export default {
         <RouterLink to="/about">Om</RouterLink>
       </li>
       <li>
-      <RouterLink to="/contact">Kontakt</RouterLink>
-    </li>
+        <RouterLink to="/contact">Kontakt</RouterLink>
+      </li>
     </ul>
   </nav>
   <main>
     <RouterView />
   </main>
-  <HelloWorld />
 </template>
