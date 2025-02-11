@@ -13,6 +13,6 @@ export default {
 
 <style>
 p {
-  font-weight: bold;
+  font-weight: bolder;
 }
 </style>
