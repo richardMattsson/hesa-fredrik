@@ -1,16 +1,14 @@
 <template>
-  {{ $route.params.number }}
-  <!-- <input type="radio" v-model="counter" name="" id="1" :value="false" />Fråga 1
-  <input type="radio" v-model="counter" name="" id="2" :value="true" />Fråga 2
-  <input type="radio" v-model="counter" name="" id="3" :value="false" />Fråga 3
-  <input type="radio" v-model="counter" name="" id="4" :value="false" />Fråga 4 -->
-  <h1>{{ results[index].question }}</h1>
+  <!-- Frågan -->
+  <div v-if="index < results.length">
+    <h1>{{ results[index].question }}</h1>
 
-  <label v-for="answerAlternative in results[index].answerAlternatives">
-    <input v-model="answer" type="radio" :value="answerAlternative" />
-    {{ answerAlternative }}
-  </label>
-  <input type="button" @click="onClick" value="Nästa" :disabled="!answer" />
+    <label v-for="answerAlternative in results[index].answerAlternatives">
+      <input v-model="answer" type="radio" :value="answerAlternative" />
+      {{ answerAlternative }}
+    </label>
+    <input type="button" @click="onClick" value="Nästa" :disabled="!answer" />
+  </div>
 </template>
 <script>
 export default {
@@ -63,13 +61,17 @@ export default {
           `Fel svar på fråga ${this.index + 1}. Total poäng: ${this.points}`
         );
       }
-
-      if (this.index > 4) {
-        this.$router.push('/result');
-      }
-
       this.answer = null;
       this.index++;
+
+      if (this.index > 3) {
+        localStorage.setItem('points', JSON.stringify(this.points));
+        localStorage.setItem(
+          'numberOfQuestions',
+          JSON.stringify(this.results.length)
+        );
+        this.$router.push('/result');
+      }
     },
   },
 };
