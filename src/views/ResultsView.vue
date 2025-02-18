@@ -1,15 +1,35 @@
 <template>
-  <h1>ResultsView</h1>
-  <p>{{ points }} rätta svar av {{ numberOfQuestions }}</p>
-  <input type="button" @click="restartQuiz" value="Starta om quiz" />
-  <a href="https://rib.msb.se/filer/pdf/30828.pdf" target="_blank">Broshyren</a>
-  <form action="">
-    <label for="">
-      Skriv ditt namn
-      <input v-model="playerName" type="text" placeholder="Namn" />
-    </label>
-    <input type="button" value="Spara" @click="onSave" />
-  </form>
+  <article class="container-result">
+    <section class="section-form">
+      <form id="container-form" action="">
+        <p id="quiz-result">
+          {{ points }} rätta svar av {{ numberOfQuestions }}
+        </p>
+        <label id="container-input-name" for="">
+          Vill du spara ditt resultat?
+          <input
+            id="input-name"
+            v-model="playerName"
+            type="text"
+            placeholder="Namn"
+          />
+        </label>
+        <section id="section-save-button">
+          <input id="save-button" type="button" value="Spara" @click="onSave" />
+        </section>
+      </form>
+    </section>
+
+    <section class="section-link">
+      <a href="https://rib.msb.se/filer/pdf/30828.pdf" target="_blank"
+        >Broshyren</a
+      >
+    </section>
+
+    <section class="section-restart">
+      <input type="button" @click="restartQuiz" value="Starta om quiz" />
+    </section>
+  </article>
 </template>
 <script>
 export default {

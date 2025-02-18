@@ -1,7 +1,4 @@
 <template>
-  <main>
-    <RouterView />
-  </main>
   <h1>Home</h1>
 
   <li>
@@ -9,7 +6,6 @@
       ><button>Starta spel</button></router-link
     >
   </li>
-  <HelloWorld />
 </template>
 
 <script>

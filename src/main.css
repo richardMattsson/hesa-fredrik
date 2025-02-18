@@ -1,0 +1,113 @@
+body {
+  background-color: #333;
+  font-family: sans-serif;
+}
+main {
+  /* border: 4px solid red; */
+}
+nav > ul > li > a {
+  color: #fff;
+}
+.container-questions {
+  background-color: #ffda00;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+  grid: auto auto auto / auto auto auto;
+}
+.section-question,
+.section-answer-options,
+.section-answer-button {
+  border: 3px solid black;
+}
+
+.section-question {
+  grid-area: 1 / 1 / span 1 / span 3;
+  font-size: 1.3rem;
+  padding: 10px;
+  font-weight: 400;
+}
+#question {
+  font-size: 1.5rem;
+}
+
+.section-answer-options {
+  grid-area: 2 / 1 / span 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 250px;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+.section-answer-button {
+  grid-area: 3 / 3 / span 1 / span 1;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+#answer-button {
+  width: 120px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+#answer-button:disabled {
+  background-color: white;
+  border-radius: 5px;
+}
+.container-result {
+  background-color: #ffda00;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+  grid: auto auto / auto auto auto;
+}
+.section-restart,
+.section-link,
+.section-form {
+  border: 3px solid black;
+}
+.section-form {
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+#container-form {
+  display: grid;
+  grid: auto auto / auto auto;
+  border: 3px solid rgb(18, 179, 48);
+}
+#quiz-result {
+  border: 3px solid rgb(206, 65, 157);
+  grid-area: 1 / 1 / span 1 / span 2;
+}
+#container-input-name {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  justify-content: space-evenly;
+  border: 3px solid rgb(36, 23, 172);
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+
+#section-save-button {
+  border: 3px solid rgb(179, 17, 17);
+  grid-area: 2 / 2 / span 1 / span 1;
+  /* width: 100px;
+  height: 50px; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+#save-button {
+  width: 80px;
+  height: 40px;
+}
+#input-name {
+  width: 250px;
+}
+.section-link {
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+.section-restart {
+  grid-area: 2 / 2 / span 1 / span 1;
+}

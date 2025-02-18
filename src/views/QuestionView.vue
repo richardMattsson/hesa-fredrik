@@ -1,14 +1,27 @@
 <template>
   <!-- Frågan -->
-  <div v-if="index < results.length">
-    <h1>{{ results[index].question }}</h1>
-
-    <label v-for="answerAlternative in results[index].answerAlternatives">
-      <input v-model="answer" type="radio" :value="answerAlternative" />
-      {{ answerAlternative }}
-    </label>
-    <input type="button" @click="onClick" value="Nästa" :disabled="!answer" />
-  </div>
+  <article class="container-questions">
+    <template v-if="index < results.length">
+      <section class="section-question">
+        <p id="question">{{ results[index].question }}</p>
+      </section>
+      <section class="section-answer-options">
+        <label v-for="answerAlternative in results[index].answerAlternatives">
+          <input v-model="answer" type="radio" :value="answerAlternative" />
+          {{ answerAlternative }}
+        </label>
+      </section>
+      <section class="section-answer-button">
+        <input
+          id="answer-button"
+          type="button"
+          @click="onClick"
+          value="Nästa"
+          :disabled="!answer"
+        />
+      </section>
+    </template>
+  </article>
 </template>
 <script>
 export default {
