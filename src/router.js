@@ -13,16 +13,12 @@ export default createRouter({
       path: '/',
     },
     {
-      component: AboutView,
-      path: '/about',
-    },
-    {
-      component: ContactView,
-      path: '/contact',
-    },
-    {
       component: QuestionView,
-      path: '/question/:questionNumber?',
+      path: '/question/:number?',
+    },
+    {
+      component: ResultsView,
+      path: '/result',
     },
   ],
 });
