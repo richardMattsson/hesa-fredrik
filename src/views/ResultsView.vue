@@ -32,12 +32,16 @@
 
     <section class="section-resulttable">
       <table>
-        <thead>
+        <thead><tr>
           <th>Spelare</th>
           <th>Resultat</th>
+        </tr>
         </thead>
         <tbody>
-          <td></td>
+          <tr v-for="results in resultData">
+          <td>{{results.player}}</td>
+          <td>{{results.result}}</td>
+        </tr>
         </tbody>
       </table>
     </section>
