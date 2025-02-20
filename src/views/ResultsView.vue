@@ -51,7 +51,7 @@ export default {
       numberOfQuestions: JSON.parse(localStorage.getItem('numberOfQuestions')),
       newPlayer: { player: '', result: '' },
       playerName: '',
-      resultData: JSON.parse(localStorage.getItem('savedResult')),
+      resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
     };
   },
   created() {
