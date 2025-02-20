@@ -29,6 +29,18 @@
     <section class="section-restart">
       <input type="button" @click="restartQuiz" value="Starta om quiz" />
     </section>
+
+    <section class="section-resulttable">
+      <table>
+        <thead>
+          <th>Spelare</th>
+          <th>Resultat</th>
+        </thead>
+        <tbody>
+          <td></td>
+        </tbody>
+      </table>
+    </section>
   </article>
 </template>
 <script>
@@ -39,6 +51,7 @@ export default {
       numberOfQuestions: JSON.parse(localStorage.getItem('numberOfQuestions')),
       newPlayer: { player: '', result: '' },
       playerName: '',
+      resultData: JSON.parse(localStorage.getItem('savedResult')),
     };
   },
   created() {
@@ -51,8 +64,10 @@ export default {
     onSave() {
       this.newPlayer.player = this.playerName;
       this.newPlayer.result = this.points;
-      localStorage.setItem('savedResult', JSON.stringify(this.newPlayer));
-      console.log('Ny spelare: ', this.newPlayer);
+      this.resultData.push(this.newPlayer)
+      this.newPlayer = null
+      localStorage.setItem('savedResult', JSON.stringify(this.resultData));
+      console.log('Ny spelare: ', this.resultData);
     },
   },
 };
