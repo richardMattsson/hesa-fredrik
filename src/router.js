@@ -2,7 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 import HomeView from './views/HomeView.vue';
 import QuestionView from './views/QuestionView.vue';
-import ResultsView from './views/ResultsView.vue';
+import RegisterView from './views/RegisterView.vue';
+import ScoreTableView from './views/ScoreTableView.vue';
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -16,8 +17,12 @@ export default createRouter({
       path: '/question/:number?',
     },
     {
-      component: ResultsView,
-      path: '/result',
+      component: RegisterView,
+      path: '/register',
     },
+    {
+      component: ScoreTableView,
+      path: '/scoretable',
+    }
   ],
 });

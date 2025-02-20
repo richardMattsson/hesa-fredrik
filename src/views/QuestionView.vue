@@ -44,8 +44,6 @@ created(){
 );
 },
 
-
-
   data() {
     return {
       index: 0,
@@ -78,7 +76,7 @@ created(){
           'numberOfQuestions',
           JSON.stringify(this.results.length)
         );
-        this.$router.push('/result');
+        this.$router.push('/register');
       }
     },
   },
