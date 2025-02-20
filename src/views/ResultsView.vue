@@ -22,7 +22,7 @@
 
     <section class="section-link">
       <a href="https://rib.msb.se/filer/pdf/30828.pdf" target="_blank"
-        >Broshyren</a
+        >Broschyr</a
       >
     </section>
 
