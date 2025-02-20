@@ -26,7 +26,7 @@
 <script>
 import axios from 'axios'
 export default {
-mounted(){
+created(){
   axios.get('/quizData.json')
   .then((response) => {
   console.log(response.data.results)
@@ -72,7 +72,7 @@ mounted(){
       this.index++;
 
       // This will dictate the amount of questions - deciding later
-      if (this.index > 3) {
+      if (this.index > 6) {
         localStorage.setItem('points', JSON.stringify(this.points));
         localStorage.setItem(
           'numberOfQuestions',
