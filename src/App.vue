@@ -1,14 +1,21 @@
 <script>
+import FooterComp from './components/FooterComp.vue';
 import NavigationComp from './components/NavigationComp.vue';
 
-export default{
-  components: {NavigationComp}
-}
+export default {
+  components: { NavigationComp, FooterComp },
+};
 </script>
 
 <template>
   <NavigationComp />
-  <main>
+  <main id="container-main">
     <RouterView />
   </main>
+  <FooterComp />
 </template>
+<style>
+header {
+  margin: 0;
+}
+</style>
