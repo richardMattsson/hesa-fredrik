@@ -25,10 +25,6 @@
         >Broschyr</a
       >
     </section>
-
-    
-
-
   </article>
 </template>
 <script>
@@ -46,7 +42,6 @@ export default {
     console.log(Math.floor(Math.random() + 1));
   },
   methods: {
-
     onSave() {
       this.newPlayer.player = this.playerName;
       this.newPlayer.result = this.points;
@@ -59,3 +54,51 @@ export default {
   },
 };
 </script>
+<style>
+.container-result {
+  background-color: #ffda00;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+  grid: auto auto / auto auto auto;
+}
+.section-form {
+  grid-area: 1 / 1 / span 1 / span 3;
+}
+#container-form {
+  display: grid;
+  grid: auto auto / auto auto;
+  /* border: 3px solid rgb(18, 179, 48); */
+}
+#quiz-result {
+  /* border: 3px solid rgb(206, 65, 157); */
+  grid-area: 1 / 1 / span 1 / span 2;
+}
+#container-input-name {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  justify-content: space-evenly;
+  /* border: 3px solid rgb(36, 23, 172); */
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+#input-name {
+  width: 250px;
+}
+#section-save-button {
+  /* border: 3px solid rgb(179, 17, 17); */
+  grid-area: 2 / 2 / span 1 / span 1;
+  /* width: 100px;
+  height: 50px; */
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+#save-button {
+  width: 80px;
+  height: 40px;
+}
+.section-link {
+  grid-area: 2 / 1 / span 1 / span 1;
+}
+</style>

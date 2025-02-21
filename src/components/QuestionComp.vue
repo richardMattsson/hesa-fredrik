@@ -6,12 +6,12 @@ export default {
     index: { type: Number },
     // question: { type: String },
   },
-  data(){
+  data() {
     return {
       answer: null,
       points: 0,
       index: 0,
-    }
+    };
   },
   methods: {
     onClick() {
@@ -42,15 +42,18 @@ export default {
 };
 </script>
 <template>
-<!---->
+  <!---->
   <article class="container-questions">
     <template v-if="index < results.length">
       <section class="section-question">
-    <p id="question">{{ results[index].question }}</p>
-    <!-- <p>{{ question }}</p> -->
-  </section>
+        <p id="question">{{ results[index].question }}</p>
+        <!-- <p>{{ question }}</p> -->
+      </section>
       <section class="section-answer-options">
-        <label v-for="answerAlternative in results[index].answerAlternatives">
+        <label
+          class="container-answer-options"
+          v-for="answerAlternative in results[index].answerAlternatives"
+        >
           <input v-model="answer" type="radio" :value="answerAlternative" />
           {{ answerAlternative }}
         </label>
@@ -66,8 +69,6 @@ export default {
       </section>
     </template>
   </article>
-
-
 </template>
 <style>
 .container-questions {
@@ -86,22 +87,22 @@ export default {
 }
 #question {
   font-size: 1.5rem;
-}
-
-.section-question,
-.section-answer-options,
-.section-answer-button {
-  border: 3px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px;
 }
 
 .section-answer-options {
-  grid-area: 2 / 1 / span 1 / span 2;
+  grid-area: 2 / 1 / span 1 / span 3;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 250px;
+  /* min-height: 812px; */
   font-size: 1.2rem;
   padding: 10px;
+  margin-bottom: 10px;
+}
+.container-answer-options {
+  margin-bottom: 10px;
 }
 .section-answer-button {
   grid-area: 3 / 3 / span 1 / span 1;

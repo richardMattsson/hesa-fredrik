@@ -1,13 +1,26 @@
 <template>
-  <h1>Home</h1>
+  <main id="container-main">
+    <h1>HESA FREDRIK</h1>
+    <img src="/Skärmbild 2025-02-21 142435.png" alt="" id="img-home" />
 
-  <li>
     <router-link to="/question" tag="button"
-      ><button>Starta spel</button></router-link
+      ><button class="start-button">Starta spel</button></router-link
     >
-  </li>
+  </main>
 </template>
 
-<script>
+<script scoped>
 export default {};
 </script>
+<style>
+#container-main {
+  background-color: #ffda00;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#img-home {
+  width: 50%;
+}
+</style>
