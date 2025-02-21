@@ -2,9 +2,8 @@
   <!-- Frågan -->
   <article class="container-questions">
     <template v-if="index < results.length">
-      <section class="section-question">
-        <p id="question">{{ results[index].question }}</p>
-      </section>
+      <QuestionComp :results="this.results" :index="this.index" />
+
       <section class="section-answer-options">
         <label v-for="answerAlternative in results[index].answerAlternatives">
           <input v-model="answer" type="radio" :value="answerAlternative" />
@@ -24,34 +23,33 @@
   </article>
 </template>
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import QuestionComp from '../components/QuestionComp.vue';
 export default {
-created(){
-  axios.get('/quizData.json')
-  .then((response) => {
-  console.log(response.data.results)
-  // console.log(this.results)
-    this.results = response.data.results
-    console.log(this.results)
-  })
-  .catch(function (error){
-    console.log(error)
-  }
-)
-.finally(function (){
-
-}
-);
-},
+  components: {
+    QuestionComp,
+  },
+  created() {
+    axios
+      .get('/quizData.json')
+      .then((response) => {
+        console.log(response.data.results);
+        // console.log(this.results)
+        this.results = response.data.results;
+        console.log(this.results);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {});
+  },
 
   data() {
     return {
       index: 0,
       answer: null,
       points: 0,
-      results: [
-
-      ],
+      results: [],
     };
   },
   methods: {

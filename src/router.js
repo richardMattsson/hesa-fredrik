@@ -14,7 +14,7 @@ export default createRouter({
     },
     {
       component: QuestionView,
-      path: '/question/:number?',
+      path: '/question',
     },
     {
       component: RegisterView,
@@ -23,6 +23,6 @@ export default createRouter({
     {
       component: ScoreTableView,
       path: '/scoretable',
-    }
+    },
   ],
 });

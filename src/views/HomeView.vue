@@ -2,7 +2,7 @@
   <h1>Home</h1>
 
   <li>
-    <router-link to="/question/1" tag="button"
+    <router-link to="/question" tag="button"
       ><button>Starta spel</button></router-link
     >
   </li>

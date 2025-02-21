@@ -32,16 +32,17 @@
 
     <section class="section-resulttable">
       <table>
-        <thead><tr>
-          <th>Spelare</th>
-          <th>Resultat</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Spelare</th>
+            <th>Resultat</th>
+          </tr>
         </thead>
         <tbody>
           <tr v-for="results in resultData">
-          <td>{{results.player}}</td>
-          <td>{{results.result}}</td>
-        </tr>
+            <td>{{ results.player }}</td>
+            <td>{{ results.result }}</td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -68,8 +69,8 @@ export default {
     onSave() {
       this.newPlayer.player = this.playerName;
       this.newPlayer.result = this.points;
-      this.resultData.push(this.newPlayer)
-      this.newPlayer = null
+      this.resultData.push(this.newPlayer);
+      this.newPlayer = null;
       localStorage.setItem('savedResult', JSON.stringify(this.resultData));
       console.log('Ny spelare: ', this.resultData);
     },
