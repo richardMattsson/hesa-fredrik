@@ -1,16 +1,13 @@
-<script></script>
+<script>
+import NavigationComp from './components/NavigationComp.vue';
+
+export default{
+  components: {NavigationComp}
+}
+</script>
 
 <template>
-  <nav>
-    <ul>
-      <li>
-        <RouterLink to="/">Hem</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/register">Result</RouterLink>
-      </li>
-    </ul>
-  </nav>
+  <NavigationComp />
   <main>
     <RouterView />
   </main>

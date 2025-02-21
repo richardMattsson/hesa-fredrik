@@ -26,26 +26,9 @@
       >
     </section>
 
-    <section class="section-restart">
-      <input type="button" @click="restartQuiz" value="Starta om quiz" />
-    </section>
+    
 
-    <section class="section-resulttable">
-      <table>
-        <thead>
-          <tr>
-            <th>Spelare</th>
-            <th>Resultat</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="results in resultData">
-            <td>{{ results.player }}</td>
-            <td>{{ results.result }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+
   </article>
 </template>
 <script>
@@ -63,9 +46,7 @@ export default {
     console.log(Math.floor(Math.random() + 1));
   },
   methods: {
-    restartQuiz() {
-      this.$router.push('/question');
-    },
+
     onSave() {
       this.newPlayer.player = this.playerName;
       this.newPlayer.result = this.points;
@@ -73,6 +54,7 @@ export default {
       this.newPlayer = null;
       localStorage.setItem('savedResult', JSON.stringify(this.resultData));
       console.log('Ny spelare: ', this.resultData);
+      this.$router.push('/scoretable');
     },
   },
 };
