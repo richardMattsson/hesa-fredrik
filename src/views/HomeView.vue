@@ -7,6 +7,8 @@
       id="img-home"
     />
 
+  <p>Testa din krisberedskap – innan det är skarpt läge!</p>
+
     <router-link to="/question" tag="button"
       ><button class="start-button">Starta spel</button></router-link
     >
