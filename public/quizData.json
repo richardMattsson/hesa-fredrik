@@ -3,12 +3,28 @@
     {
       "question": "Hur många liter vatten behöver du för att klara dig en vecka?",
       "correctAnswer": "5-6 liter",
-      "answerAlternatives": ["1-2 liter", "2-3 liter", "3-4 liter", "5-6 liter"]
+      "answerAlternatives": [
+        "1-2 liter",
+        "2-3 liter",
+        "3-4 liter",
+        "5-6 liter"
+      ],
+      "id": 1
     },
     {
       "question": "Vad är bra att ha hemma om elen slutar fungerar?",
       "correctAnswer": "Varma filtar",
-      "answerAlternatives": ["Vatten", "Ljus", "Ficklampa", "Varma filtar"]
+      "answerAlternatives": ["Vatten", "Ljus", "Ficklampa", "Varma filtar"],
+      "id": 2
+    },
+    {
+      "question": "En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?",
+      "correctAnswer": "Att lyssna på radio",
+      "answerAlternatives": [
+        "Att värma upp huset",
+        "Att lyssna på radio",
+        "Att identifiera sig med bank-id"
+      ]
     },
     {
       "question": "När det blir ett elavbrott på vintern, hur lång tid tar det i genomsnitt för ett hus att bli utkylt?",
@@ -16,28 +32,44 @@
       "answerAlternatives": ["En dag", "Två dagar", "Fyra dagar", "Tre dagar"]
     },
     {
-      "question":"Vårt vatten kan förorenas eller vid elavbrott sluta rinna ur kranen. Därför är det bra att ha fyllda reservdunkar hemma. Hur mycket vatten behöver en vuxen person till dryck, matlagning och hygien per dag?",
+      "question": "Vårt vatten kan förorenas eller vid elavbrott sluta rinna ur kranen. Därför är det bra att ha fyllda reservdunkar hemma. Hur mycket vatten behöver en vuxen person till dryck, matlagning och hygien per dag?",
       "correctAnswer": "Tre liter",
-      "answerAlternatives": ["En halvliter", "En liter", "Två liter", "Tre liter"]
+      "answerAlternatives": [
+        "En halvliter",
+        "En liter",
+        "Två liter",
+        "Tre liter"
+      ]
     },
     {
       "question": "Vilket av följande uttalanden är alltid sant?",
       "correctAnswer": "Om Sverige blir angripet kommer vi aldrig att ge upp.",
-      "answerAlternatives": ["Om Norge blir angripet kommer vi skicka militärt stöd",
-    "Om Sverige blir angripet kommer vi bedriva offensig krigsföring som svar",
-    "Om ett nordiskt land blir angripet kommer den Nordiska unionen enas i försvar", "Om Sverige blir angripet kommer vi aldrig att ge upp."
-  ]
+      "answerAlternatives": [
+        "Om Norge blir angripet kommer vi skicka militärt stöd",
+        "Om Sverige blir angripet kommer vi bedriva offensig krigsföring som svar",
+        "Om ett nordiskt land blir angripet kommer den Nordiska unionen enas i försvar",
+        "Om Sverige blir angripet kommer vi aldrig att ge upp."
+      ]
     },
     {
-      "question":"Vilket av följande uttalanden är falskt?",
-      "correctAnswer":"Beredskapslarm betyder att du måste vara förberedd för vad som än kommer",
-      "answerAlternatives": ["Du är totalförsvarspliktig från 16 års ålder upp till 70 års ålder.",
-    "Vid höjd beredskap fortsätter du att gå till din arbetsplats","Syftet med NATO-alliansen är att avskräcka potentiella angripare", "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer"]
+      "question": "Vilket av följande uttalanden är falskt?",
+      "correctAnswer": "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer",
+      "answerAlternatives": [
+        "Du är totalförsvarspliktig från 16 års ålder upp till 70 års ålder.",
+        "Vid höjd beredskap fortsätter du att gå till din arbetsplats",
+        "Syftet med NATO-alliansen är att avskräcka potentiella angripare",
+        "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer"
+      ]
     },
     {
-      "question":"Välj det påstående angående skyddsrum som inte gäller vid en krisfull situation",
-      "correctAnswer":"En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen",
-      "answerAlternatives": ["Ifall du är i behov av skydd vid höjd beredskap så har du rätt att komma in i närmaste skyddsrum.", "Skyddsrum ska kunna ställas i verkstad inom ett 48 timmars spann", "Det enda kravet på provianter i ett skyddsrum är vatten och enklare toaletter", "En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen"]
+      "question": "Välj det påstående angående skyddsrum som inte gäller vid en krisfull situation",
+      "correctAnswer": "En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen",
+      "answerAlternatives": [
+        "Ifall du är i behov av skydd vid höjd beredskap så har du rätt att komma in i närmaste skyddsrum.",
+        "Skyddsrum ska kunna ställas i verkstad inom ett 48 timmars spann",
+        "Det enda kravet på provianter i ett skyddsrum är vatten och enklare toaletter",
+        "En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen"
+      ]
     }
   ]
 }

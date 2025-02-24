@@ -3,14 +3,20 @@
 export default {
   props: {
     results: { type: Array },
-    index: { type: Number },
     // question: { type: String },
+  },
+  computed: {
+    updateArray() {
+      this.resultArray = this.results;
+      console.log(this.resultArray);
+    },
   },
   data() {
     return {
       answer: null,
       points: 0,
       index: 0,
+      resultArray: this.results,
     };
   },
   methods: {
