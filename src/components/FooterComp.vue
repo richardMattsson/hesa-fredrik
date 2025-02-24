@@ -11,7 +11,7 @@
     </section> -->
   </footer>
 </template>
-<style>
+<style scoped>
 #container-footer {
   background-color: #333;
   color: whitesmoke;
@@ -25,5 +25,10 @@
 }
 .info-text {
   margin: 0;
+}
+@media (max-width: 480px) {
+  .info-text {
+    font-size: 0.7rem;
+  }
 }
 </style>
