@@ -27,7 +27,7 @@ export default createRouter({
     },
     {
       component: InformationView,
-      path: '/Information',
+      path: '/information',
     },
   ],
 });

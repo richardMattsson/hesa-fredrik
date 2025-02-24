@@ -6,7 +6,7 @@
           <RouterLink to="/">Hem</RouterLink>
         </li>
         <li class="container-links" id="nav-result">
-          <RouterLink to="/register">Result</RouterLink>
+          <RouterLink to="/information">Informationslänkar</RouterLink>
         </li>
         <li class="container-links" id="nav-leaderboard">
           <RouterLink to="/scoretable">Leaderboard</RouterLink>

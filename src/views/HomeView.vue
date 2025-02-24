@@ -13,17 +13,10 @@
   </main>
 </template>
 
-<script scoped>
+<script>
 export default {};
 </script>
-<style>
-#container-main {
-  background-color: #ffda00;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-}
+<style scoped>
 #img-home {
   width: 50%;
 }
