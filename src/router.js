@@ -4,6 +4,7 @@ import HomeView from './views/HomeView.vue';
 import QuestionView from './views/QuestionView.vue';
 import RegisterView from './views/RegisterView.vue';
 import ScoreTableView from './views/ScoreTableView.vue';
+import InformationView from './views/InformationView.vue';
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -23,6 +24,10 @@ export default createRouter({
     {
       component: ScoreTableView,
       path: '/scoretable',
+    },
+    {
+      component: InformationView,
+      path: '/Information',
     },
   ],
 });
