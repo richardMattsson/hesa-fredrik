@@ -2,13 +2,13 @@
   <header id="container-header">
     <nav id="container-nav">
       <ul id="container-ul">
-        <li>
+        <li class="container-link">
           <RouterLink to="/">Hem</RouterLink>
         </li>
-        <li>
+        <li class="container-link">
           <RouterLink to="/register">Result</RouterLink>
         </li>
-        <li>
+        <li class="container-link">
           <RouterLink to="/scoretable">Leaderboard</RouterLink>
         </li>
       </ul>
