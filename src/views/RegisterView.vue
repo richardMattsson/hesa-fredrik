@@ -19,12 +19,6 @@
         </section>
       </form>
     </section>
-
-    <section class="section-link">
-      <a href="https://rib.msb.se/filer/pdf/30828.pdf" target="_blank"
-        >Broschyr</a
-      >
-    </section>
   </article>
 </template>
 <script>
