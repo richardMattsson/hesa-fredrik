@@ -3,9 +3,10 @@ body {
   font-family: sans-serif;
   margin: 0;
 }
-nav > ul > li > a {
-  text-decoration: none;
+
+a {
   color: whitesmoke;
+  text-decoration: none;
 }
 
 #app {

@@ -1,7 +1,11 @@
 <template>
   <main id="container-main">
     <h1>HESA FREDRIK</h1>
-    <img src="/Skärmbild 2025-02-21 142435.png" alt="" id="img-home" />
+    <img
+      src="/hesa-fredrik-logo.png"
+      alt="hesa fredrik logga, radiomast alarm"
+      id="img-home"
+    />
 
     <router-link to="/question" tag="button"
       ><button class="start-button">Starta spel</button></router-link

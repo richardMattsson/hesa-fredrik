@@ -20,10 +20,6 @@
       </form>
     </section>
 
-    <section class="section-link">
-      <RouterLink to="/Information">Informationslänkar</RouterLink>
-
-    </section>
   </article>
 </template>
 <script>
