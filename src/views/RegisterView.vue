@@ -5,7 +5,7 @@
         <p id="quiz-result">
           {{ points }} rätta svar av {{ numberOfQuestions }}
         </p>
-        <label id="container-input-name" for="">
+        <label id="container-input-name" for=""> 
           Vill du spara ditt resultat?
           <input
             id="input-name"
@@ -57,29 +57,37 @@ export default {
   padding: 5px;
   grid: auto auto / auto auto auto;
 }
+
 .section-form {
   grid-area: 1 / 1 / span 1 / span 3;
 }
+
 #container-form {
   display: grid;
   grid: auto auto / auto auto;
   /* border: 3px solid rgb(18, 179, 48); */
 }
+
 #quiz-result {
   /* border: 3px solid rgb(206, 65, 157); */
   grid-area: 1 / 1 / span 1 / span 2;
 }
+
 #container-input-name {
   display: flex;
   flex-direction: column;
-  height: 70px;
+  height: 100%;
   justify-content: space-evenly;
   /* border: 3px solid rgb(36, 23, 172); */
   grid-area: 2 / 1 / span 1 / span 1;
 }
+
 #input-name {
+  margin-top: 5px;
   width: 250px;
+  height: 80%; 
 }
+
 #section-save-button {
   /* border: 3px solid rgb(179, 17, 17); */
   grid-area: 2 / 2 / span 1 / span 1;
@@ -88,12 +96,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: end;
+  padding-left: 10px;
 }
 #save-button {
   width: 80px;
   height: 40px;
+  border-radius: 4px;
 }
 .section-link {
   grid-area: 2 / 1 / span 1 / span 1;
+
 }
 </style>

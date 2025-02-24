@@ -1,6 +1,6 @@
 <template>
   <section class="section-resulttable">
-    <table>
+    <table class="table-resulttable">
       <thead>
         <tr>
           <th>Spelare</th>
@@ -17,7 +17,7 @@
   </section>
   <section class="section-restart">
     <input
-      class="start-button"
+      class="restart-button"
       type="button"
       @click="restartQuiz"
       value="Starta om quiz"
@@ -39,9 +39,29 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .section-resulttable {
   background-color: whitesmoke;
   padding: 10px;
+  width: 95%;
+  border-radius: 5px;
+}
+
+.table-resulttable {
+  table-layout: auto;
+  width: 100%; 
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+th,td {
+  text-align: center;
+  padding: 5px 0;
+}
+
+.restart-button{
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
 }
 </style>
