@@ -21,9 +21,8 @@
     </section>
 
     <section class="section-link">
-      <a href="https://rib.msb.se/filer/pdf/30828.pdf" target="_blank"
-        >Broschyr</a
-      >
+      <RouterLink to="/Information">Informationslänkar</RouterLink>
+
     </section>
   </article>
 </template>
