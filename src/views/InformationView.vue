@@ -1,7 +1,6 @@
 <template>
   <article id="information-page-heading">
     <section id="information-page-section-heading">
-      <h1>Informationslänkar</h1>
     </section>
     <div class="wrapper-information">
       <a href="#">Totalförsvaret</a>
