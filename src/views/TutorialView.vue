@@ -1,10 +1,18 @@
+<script>
+import HomePreparednessComp from '../components/tutorialcomponents/HomePreparednessComp.vue';
+import IntroductionComp from '../components/tutorialcomponents/IntroductionComp.vue';
+import EvacuationComp from '../components/tutorialcomponents/EvacuationComp.vue';
+export default {
+  components: {
+    HomePreparednessComp,
+    IntroductionComp,
+    EvacuationComp,
+  },
+};
+</script>
 <template>
-  <header>
-    <h1>Om krisen eller kriget kommer - övningar</h1>
-  </header>
+  <EvacuationComp v-if="$route.params.page === '2'" />
+  <HomePreparednessComp v-if="$route.params.page === '1'" />
+  <IntroductionComp v-if="$route.params.page === ''" />
 </template>
-<style scoped>
-h1 {
-  font-size: 1.5rem;
-}
-</style>
+<style scoped></style>

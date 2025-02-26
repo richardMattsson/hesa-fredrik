@@ -32,7 +32,7 @@ export default createRouter({
     },
     {
       component: TutorialView,
-      path: '/tutorial',
+      path: '/tutorial/:page?',
     },
   ],
 });
