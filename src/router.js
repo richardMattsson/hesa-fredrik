@@ -5,6 +5,7 @@ import QuestionView from './views/QuestionView.vue';
 import RegisterView from './views/RegisterView.vue';
 import ScoreTableView from './views/ScoreTableView.vue';
 import InformationView from './views/InformationView.vue';
+import TutorialView from './views/TutorialView.vue';
 
 export default createRouter({
   history: createWebHashHistory(),
@@ -28,6 +29,10 @@ export default createRouter({
     {
       component: InformationView,
       path: '/information',
+    },
+    {
+      component: TutorialView,
+      path: '/tutorial',
     },
   ],
 });

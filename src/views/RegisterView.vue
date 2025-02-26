@@ -5,7 +5,7 @@
         <p id="quiz-result">
           {{ points }} rätta svar av {{ numberOfQuestions }}
         </p>
-        <label id="container-input-name" for=""> 
+        <label id="container-input-name" for="">
           Vill du spara ditt resultat?
           <input
             id="input-name"
@@ -19,7 +19,6 @@
         </section>
       </form>
     </section>
-
   </article>
 </template>
 <script>
@@ -49,7 +48,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .container-result {
   background-color: #ffda00;
   display: grid;
@@ -85,7 +84,7 @@ export default {
 #input-name {
   margin-top: 5px;
   width: 250px;
-  height: 80%; 
+  height: 80%;
 }
 
 #section-save-button {
@@ -105,6 +104,5 @@ export default {
 }
 .section-link {
   grid-area: 2 / 1 / span 1 / span 1;
-
 }
 </style>

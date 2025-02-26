@@ -1,7 +1,6 @@
 <template>
   <article id="information-page-heading">
-    <section id="information-page-section-heading">
-    </section>
+    <section id="information-page-section-heading"></section>
     <div class="wrapper-information">
       <a href="#">Totalförsvaret</a>
       <a href="#">Hemberedskap</a>
@@ -11,7 +10,7 @@
   </article>
 </template>
 
-<style>
+<style scoped>
 #information-page-heading {
   text-align: center;
 }
@@ -28,7 +27,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   width: 200%;
   height: 15vh;
   text-decoration: none;
