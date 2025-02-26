@@ -76,7 +76,7 @@ export default {
     </template>
   </article>
 </template>
-<style>
+<style scoped>
 .container-questions {
   background-color: #ffda00;
   display: grid;

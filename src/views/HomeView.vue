@@ -7,7 +7,7 @@
       id="img-home"
     />
 
-  <p>Testa din krisberedskap – innan det är skarpt läge!</p>
+    <p>Testa din krisberedskap – innan det är skarpt läge!</p>
 
     <router-link to="/question" tag="button"
       ><button class="start-button">Starta spel</button></router-link
@@ -15,15 +15,16 @@
   </main>
 </template>
 
-<script>
-export default {};
-</script>
 <style scoped>
+#container-main {
+  display: flex;
+  align-items: center;
+}
 #img-home {
-  width: 50%;
+  max-width: 200px;
 }
 
-.start-button{
+.start-button {
   width: 100px;
   height: 40px;
   border-radius: 4px;

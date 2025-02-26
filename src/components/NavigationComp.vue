@@ -15,7 +15,7 @@
     </nav>
   </header>
 </template>
-<style>
+<style scoped>
 #container-header {
   background-color: #333;
   color: whitesmoke;
