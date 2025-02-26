@@ -13,8 +13,9 @@ export default {
     <h1>Om krisen eller kriget kommer - övningar</h1>
     <nav class="container-flex nav">
       <router-link to="/"><button>Hem</button></router-link>
-      <router-link to="/tutorial/1"
-        ><button>Starta övning 1</button></router-link
+      <div class="progress-indicator">🫣</div>
+      <router-link to="/tutorial/hemberedskap"
+        ><button>Starta övning Hemberedskap</button></router-link
       >
     </nav>
   </header>
@@ -29,7 +30,7 @@ export default {
       I dessa övningar får du information om hur du kan förbereda dig, och vad
       du ska göra om krisen kommer.
     </p>
-    <router-link to="/tutorial/1"
+    <router-link to="/tutorial/hemberedskap"
       ><button>Starta övningar nu</button></router-link
     >
     <section class="container-white section-info">
@@ -65,5 +66,8 @@ export default {
 .section-info {
   margin-top: 20px;
   border: 1px dotted black;
+}
+.progress-indicator {
+  background-color: red;
 }
 </style>

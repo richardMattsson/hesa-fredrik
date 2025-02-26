@@ -1,5 +1,6 @@
 <script>
 import './TutorialStyles.css';
+
 export default {
   data() {
     return {
@@ -17,8 +18,9 @@ export default {
       <router-link to="/tutorial"
         ><button>Tillbaka till Introduktion</button></router-link
       >
-      <router-link to="/tutorial/2"
-        ><button>Starta övning 2</button></router-link
+      <div class="progress-indicator">😳</div>
+      <router-link to="/tutorial/utrymning"
+        ><button>Starta övning Utrymning</button></router-link
       >
     </nav>
   </header>
@@ -86,10 +88,7 @@ export default {
         <button @click="showAnswerHeating = !showAnswerHeating">
           Visa rätt svar
         </button>
-        <p v-if="showAnswerHeating">
-          Du behöver minst tre liter varje dag, i första hand för att dricka och
-          laga mat.
-        </p>
+        <p v-if="showAnswerHeating">Tre dagar.</p>
       </div>
     </section>
     <section class="container-white section-info">
@@ -135,5 +134,8 @@ export default {
 }
 .checklist {
   list-style-type: circle;
+}
+.progress-indicator {
+  background-color: rgb(255, 217, 0);
 }
 </style>

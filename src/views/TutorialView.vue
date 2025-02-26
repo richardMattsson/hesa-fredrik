@@ -3,6 +3,7 @@ import HomePreparednessComp from '../components/tutorialcomponents/HomePreparedn
 import IntroductionComp from '../components/tutorialcomponents/IntroductionComp.vue';
 import EvacuationComp from '../components/tutorialcomponents/EvacuationComp.vue';
 import CivilDefenceShelterComp from '../components/tutorialcomponents/CivilDefenceShelterComp.vue';
+import WarningSystemsComp from '../components/tutorialcomponents/WarningSystemsComp.vue';
 
 export default {
   components: {
@@ -10,13 +11,15 @@ export default {
     IntroductionComp,
     EvacuationComp,
     CivilDefenceShelterComp,
+    WarningSystemsComp,
   },
 };
 </script>
 <template>
-  <CivilDefenceShelterComp v-if="$route.params.page === '3'" />
-  <EvacuationComp v-if="$route.params.page === '2'" />
-  <HomePreparednessComp v-if="$route.params.page === '1'" />
+  <WarningSystemsComp v-if="$route.params.page === 'varningssystem'" />
+  <CivilDefenceShelterComp v-if="$route.params.page === 'skyddsrum'" />
+  <EvacuationComp v-if="$route.params.page === 'utrymning'" />
+  <HomePreparednessComp v-if="$route.params.page === 'hemberedskap'" />
   <IntroductionComp v-if="$route.params.page === ''" />
 </template>
 <style scoped></style>

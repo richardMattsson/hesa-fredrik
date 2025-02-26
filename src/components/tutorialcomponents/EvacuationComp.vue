@@ -2,11 +2,12 @@
   <header class="container-white">
     <h1>Utrymning</h1>
     <nav class="container-flex nav">
-      <router-link to="/tutorial/1"
+      <router-link to="/tutorial/hemberedskap"
         ><button>Tillbaka till Hemberedskap</button></router-link
       >
-      <router-link to="/tutorial/3"
-        ><button>Starta övning 3</button></router-link
+      <div class="progress-indicator">😲</div>
+      <router-link to="/tutorial/skyddsrum"
+        ><button>Starta övning Skyddsrum</button></router-link
       >
     </nav>
   </header>
@@ -30,6 +31,10 @@
       <p>
         Planera vad just du behöver ta med om du snabbt måste lämna din bostad
         en kortare eller längre tid. Här är några tips:
+      </p>
+      <p>
+        Idé: Låt användaren skapa/få en egen checklista där vi samlar allt som
+        kan vara bra att förbereda sig med.
       </p>
       <ul class="checklist">
         <li>Mat och vatten för några dagar</li>
@@ -61,5 +66,8 @@
 }
 .checklist {
   list-style-type: square;
+}
+.progress-indicator {
+  background-color: rgb(187, 255, 0);
 }
 </style>

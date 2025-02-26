@@ -7,8 +7,15 @@ export default {
       correctAnswer1: false,
       correctAnswer2: false,
       correctAnswer3: false,
-      falseAnswer: false,
     };
+  },
+  methods: {
+    onClick() {
+      this.correctAnswer = false;
+      this.correctAnswer1 = false;
+      this.correctAnswer2 = false;
+      this.correctAnswer3 = false;
+    },
   },
 };
 </script>
@@ -16,11 +23,12 @@ export default {
   <header class="container-white">
     <h1>Skyddsrum</h1>
     <nav class="container-flex nav">
-      <router-link to="/tutorial"
-        ><button>Tillbaka till Introduktion</button></router-link
+      <router-link to="/tutorial/utrymning"
+        ><button>Tillbaka till Utrymning</button></router-link
       >
-      <router-link to="/tutorial/2"
-        ><button>Starta övning 4</button></router-link
+      <div class="progress-indicator">🤗</div>
+      <router-link to="/tutorial/varningssystem"
+        ><button>Starta övning Varningssystem</button></router-link
       >
     </nav>
   </header>
@@ -56,32 +64,42 @@ export default {
           situation
         </p>
         <form action="" class="radiobuttons">
-          <label for="radiobutton" :class="{ falseColor: !correctAnswer }"
+          <label for="radiobutton" :class="{ falseColor: correctAnswer1 }"
             ><input
+              @click="onClick"
               name="radiobutton"
               type="radio"
-              v-model="correctAnswer"
-              :value="false"
+              v-model="correctAnswer1"
+              :value="true"
             />Är du i behov av skydd vid höjd beredskap, har du rätt att komma
             in i närmaste skyddsrum.</label
           >
-          <label for="" :class="{ falseColor: !correctAnswer }"
+          <label for="" :class="{ falseColor: correctAnswer2 }"
             ><input
+              @click="onClick"
               type="radio"
-              v-model="correctAnswer"
-              :value="false"
+              v-model="correctAnswer2"
+              :value="true"
             />Skyddsrum ska kunna ställas i verkstad inom ett 48 timmars
             spann</label
           >
-          <label for="" :class="{ falseColor: !correctAnswer }"
-            ><input type="radio" v-model="correctAnswer" :value="false" />Det
-            enda kravet på provianter i ett skyddsrum är vatten och enklare
-            toaletter</label
+          <label for="" :class="{ falseColor: correctAnswer3 }"
+            ><input
+              @click="onClick"
+              type="radio"
+              v-model="correctAnswer3"
+              :value="true"
+            />Det enda kravet på provianter i ett skyddsrum är vatten och
+            enklare toaletter</label
           >
           <label for="" :class="{ correctColor: correctAnswer }"
-            ><input type="radio" v-model="correctAnswer" :value="true" />En
-            källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott
-            skydd i de flesta lägen</label
+            ><input
+              @click="onClick"
+              type="radio"
+              v-model="correctAnswer"
+              :value="true"
+            />En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder
+            gott skydd i de flesta lägen</label
           >
         </form>
       </div>
@@ -114,5 +132,8 @@ export default {
 .falseColor {
   /* background-color: red; */
   border: 4px solid red;
+}
+.progress-indicator {
+  background-color: rgb(30, 255, 0);
 }
 </style>
