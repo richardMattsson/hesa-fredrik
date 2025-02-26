@@ -5,11 +5,14 @@
         <li class="container-links" id="nav-home">
           <RouterLink to="/">Hem</RouterLink>
         </li>
-        <li class="container-links" id="nav-result">
+        <li class="container-links" id="nav-information">
           <RouterLink to="/information">Information</RouterLink>
         </li>
         <li class="container-links" id="nav-leaderboard">
-          <RouterLink to="/scoretable">Leaderboard</RouterLink>
+          <RouterLink to="/scoretable">Ledartavla</RouterLink>
+        </li>
+        <li class="container-links" id="nav-tutorial">
+          <RouterLink to="/tutorial">Övningar</RouterLink>
         </li>
       </ul>
     </nav>
@@ -37,21 +40,24 @@
 .container-links {
   height: 4rem;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  padding: 0.4rem;
   align-items: center;
-  /* border: 1px solid whitesmoke; */
 }
 .container-links:hover {
   cursor: pointer;
   background-color: #242222;
 }
 #nav-home {
-  flex-grow: 1.2;
+  flex-grow: 1.3;
 }
-#nav-result {
-  flex-grow: 1.2;
+#nav-information {
+  flex-grow: 1.3;
 }
 #nav-leaderboard {
-  flex-grow: 1;
+  flex-grow: 1.3;
+}
+#nav-tutorial {
+  flex-grow: 1.3;
 }
 </style>
