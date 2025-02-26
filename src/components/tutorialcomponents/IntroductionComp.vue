@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <template>
-  <header class="container-color">
+  <header class="container-white">
     <h1>Om krisen eller kriget kommer - övningar</h1>
     <nav class="container-flex nav">
       <router-link to="/"><button>Hem</button></router-link>
@@ -18,8 +18,8 @@ export default {
       >
     </nav>
   </header>
-  <article class="container-white">
-    <h2></h2>
+  <article class="container-color">
+    <h2>Introduktion</h2>
     <p>
       Vi lever i en orolig tid. Krig pågår i vår omvärld. Terrorism,
       cyberattacker och vilseledande information används för att skada och
@@ -32,27 +32,38 @@ export default {
     <router-link to="/tutorial/1"
       ><button>Starta övningar nu</button></router-link
     >
-  </article>
-  <section class="container-color">
-    <h2>Exempel inom varje tema</h2>
-    <p>
-      Inom varje tema kommer du att få information om ämnet samt någon
-      exempelfråga för att testa din kunskap.
-    </p>
-  </section>
-  <section class="container-white container-example">
-    <h3>Exempel</h3>
-    <div class="container-color container-div">
-      <h4>Hemberedskap - vatten</h4>
-      <p>Hur många liter vatten behöver en person i genomsnitt per dag?</p>
-      <button @click="showAnswer = !showAnswer">
-        Klicka här för rätt svar
-      </button>
-      <p v-if="showAnswer">
-        Du behöver minst tre liter varje dag, i första hand för att dricka och
-        laga mat.
+    <section class="container-white section-info">
+      <h2>Exempel inom varje tema</h2>
+      <p>
+        Inom varje tema kommer du att få information om ämnet samt någon
+        exempelfråga för att testa din kunskap.
       </p>
-    </div>
-  </section>
+    </section>
+    <section class="container-white container-example">
+      <h3>Exempel</h3>
+      <div class="container-color">
+        <h4>Hemberedskap - vatten</h4>
+        <p>Hur många liter vatten behöver en person i genomsnitt per dag?</p>
+        <button @click="showAnswer = !showAnswer">
+          Klicka här för rätt svar
+        </button>
+        <p v-if="showAnswer">
+          Du behöver minst tre liter varje dag, i första hand för att dricka och
+          laga mat.
+        </p>
+      </div>
+    </section>
+  </article>
 </template>
-<style scoped></style>
+<style scoped>
+.container-example {
+  margin-top: 20px;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  border: 1px dotted black;
+}
+.section-info {
+  margin-top: 20px;
+  border: 1px dotted black;
+}
+</style>
