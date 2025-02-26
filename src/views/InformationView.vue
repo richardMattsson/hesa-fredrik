@@ -2,10 +2,10 @@
   <article id="information-page-heading">
     <section id="information-page-section-heading"></section>
     <div class="wrapper-information">
-      <a href="#">Totalförsvaret</a>
-      <a href="#">Hemberedskap</a>
-      <a href="#">Varningsystem</a>
-      <a href="#">Skyddsrum</a>
+      <a href="https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/">Totalförsvaret</a>
+      <a href="https://www.msb.se/sv/rad-till-privatpersoner/hemberedskap---preppa-for-minst-en-vecka/grunder-i-hemberedskap/">Hemberedskap</a>
+      <a href="https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/viktigt-meddelande-till-allmanheten-vma/">Varningsystem</a>
+      <a href="https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/bra-att-veta-om-skyddsrum/">Skyddsrum</a>
     </div>
   </article>
 </template>
@@ -28,7 +28,7 @@
   align-items: flex-end;
   justify-content: flex-end;
   background-color: whitesmoke;
-  width: 200%;
+  width: 80%;
   height: 15vh;
   text-decoration: none;
   font-size: 24px;
