@@ -19,6 +19,7 @@
 #container-main {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 #img-home {
   max-width: 200px;

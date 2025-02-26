@@ -14,8 +14,3 @@ export default {
   </main>
   <FooterComp />
 </template>
-<style>
-header {
-  margin: 0;
-}
-</style>

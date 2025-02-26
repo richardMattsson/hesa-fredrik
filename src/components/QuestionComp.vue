@@ -37,10 +37,7 @@ export default {
       // This will dictate the amount of questions - deciding later
       if (this.index > 6) {
         localStorage.setItem('points', JSON.stringify(this.points));
-        localStorage.setItem(
-          'numberOfQuestions',
-          JSON.stringify(this.results.length)
-        );
+        localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
         this.$router.push('/register');
       }
     },

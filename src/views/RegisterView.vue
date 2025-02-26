@@ -32,9 +32,6 @@ export default {
       resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
     };
   },
-  created() {
-    console.log(Math.floor(Math.random() + 1));
-  },
   methods: {
     onSave() {
       this.newPlayer.player = this.playerName;

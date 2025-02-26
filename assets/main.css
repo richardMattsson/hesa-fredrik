@@ -19,8 +19,6 @@ a {
   background-color: #ffda00;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  /* align-items: center; */
   flex-grow: 1;
 }
 .start-button {
@@ -28,5 +26,4 @@ a {
   height: 3rem;
   font-size: 1rem;
   cursor: pointer;
-  /* padding: 1rem; */
 }
