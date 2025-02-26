@@ -1,16 +1,16 @@
 <script>
-import FooterComp from './components/FooterComp.vue';
 import NavigationComp from './components/NavigationComp.vue';
 
 export default {
-  components: { NavigationComp, FooterComp },
+  components: { NavigationComp, },
 };
 </script>
 
 <template>
-  <NavigationComp />
+
   <main id="container-main">
+
     <RouterView />
   </main>
-  <FooterComp />
+  <NavigationComp />
 </template>

@@ -17,6 +17,12 @@
       </ul>
     </nav>
   </header>
+  <footer id="container-footer">
+    <p class="info-text">Quiz om förberedelser inför en eventuell kris.</p>
+    <p class="info-text">
+      Av: Richard Mattsson, Kåre Lindqvist, Louise Nensén Lagnefors
+    </p>
+  </footer>
 </template>
 <style scoped>
 #container-header {
@@ -27,6 +33,7 @@
   /* background-color: pink; */
   display: flex;
   flex-direction: row;
+  /* flex-grow: 1; */
 }
 #container-ul {
   width: 100%;
@@ -48,16 +55,19 @@
   cursor: pointer;
   background-color: #242222;
 }
-#nav-home {
-  flex-grow: 1.3;
+#container-footer {
+  background-color: #333;
+  color: whitesmoke;
+  height: 2rem;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: auto; /* Pushes footer to the bottom */
 }
-#nav-information {
-  flex-grow: 1.3;
-}
-#nav-leaderboard {
-  flex-grow: 1.3;
-}
-#nav-tutorial {
-  flex-grow: 1.3;
+.info-text {
+  margin: 0;
 }
 </style>
