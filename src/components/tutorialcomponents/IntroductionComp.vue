@@ -1,12 +1,12 @@
 <script>
-import './TutorialStyles.css';
-export default {
-  data() {
-    return {
-      showAnswer: false,
-    };
-  },
-};
+  // import './TutorialStyles.css';
+  export default {
+    data() {
+      return {
+        showAnswer: false
+      };
+    }
+  };
 </script>
 <template>
   <header class="container-white">
@@ -57,17 +57,18 @@ export default {
   </article>
 </template>
 <style scoped>
-.container-example {
-  margin-top: 20px;
-  margin-left: 4rem;
-  margin-right: 4rem;
-  border: 1px dotted black;
-}
-.section-info {
-  margin-top: 20px;
-  border: 1px dotted black;
-}
-.progress-indicator {
-  background-color: red;
-}
+  @import url('./TutorialStyles.css');
+  .container-example {
+    margin-top: 20px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    border: 1px dotted black;
+  }
+  .section-info {
+    margin-top: 20px;
+    border: 1px dotted black;
+  }
+  .progress-indicator {
+    background-color: red;
+  }
 </style>
