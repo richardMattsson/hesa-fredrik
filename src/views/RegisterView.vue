@@ -37,6 +37,7 @@ export default {
       this.newPlayer.player = this.playerName;
       this.newPlayer.result = this.points;
       this.resultData.push(this.newPlayer);
+      this.resultData.sort((a, b) => b.result - a.result)
       this.newPlayer = null;
       localStorage.setItem('savedResult', JSON.stringify(this.resultData));
       console.log('Ny spelare: ', this.resultData);

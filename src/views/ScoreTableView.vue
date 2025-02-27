@@ -1,14 +1,17 @@
 <template>
+  <article class="article-resulttable" >
   <section class="section-resulttable">
     <table class="table-resulttable">
       <thead>
         <tr>
+          <th>Rankning</th>
           <th>Spelare</th>
           <th>Resultat</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="results in resultData">
+        <tr v-for="(results, index) in resultData" :key="index">
+          <td>{{ index + 1 }}</td>
           <td>{{ results.player }}</td>
           <td>{{ results.result }}</td>
         </tr>
@@ -23,6 +26,7 @@
       value="Starta om quiz"
     />
   </section>
+</article>
 </template>
 <script>
 export default {
@@ -39,24 +43,48 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+
+.article-resulttable{
+  width: 100%;
+  height: 80vh;
+  margin: 15px auto;
+}
+
 .section-resulttable {
-  background-color: whitesmoke;
-  padding: 10px;
-  width: 95%;
   border-radius: 5px;
+  max-height: 88%;
+  width: 90%;
+  overflow: scroll; /* hidden eller scroll?  */
+  margin: 0 auto 15px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .table-resulttable {
+  background-color: whitesmoke;
+  padding: 10px;
   table-layout: auto;
   width: 100%; 
   border-collapse: collapse;
-  border: 1px solid black;
 }
 
 th,td {
   text-align: center;
   padding: 5px 0;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  width: 33%;
+  background-color: whitesmoke;
+}
+
+
+.section-restart{
+  display: flex;
+  justify-content: center;
 }
 
 .restart-button{
