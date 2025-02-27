@@ -66,6 +66,7 @@
   align-items: center;
   justify-content: space-around;
   margin-top: auto; /* Pushes footer to the bottom */
+  /* lägg display:none; här */
 }
 .info-text {
   margin: 0;
