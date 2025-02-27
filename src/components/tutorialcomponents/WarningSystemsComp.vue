@@ -37,15 +37,15 @@
       >
     </nav>
   </header>
-
-  <figure :key="audio.src" v-for="audio in audioArray">
-    <figcaption>{{ audio.title }}</figcaption>
-    <audio controls>
-      <source :src="audio.src" type="audio/mpeg" />
-    </audio>
-    <a :href="audio.src"> Ladda ned ljudfil. </a>
-  </figure>
-
+  <article class="article-tutorial">
+    <figure :key="audio.src" v-for="audio in audioArray">
+      <figcaption>{{ audio.title }}</figcaption>
+      <audio controls>
+        <source :src="audio.src" type="audio/mpeg" />
+      </audio>
+      <a :href="audio.src"> Ladda ned ljudfil. </a>
+    </figure>
+  </article>
   Working progress ... 😳😲🤗🤩
 </template>
 <style scoped>

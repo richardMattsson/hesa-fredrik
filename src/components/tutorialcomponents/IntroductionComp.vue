@@ -1,5 +1,5 @@
 <script>
-  // import './TutorialStyles.css';
+  import './TutorialStyles.css';
   export default {
     data() {
       return {
@@ -19,7 +19,7 @@
       >
     </nav>
   </header>
-  <article class="container-color">
+  <article class="container-color article-tutorial">
     <h2>Introduktion</h2>
     <p>
       Vi lever i en orolig tid. Krig pågår i vår omvärld. Terrorism,
@@ -57,7 +57,6 @@
   </article>
 </template>
 <style scoped>
-  @import url('./TutorialStyles.css');
   .container-example {
     margin-top: 20px;
     margin-left: 4rem;

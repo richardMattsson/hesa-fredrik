@@ -1,23 +1,30 @@
 <script>
-import './TutorialStyles.css';
-export default {
-  data() {
-    return {
-      correctAnswer: false,
-      correctAnswer1: false,
-      correctAnswer2: false,
-      correctAnswer3: false,
-    };
-  },
-  methods: {
-    onClick() {
-      this.correctAnswer = false;
-      this.correctAnswer1 = false;
-      this.correctAnswer2 = false;
-      this.correctAnswer3 = false;
-    },
-  },
-};
+  import './TutorialStyles.css';
+  export default {
+    data() {
+      return {
+        chosenAlternative: null,
+        questionAlternatives: [
+          {
+            isCorrect: false,
+            text: 'Är du i behov av skydd vid höjd beredskap, har du rätt att komma in i närmaste skyddsrum.'
+          },
+          {
+            isCorrect: false,
+            text: 'Skyddsrum ska kunna ställas i verkstad inom ett 48 timmarsspann'
+          },
+          {
+            isCorrect: false,
+            text: 'Det enda kravet på provianter i ett skyddsrum är vatten och enklare toaletter'
+          },
+          {
+            isCorrect: true,
+            text: 'En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen'
+          }
+        ]
+      };
+    }
+  };
 </script>
 <template>
   <header class="container-white">
@@ -32,7 +39,7 @@ export default {
       >
     </nav>
   </header>
-  <article class="container-color">
+  <article class="container-color article-tutorial">
     <h2>Skyddsrum</h2>
     <p>
       Du tillhör inget särskilt skyddsrum utan använder det som är närmast. På
@@ -63,77 +70,74 @@ export default {
           Välj det påstående angående skyddsrum som inte gäller vid en krisfull
           situation
         </p>
+
         <form action="" class="radiobuttons">
-          <label for="radiobutton" :class="{ falseColor: correctAnswer1 }"
+          <label
+            v-for="alternative in questionAlternatives"
+            :key="alternative.text"
+            :class="{
+              falseColor:
+                chosenAlternative === alternative.text &&
+                alternative.isCorrect === false,
+              correctColor:
+                chosenAlternative === alternative.text &&
+                alternative.isCorrect === true
+            }"
             ><input
-              @click="onClick"
-              name="radiobutton"
               type="radio"
-              v-model="correctAnswer1"
-              :value="true"
-            />Är du i behov av skydd vid höjd beredskap, har du rätt att komma
-            in i närmaste skyddsrum.</label
-          >
-          <label for="" :class="{ falseColor: correctAnswer2 }"
-            ><input
-              @click="onClick"
-              type="radio"
-              v-model="correctAnswer2"
-              :value="true"
-            />Skyddsrum ska kunna ställas i verkstad inom ett 48 timmars
-            spann</label
-          >
-          <label for="" :class="{ falseColor: correctAnswer3 }"
-            ><input
-              @click="onClick"
-              type="radio"
-              v-model="correctAnswer3"
-              :value="true"
-            />Det enda kravet på provianter i ett skyddsrum är vatten och
-            enklare toaletter</label
-          >
-          <label for="" :class="{ correctColor: correctAnswer }"
-            ><input
-              @click="onClick"
-              type="radio"
-              v-model="correctAnswer"
-              :value="true"
-            />En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder
-            gott skydd i de flesta lägen</label
-          >
+              v-model="chosenAlternative"
+              :value="alternative.text"
+            />{{ alternative.text }}
+            <p
+              v-if="
+                alternative.text === chosenAlternative &&
+                alternative.isCorrect === false
+              "
+            >
+              Fel svar. ×
+            </p>
+            <p
+              v-else-if="
+                alternative.text === chosenAlternative &&
+                alternative.isCorrect === true
+              "
+            >
+              Rätt svar! ✓
+            </p>
+          </label>
         </form>
       </div>
     </section>
   </article>
 </template>
 <style scoped>
-.container-example {
-  margin-top: 20px;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  border: 1px dotted black;
-}
-.section-info {
-  margin-top: 20px;
-  border: 1px dotted black;
-}
-.container-radiobuttons {
-  display: flex;
-  flex-direction: column;
-}
-.radiobuttons {
-  display: flex;
-  flex-direction: column;
-}
-.correctColor {
-  /* background-color: green; */
-  border: 4px solid green;
-}
-.falseColor {
-  /* background-color: red; */
-  border: 4px solid red;
-}
-.progress-indicator {
-  background-color: rgb(30, 255, 0);
-}
+  .container-example {
+    margin-top: 20px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border: 1px dotted black;
+  }
+  .section-info {
+    margin-top: 20px;
+    border: 1px dotted black;
+  }
+  .container-radiobuttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .radiobuttons {
+    display: flex;
+    flex-direction: column;
+  }
+  .correctColor {
+    /* background-color: green; */
+    border: 4px solid green;
+  }
+  .falseColor {
+    /* background-color: red; */
+    border: 4px solid red;
+  }
+  .progress-indicator {
+    background-color: rgb(30, 255, 0);
+  }
 </style>

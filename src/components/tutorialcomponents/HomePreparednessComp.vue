@@ -1,15 +1,15 @@
 <script>
-import './TutorialStyles.css';
+  import './TutorialStyles.css';
 
-export default {
-  data() {
-    return {
-      showAnswerWater: false,
-      showAnswerHeating: false,
-      showAnswerCommunication: false,
-    };
-  },
-};
+  export default {
+    data() {
+      return {
+        showAnswerWater: false,
+        showAnswerHeating: false,
+        showAnswerCommunication: false
+      };
+    }
+  };
 </script>
 <template>
   <header class="container-white">
@@ -24,7 +24,7 @@ export default {
       >
     </nav>
   </header>
-  <article class="container-color">
+  <article class="container-color article-tutorial">
     <h2>Hemberedskap</h2>
     <p>
       Du bidrar till hela samhällets beredsakp om du har hemberedskap för minst
@@ -122,20 +122,20 @@ export default {
   </article>
 </template>
 <style scoped>
-.container-example {
-  margin-top: 20px;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  border: 1px dotted black;
-}
-.section-info {
-  margin-top: 20px;
-  border: 1px dotted black;
-}
-.checklist {
-  list-style-type: circle;
-}
-.progress-indicator {
-  background-color: rgb(255, 217, 0);
-}
+  .container-example {
+    margin-top: 20px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    border: 1px dotted black;
+  }
+  .section-info {
+    margin-top: 20px;
+    border: 1px dotted black;
+  }
+  .checklist {
+    list-style-type: circle;
+  }
+  .progress-indicator {
+    background-color: rgb(255, 217, 0);
+  }
 </style>
