@@ -29,13 +29,13 @@ created(){
       value: "Skyddsrum"
     }
   ]
-}, 
+},
 }
 
 </script>
 <template>
   <article id="information-page-heading">
-    <section class="wrapper-information" v-for="(data, index) in linkData" :key="index"> 
+    <section class="wrapper-information" v-for="(data, index) in linkData" :key="index">
       <a :href="data.link" :style="{ backgroundImage: data.image ? 'url(' + data.image + ')' : 'none'}">{{data.value}}</a>
     </section>
   </article>
