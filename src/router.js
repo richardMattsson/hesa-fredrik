@@ -6,33 +6,45 @@ import RegisterView from './views/RegisterView.vue';
 import ScoreTableView from './views/ScoreTableView.vue';
 import InformationView from './views/InformationView.vue';
 import TutorialView from './views/TutorialView.vue';
+import EvacuationComp from './components/tutorialcomponents/EvacuationComp.vue';
+import HomePreparednessComp from './components/tutorialcomponents/HomePreparednessComp.vue';
+import CivilDefenceShelterComp from './components/tutorialcomponents/CivilDefenceShelterComp.vue';
+import WarningSystemsComp from './components/tutorialcomponents/WarningSystemsComp.vue';
+import IntroductionComp from './components/tutorialcomponents/IntroductionComp.vue';
 
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
     {
       component: HomeView,
-      path: '/',
+      path: '/'
     },
     {
       component: QuestionView,
-      path: '/question',
+      path: '/question'
     },
     {
       component: RegisterView,
-      path: '/register',
+      path: '/register'
     },
     {
       component: ScoreTableView,
-      path: '/scoretable',
+      path: '/scoretable'
     },
     {
       component: InformationView,
-      path: '/information',
+      path: '/information'
     },
     {
       component: TutorialView,
       path: '/tutorial/:page?',
-    },
-  ],
+      children: [
+        { path: 'introduktion', component: IntroductionComp },
+        { path: 'hemberedskap', component: HomePreparednessComp },
+        { path: 'utrymning', component: EvacuationComp },
+        { path: 'skyddsrum', component: CivilDefenceShelterComp },
+        { path: 'varningssystem', component: WarningSystemsComp }
+      ]
+    }
+  ]
 });

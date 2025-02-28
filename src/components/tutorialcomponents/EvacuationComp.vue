@@ -1,5 +1,9 @@
 <script>
+  import HeaderTutorialComp from './HeaderTutorialComp.vue';
   export default {
+    components: {
+      HeaderTutorialComp
+    },
     data() {
       return {
         checklistEvacuation: [
@@ -18,9 +22,16 @@
   };
 </script>
 <template>
-  <header class="container-white">
-    <h1>Utrymning</h1>
-    <nav class="container-flex nav">
+  <HeaderTutorialComp
+    title="Utrymning"
+    previous-page="Tillbaka till Hemberedskap"
+    next-page="Starta övning Skyddsrum"
+    navigate-back="/tutorial/hemberedskap"
+    navigate-forward="/tutorial/skyddsrum"
+  />
+  <!-- <header class="container-white">
+    <h1 class="tutorial-h1">Utrymning</h1>
+    <nav class="container-flex tutorial-nav">
       <router-link to="/tutorial/hemberedskap"
         ><button>Tillbaka till Hemberedskap</button></router-link
       >
@@ -29,10 +40,10 @@
         ><button>Starta övning Skyddsrum</button></router-link
       >
     </nav>
-  </header>
+  </header> -->
   <article class="container-color article-tutorial">
-    <section class="contaienr-color section-intro">
-      <h2>Utrymning</h2>
+    <section class="container-color section-intro">
+      <h2 class="tutorial-h2">Utrymning</h2>
       <p>
         Du kan snabbt behöva lämna ett område vid exempelvis ett hotande
         militärt angrepp, naturolyckor eller farliga utsläpp.
@@ -47,7 +58,7 @@
       </p>
     </section>
     <section class="container-white section-info">
-      <h2>Bra att ha med</h2>
+      <h2 class="tutorial-h2">Bra att ha med</h2>
       <p>
         Planera vad just du behöver ta med om du snabbt måste lämna din bostad
         en kortare eller längre tid. Här är några tips:
@@ -69,10 +80,7 @@
     margin-right: 2rem;
     border: 1px dotted black;
   }
-  .section-intro {
-    padding: 0.5rem;
-    margin-top: 10px;
-  }
+
   .section-info {
     margin-top: 20px;
     padding-left: 2rem;
