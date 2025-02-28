@@ -10,11 +10,11 @@
 </script>
 <template>
   <main id="container-main">
-    <input
+    <!-- <input
       @click="counterStore.increment(2)"
       type="button"
       :value="counterStore.value"
-    />
+    /> -->
     <h1>HESA FREDRIK</h1>
     <img
       src="/hesa-fredrik-logo.png"
