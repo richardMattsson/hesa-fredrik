@@ -66,9 +66,9 @@
     <section class="container-white container-example">
       <h3>Exempelfråga</h3>
       <div class="container-color container-radiobuttons">
-        <p>
+        <p class="question-paragraph">
           Välj det påstående angående skyddsrum som inte gäller vid en krisfull
-          situation
+          situation.
         </p>
 
         <form action="" class="radiobuttons">
@@ -83,12 +83,14 @@
                 chosenAlternative === alternative.text &&
                 alternative.isCorrect === true
             }"
+            class="label-class"
             ><input
               type="radio"
               v-model="chosenAlternative"
               :value="alternative.text"
             />{{ alternative.text }}
             <p
+              class="answer-message-text"
               v-if="
                 alternative.text === chosenAlternative &&
                 alternative.isCorrect === false
@@ -97,6 +99,7 @@
               Fel svar. ×
             </p>
             <p
+              class="answer-message-text"
               v-else-if="
                 alternative.text === chosenAlternative &&
                 alternative.isCorrect === true
@@ -129,13 +132,24 @@
     display: flex;
     flex-direction: column;
   }
+  .question-paragraph {
+    padding: 5px;
+  }
+  .label-class {
+    padding: 5px;
+  }
   .correctColor {
     /* background-color: green; */
-    border: 4px solid green;
+    border: 2px solid green;
   }
   .falseColor {
     /* background-color: red; */
-    border: 4px solid red;
+    border: 2px solid red;
+  }
+  .answer-message-text {
+    margin-bottom: 0;
+    margin: 2px;
+    margin-top: 4px;
   }
   .progress-indicator {
     background-color: rgb(30, 255, 0);

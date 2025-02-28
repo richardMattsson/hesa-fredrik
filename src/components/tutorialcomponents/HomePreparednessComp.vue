@@ -4,9 +4,39 @@
   export default {
     data() {
       return {
-        showAnswerWater: false,
-        showAnswerHeating: false,
-        showAnswerCommunication: false
+        showAnswer: null,
+
+        itemsGoodToHave: [
+          'Radio som drivs med batteri, solceller, eller vev.',
+          'Extra batterier',
+          'Mobil och laddade extra batterier (powerbank)',
+          'Mobilladdare att använda i bilen.',
+          'Viktiga telefonnummer på papper.'
+        ],
+        items: [
+          {
+            title: 'Vatten',
+            info: 'Du behöver minst tre liter vatten per dygn, i första hand för att dricka och laga mat. Om det blir brist på dricksvatten kan kommunen ställa vattentankar, men du behöver ändå ha vatten hemma.',
+            question:
+              'Hur många liter vatten behöver en person i genomsnitt per dag?',
+            answer:
+              'Du behöver minst tre liter varje dag, i första hand för att dricka och laga mat.'
+          },
+          {
+            title: 'Värme',
+            info: 'Din bostad blir snabbt kall om det är strömavbrott på vinter. Välj ett rum att vara i. Häng filtar för fönstren och täck golvet med mattor. Bra att ha hemma:',
+            question:
+              'När det blir ett elavbrott på vintern, hur lång tid tar det genomsnitt för ett hus att bli utkylt?',
+            answer: 'Tre dagar.'
+          },
+          {
+            title: 'Kommunikation',
+            info: 'Du behöber kunna ta emot nyheter och viktig information frånmyndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
+            question:
+              'En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?',
+            answer: 'Att lyssna på radio.'
+          }
+        ]
       };
     }
   };
@@ -27,98 +57,43 @@
   <article class="container-color article-tutorial">
     <h2>Hemberedskap</h2>
     <p>
-      Du bidrar till hela samhällets beredsakp om du har hemberedskap för minst
+      Du bidrar till hela samhällets beredskap om du har hemberedskap för minst
       en vecka. Anpassa råden efter dina behov och förutsättningar. Vissa saker
       kanske du kan dela med andra, exempelvis dina grannar. I kris och krig
-      ämåste vi alla hjälpa varandra.
+      måste vi alla hjälpa varandra.
     </p>
     <p>
       Förbered dig så du inte måste skaffa allt på en gång om något allvarligt
       händer.
     </p>
 
-    <section class="container-white section-info">
-      <h2>Vatten</h2>
-      <p>
-        Du behöver minst tre liter vatten per dygn, i första hand för att dricka
-        och laga mat. Om det blir brist på dricksvatten kan kommunen ställa ut
-        vattentankar, men du behöver ändå ha vatten hemma.
-      </p>
-      <!-- <ul class="checklist">
-        <li>Skaffa dunkar eller hinkar med lock att hämta vatten i.</li>
-        <li>Köp vatten på flaska eller fyll dunkar gjorda för livsmedel</li>
-        <li>
-          Förvara vattnet mörkt och svalt. Kontrollera om vattnet smakar och
-          luktar bra en eller ett par gånger per år. Byt vid behov.
-        </li>
-        <li>
-          Om du är osäker på om vattnet är rent, koka vattnet tills det bubblar
-          kraftigt.
-        </li>
-      </ul> -->
-    </section>
-    <section class="container-white container-example">
-      <h3>Exempelfråga</h3>
-      <div class="container-color container-div">
-        <p>Hur många liter vatten behöver en person i genomsnitt per dag?</p>
-        <button @click="showAnswerWater = !showAnswerWater">
-          Visa rätt svar
-        </button>
-        <p v-if="showAnswerWater">
-          Du behöver minst tre liter varje dag, i första hand för att dricka och
-          laga mat.
-        </p>
-      </div>
-    </section>
-    <section class="container-white section-info">
-      <h2>Värme</h2>
-      <p>
-        Din bostad blir snabbt kall om det är strömavbrott på vinter. Välj ett
-        rum att vara i. Häng filtar för fönstren och täck golvet med mattor. Bra
-        att ha hemma:
-      </p>
-    </section>
-    <section class="container-white container-example">
-      <h3>Exempelfråga</h3>
-      <div class="container-color container-div">
+    <div :key="item.title" v-for="item in items">
+      <section class="container-white section-info">
+        <h2>{{ item.title }}</h2>
         <p>
-          När det blir ett elavbrott på vintern, hur lång tid tar det i
-          genomsnitt för ett hus att bli utkylt?
+          {{ item.info }}
         </p>
-        <button @click="showAnswerHeating = !showAnswerHeating">
-          Visa rätt svar
-        </button>
-        <p v-if="showAnswerHeating">Tre dagar.</p>
-      </div>
-    </section>
-    <section class="container-white section-info">
-      <h2>Kommunikation</h2>
-      <p>
-        Du behöber kunna ta emot nyheter och viktig information från
-        myndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner.
-        Bra att ha hemma:
-      </p>
-      <ul>
-        <li>Radio som drivs med batteri, solceller, eller vev.</li>
-        <li>Extra batterier</li>
-        <li>Mobil och laddade extra batterier (powerbank)</li>
-        <li>Mobilladdare att använda i bilen.</li>
-        <li>Viktiga telefonnummer på papper.</li>
-      </ul>
-    </section>
-    <section class="container-white container-example">
-      <h3>Exempelfråga</h3>
-      <div class="container-color container-div">
-        <p>
-          En större samhällskris inträffar som gör att det inte finns ström. Vad
-          är viktigast att göra direkt?
-        </p>
-        <button @click="showAnswerCommunication = !showAnswerCommunication">
-          Visa rätt svar
-        </button>
-        <p v-if="showAnswerCommunication">Att lyssna på radio.</p>
-      </div>
-    </section>
+        <ul v-if="item.title === 'Kommunikation'">
+          <li :key="index" v-for="(itemGoodToHave, index) in itemsGoodToHave">
+            {{ itemGoodToHave }}
+          </li>
+        </ul>
+      </section>
+      <section class="container-white container-example">
+        <h3>Exempelfråga</h3>
+        <div class="container-color container-div">
+          <p>{{ item.question }}</p>
+          <input
+            type="button"
+            value="Visa rätt svar"
+            @click="showAnswer = item.title"
+          />
+          <p v-if="showAnswer === item.title">
+            {{ item.answer }}
+          </p>
+        </div>
+      </section>
+    </div>
   </article>
 </template>
 <style scoped>
