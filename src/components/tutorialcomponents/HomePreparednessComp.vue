@@ -1,7 +1,10 @@
 <script>
-  import './TutorialStyles.css';
+  import HeaderTutorialComp from './HeaderTutorialComp.vue';
 
   export default {
+    components: {
+      HeaderTutorialComp
+    },
     data() {
       return {
         showAnswer: null,
@@ -42,9 +45,16 @@
   };
 </script>
 <template>
-  <header class="container-white">
-    <h1>Hemberedskap</h1>
-    <nav class="container-flex nav">
+  <HeaderTutorialComp
+    title="Hemberedskap"
+    previous-page="Tillbaka till Introduktion"
+    next-page="Starta övning Utrymning"
+    navigate-back="/tutorial/introduktion"
+    navigate-forward="/tutorial/utrymning"
+  />
+  <!-- <header class="container-white">
+    <h1 class="tutorial-h1">Hemberedskap</h1>
+    <nav class="container-flex tutorial-nav">
       <router-link to="/tutorial"
         ><button>Tillbaka till Introduktion</button></router-link
       >
@@ -53,23 +63,24 @@
         ><button>Starta övning Utrymning</button></router-link
       >
     </nav>
-  </header>
+  </header> -->
   <article class="container-color article-tutorial">
-    <h2>Hemberedskap</h2>
-    <p>
-      Du bidrar till hela samhällets beredskap om du har hemberedskap för minst
-      en vecka. Anpassa råden efter dina behov och förutsättningar. Vissa saker
-      kanske du kan dela med andra, exempelvis dina grannar. I kris och krig
-      måste vi alla hjälpa varandra.
-    </p>
-    <p>
-      Förbered dig så du inte måste skaffa allt på en gång om något allvarligt
-      händer.
-    </p>
-
+    <section class="section-intro">
+      <h2 class="tutorial-h2">Hemberedskap</h2>
+      <p>
+        Du bidrar till hela samhällets beredskap om du har hemberedskap för
+        minst en vecka. Anpassa råden efter dina behov och förutsättningar.
+        Vissa saker kanske du kan dela med andra, exempelvis dina grannar. I
+        kris och krig måste vi alla hjälpa varandra.
+      </p>
+      <p>
+        Förbered dig så du inte måste skaffa allt på en gång om något allvarligt
+        händer.
+      </p>
+    </section>
     <div :key="item.title" v-for="item in items">
       <section class="container-white section-info">
-        <h2>{{ item.title }}</h2>
+        <h2 class="tutorial-h2">{{ item.title }}</h2>
         <p>
           {{ item.info }}
         </p>

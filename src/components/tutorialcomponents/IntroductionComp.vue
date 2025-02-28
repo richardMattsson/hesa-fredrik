@@ -1,6 +1,10 @@
 <script>
-  import './TutorialStyles.css';
+  import HeaderTutorialComp from './HeaderTutorialComp.vue';
+
   export default {
+    components: {
+      HeaderTutorialComp
+    },
     data() {
       return {
         showAnswer: false
@@ -9,30 +13,30 @@
   };
 </script>
 <template>
-  <header class="container-white">
-    <h1>Om krisen eller kriget kommer - övningar</h1>
-    <nav class="container-flex nav">
-      <router-link to="/"><button>Hem</button></router-link>
-      <div class="progress-indicator">🫣</div>
-      <router-link to="/tutorial/hemberedskap"
-        ><button>Starta övning Hemberedskap</button></router-link
-      >
-    </nav>
-  </header>
+  <HeaderTutorialComp
+    title="Om krisen eller kriget kommer - övningar"
+    previous-page="Tillbaka Hem"
+    next-page="Starta övning Hemberedskap"
+    navigate-back="/"
+    navigate-forward="/tutorial/hemberedskap"
+  />
+
   <article class="container-color article-tutorial">
-    <h2>Introduktion</h2>
-    <p>
-      Vi lever i en orolig tid. Krig pågår i vår omvärld. Terrorism,
-      cyberattacker och vilseledande information används för att skada och
-      påverka oss.
-    </p>
-    <p>
-      I dessa övningar får du information om hur du kan förbereda dig, och vad
-      du ska göra om krisen kommer.
-    </p>
-    <router-link to="/tutorial/hemberedskap"
-      ><button>Starta övningar nu</button></router-link
-    >
+    <section class="section-intro">
+      <h2 class="tutorial-h2">Introduktion</h2>
+      <p>
+        Vi lever i en orolig tid. Krig pågår i vår omvärld. Terrorism,
+        cyberattacker och vilseledande information används för att skada och
+        påverka oss.
+      </p>
+      <p>
+        I dessa övningar får du information om hur du kan förbereda dig, och vad
+        du ska göra om krisen kommer.
+      </p>
+      <router-link to="/tutorial/hemberedskap"
+        ><button>Starta övningar nu</button></router-link
+      >
+    </section>
     <section class="container-white section-info">
       <h2>Exempel inom varje tema</h2>
       <p>

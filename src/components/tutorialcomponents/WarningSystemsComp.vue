@@ -1,22 +1,27 @@
 <script>
+  import HeaderTutorialComp from './HeaderTutorialComp.vue';
+
   export default {
+    components: {
+      HeaderTutorialComp
+    },
     data() {
       return {
         audioArray: [
           {
-            title: 'Lyssna på viktigt meddelande:',
+            title: 'Viktigt meddelande:',
             src: '/01-viktigt-meddelande.mp3'
           },
           {
-            title: 'Lyssna på faran över:',
+            title: 'Faran över:',
             src: '/02-faran-over-.mp3'
           },
           {
-            title: 'Lyssna på flyglarm:',
+            title: 'Flyglarm:',
             src: '/03-flyglarm.mp3'
           },
           {
-            title: 'Lyssna på beredskapslarm:',
+            title: 'Beredskapslarm:',
             src: '/04-beredskapslarm.mp3'
           }
         ]
@@ -25,19 +30,29 @@
   };
 </script>
 <template>
-  <header class="container-white">
-    <h1>Varningssystem</h1>
-    <nav class="container-flex nav">
+  <HeaderTutorialComp
+    title="Varningssystem"
+    previous-page="Tillbaka till Skyddsrum"
+    next-page="Du har genomfört alla övningarna!"
+    navigate-back="/tutorial/skyddsrum"
+    navigate-forward="/tutorial/introduktion"
+  />
+  <!-- <header class="container-white">
+    <h1 class="tutorial-h1">Varningssystem</h1>
+    <nav class="container-flex tutorial-nav">
       <router-link to="/tutorial/skyddsrum"
         ><button>Tillbaka till Skyddsrum</button></router-link
       >
       <div class="progress-indicator">🤩</div>
-      <router-link to="/tutorial"
+      <router-link to="/tutorial/introduktion"
         ><button>Du har genomfört alla övningarna!</button></router-link
       >
     </nav>
-  </header>
-  <article class="article-tutorial">
+  </header> -->
+  <article class="container-color article-tutorial">
+    <section class="section-intro">
+      <h2>Lyssna på alarmen:</h2>
+    </section>
     <figure :key="audio.src" v-for="audio in audioArray">
       <figcaption>{{ audio.title }}</figcaption>
       <audio controls>
@@ -59,5 +74,8 @@
   }
   a {
     color: black;
+  }
+  figure {
+    margin-left: 10px;
   }
 </style>

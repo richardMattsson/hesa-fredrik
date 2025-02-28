@@ -22,13 +22,6 @@
       onClick() {
         if (this.answer === this.results[this.index].correctAnswer) {
           this.points++;
-          console.log(
-            `Rätt svar på fråga ${this.index + 1}. Total poäng: ${this.points}`
-          );
-        } else {
-          console.log(
-            `Fel svar på fråga ${this.index + 1}. Total poäng: ${this.points}`
-          );
         }
         this.answer = null;
         this.index++;
