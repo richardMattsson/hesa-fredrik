@@ -50,6 +50,8 @@ export default {
   width: 100%;
   height: 80vh;
   margin: 15px auto;
+  height:100vh;
+  margin-bottom: auto;
 }
 
 .section-resulttable {
@@ -65,7 +67,7 @@ export default {
   background-color: whitesmoke;
   padding: 10px;
   table-layout: auto;
-  width: 100%; 
+  width: 100%;
   border-collapse: collapse;
 }
 

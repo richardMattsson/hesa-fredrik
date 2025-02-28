@@ -44,6 +44,8 @@ created(){
 <style scoped>
 #information-page-heading {
   text-align: center;
+  margin-bottom:auto;
+  height:100vh;
 }
 
 .wrapper-information {

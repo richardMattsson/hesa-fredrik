@@ -11,6 +11,8 @@ export default {
   <main id="container-main">
 
     <RouterView />
+    <NavigationComp />
+
   </main>
-  <NavigationComp />
+
 </template>

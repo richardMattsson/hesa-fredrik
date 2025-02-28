@@ -65,10 +65,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+<<<<<<< Updated upstream
   margin-top: auto; /* Pushes footer to the bottom */
   /* lägg display:none; här */
+=======
+  margin-top: auto;
+>>>>>>> Stashed changes
 }
 .info-text {
   margin: 0;
+}
+
+@media screen and (max-width: 428px){
+  #container-footer {
+    display:none;
+  }
 }
 </style>

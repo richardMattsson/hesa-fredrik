@@ -53,6 +53,7 @@ export default {
   gap: 5px;
   padding: 5px;
   grid: auto auto / auto auto auto;
+  height: 100vh;
 }
 
 .section-form {

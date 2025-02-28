@@ -41,3 +41,10 @@ export default {
   <!-- Frågan -->
   <QuestionComp :results="this.results" />
 </template>
+
+<style scoped>
+.container-questions{
+  height:100vh;
+  margin-bottom:auto;
+}
+</style>
