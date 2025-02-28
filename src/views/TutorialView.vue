@@ -23,34 +23,18 @@
     <HomePreparednessComp v-if="$route.params.page === 'hemberedskap'" />
     <IntroductionComp v-if="$route.params.page === ''" />
   </div>
-
-  <!-- #tutorials h1 {
-
-  }
-
-  #tutorials p {
-
-  }
-
-#tutorials {
-    h1 {
-
-    }
-
-    p {
-
-    }
-  } -->
 </template>
-<style scoped>
-#tutorials{
-height:100vh;
-margin-top:auto;
-overflow:auto;
-}
-.container-color article-tutorial {
-  height:100%;
-  margin-top:auto;
-  overflow:auto;
-}
+<style>
+  .article-tutorial {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    height: 100%;
+    margin-top: auto;
+    overflow: auto;
+  }
+  #tutorials {
+    height: 100vh;
+    margin-top: auto;
+    overflow: auto;
+  }
 </style>

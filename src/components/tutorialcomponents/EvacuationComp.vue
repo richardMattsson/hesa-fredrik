@@ -1,3 +1,22 @@
+<script>
+  export default {
+    data() {
+      return {
+        checklistEvacuation: [
+          'Mat och vatten för några dagar',
+          'Id-handlingar, bankkort och kontanter',
+          'Mediciner och hjälpmedel, exempelvis hörapparat.',
+          'Radio som drivs med batteri, solceller eller vev.',
+          'Varma kläder, regnkläder och ombyte',
+          'Hygienartiklar.',
+          'Mobiltelefon och laddare.',
+          'Karta, kompass.',
+          'Viktiga uppgifter på papper, exempelvis telefonnummer och försäkringsbevis.'
+        ]
+      };
+    }
+  };
+</script>
 <template>
   <header class="container-white">
     <h1>Utrymning</h1>
@@ -12,20 +31,21 @@
     </nav>
   </header>
   <article class="container-color article-tutorial">
-    <h2>Utrymning</h2>
-    <p>
-      Du kan snabbt behöva lämna ett område vid exempelvis ett hotande militärt
-      angrepp, naturolyckor eller farliga utsläpp.
-    </p>
-    <p>
-      Du får veta att du ska utrymma genom bland annar VMA. Lyssna på Sveriges
-      Radio P4 och följ myndigheternas instruktioner.
-    </p>
-    <p>
-      Du som inte klarar dig på egen hand kan få hjälp att utrymma, samt akut
-      boeden och mat på platsen du kommer till.
-    </p>
-
+    <section class="contaienr-color section-intro">
+      <h2>Utrymning</h2>
+      <p>
+        Du kan snabbt behöva lämna ett område vid exempelvis ett hotande
+        militärt angrepp, naturolyckor eller farliga utsläpp.
+      </p>
+      <p>
+        Du får veta att du ska utrymma genom bland annar VMA. Lyssna på Sveriges
+        Radio P4 och följ myndigheternas instruktioner.
+      </p>
+      <p>
+        Du som inte klarar dig på egen hand kan få hjälp att utrymma, samt akut
+        boeden och mat på platsen du kommer till.
+      </p>
+    </section>
     <section class="container-white section-info">
       <h2>Bra att ha med</h2>
       <p>
@@ -37,18 +57,7 @@
         kan vara bra att förbereda sig med.
       </p>
       <ul class="checklist">
-        <li>Mat och vatten för några dagar</li>
-        <li>Id-handlingar, bankkort och kontanter</li>
-        <li>Mediciner och hjälpmedel, exempelvis hörapparat.</li>
-        <li>Radio som drivs med batteri, solceller eller vev.</li>
-        <li>Varma kläder, regnkläder och ombyte</li>
-        <li>Hygienartiklar.</li>
-        <li>Mobiltelefon och laddare.</li>
-        <li>Karta, kompass.</li>
-        <li>
-          Viktiga uppgifter på papper, exempelvis telefonnummer och
-          försäkringsbevis.
-        </li>
+        <li :key="task" v-for="task in checklistEvacuation">{{ task }}</li>
       </ul>
     </section>
   </article>
@@ -60,8 +69,14 @@
     margin-right: 2rem;
     border: 1px dotted black;
   }
+  .section-intro {
+    padding: 0.5rem;
+    margin-top: 10px;
+  }
   .section-info {
     margin-top: 20px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     border: 1px dotted black;
   }
   .checklist {

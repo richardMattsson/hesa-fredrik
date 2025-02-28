@@ -22,17 +22,12 @@ a {
   background-color: #ffda00;
   display: flex;
   flex-direction: column;
-  height:100vh;
+  height: 100vh;
   /* flex-grow:1; */
-
 }
 .start-button {
   width: 7rem;
   height: 3rem;
   font-size: 1rem;
   cursor: pointer;
-}
-.article-tutorial {
-  margin-left: 2rem;
-  margin-right: 1rem;
 }

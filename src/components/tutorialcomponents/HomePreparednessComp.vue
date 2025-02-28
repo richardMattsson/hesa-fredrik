@@ -95,7 +95,7 @@
       <h2>Kommunikation</h2>
       <p>
         Du behöber kunna ta emot nyheter och viktig information från
-        myndigheter. Du behöbver också kunna ha kontakt med anhöriga och vänner.
+        myndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner.
         Bra att ha hemma:
       </p>
       <ul>

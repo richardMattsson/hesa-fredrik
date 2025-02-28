@@ -59,8 +59,8 @@
 <style scoped>
   .container-example {
     margin-top: 20px;
-    margin-left: 4rem;
-    margin-right: 4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     border: 1px dotted black;
   }
   .section-info {
