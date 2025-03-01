@@ -2,9 +2,12 @@ import { defineStore } from 'pinia';
 
 export const useCounterStore = defineStore('counter', {
   actions: {
-    increment(amount) {
-      this.value += amount;
+    increment() {
+      if (this.value < 4) {
+        this.value++;
+      }
     }
   },
-  state: () => ({ value: 0 })
+  //
+  state: () => ({ color: ['🫣', '😳', '😲', '🤗', '🤩'], value: 0 })
 });
