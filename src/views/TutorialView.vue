@@ -9,7 +9,6 @@
     margin-right: 2rem;
     height: 100%;
     margin-top: auto;
-    overflow: auto;
   }
   #tutorials {
     height: 100vh;
