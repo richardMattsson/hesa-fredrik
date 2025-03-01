@@ -38,18 +38,7 @@
     navigate-back="/tutorial/utrymning"
     navigate-forward="/tutorial/varningssystem"
   />
-  <!-- <header class="container-white">
-    <h1 class="tutorial-h1">Skyddsrum</h1>
-    <nav class="container-flex tutorial-nav">
-      <router-link to="/tutorial/utrymning"
-        ><button>Tillbaka till Utrymning</button></router-link
-      >
-      <div class="progress-indicator">🤗</div>
-      <router-link to="/tutorial/varningssystem"
-        ><button>Starta övning Varningssystem</button></router-link
-      >
-    </nav>
-  </header> -->
+
   <article class="container-color article-tutorial">
     <section class="section-intro">
       <h2 class="tutorial-h2">Skyddsrum</h2>

@@ -29,18 +29,7 @@
     navigate-back="/tutorial/hemberedskap"
     navigate-forward="/tutorial/skyddsrum"
   />
-  <!-- <header class="container-white">
-    <h1 class="tutorial-h1">Utrymning</h1>
-    <nav class="container-flex tutorial-nav">
-      <router-link to="/tutorial/hemberedskap"
-        ><button>Tillbaka till Hemberedskap</button></router-link
-      >
-      <div class="progress-indicator">😲</div>
-      <router-link to="/tutorial/skyddsrum"
-        ><button>Starta övning Skyddsrum</button></router-link
-      >
-    </nav>
-  </header> -->
+
   <article class="container-color article-tutorial">
     <section class="container-color section-intro">
       <h2 class="tutorial-h2">Utrymning</h2>

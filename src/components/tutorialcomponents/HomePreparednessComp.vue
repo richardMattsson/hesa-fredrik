@@ -52,18 +52,7 @@
     navigate-back="/tutorial/introduktion"
     navigate-forward="/tutorial/utrymning"
   />
-  <!-- <header class="container-white">
-    <h1 class="tutorial-h1">Hemberedskap</h1>
-    <nav class="container-flex tutorial-nav">
-      <router-link to="/tutorial"
-        ><button>Tillbaka till Introduktion</button></router-link
-      >
-      <div class="progress-indicator">😳</div>
-      <router-link to="/tutorial/utrymning"
-        ><button>Starta övning Utrymning</button></router-link
-      >
-    </nav>
-  </header> -->
+
   <article class="container-color article-tutorial">
     <section class="section-intro">
       <h2 class="tutorial-h2">Hemberedskap</h2>

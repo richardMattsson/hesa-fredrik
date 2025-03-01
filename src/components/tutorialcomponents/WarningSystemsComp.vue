@@ -37,18 +37,7 @@
     navigate-back="/tutorial/skyddsrum"
     navigate-forward="/tutorial/introduktion"
   />
-  <!-- <header class="container-white">
-    <h1 class="tutorial-h1">Varningssystem</h1>
-    <nav class="container-flex tutorial-nav">
-      <router-link to="/tutorial/skyddsrum"
-        ><button>Tillbaka till Skyddsrum</button></router-link
-      >
-      <div class="progress-indicator">🤩</div>
-      <router-link to="/tutorial/introduktion"
-        ><button>Du har genomfört alla övningarna!</button></router-link
-      >
-    </nav>
-  </header> -->
+
   <article class="container-color article-tutorial">
     <section class="section-intro">
       <h2>Lyssna på alarmen:</h2>
