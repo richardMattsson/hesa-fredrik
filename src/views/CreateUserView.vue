@@ -2,7 +2,9 @@
 export default {
     data() {
         return {
-
+            username: '',
+            password: '',
+            confirmPassword: '',
         }
     }
 }
@@ -13,15 +15,15 @@ export default {
         <form id="form-create-account">
             <div>
                 <label for="username">Användarnamn</label>
-                <input id="username" placeholder="Användarnamn">
+                <input id="username" v-model="username" placeholder="Användarnamn">
             </div>
             <div>
                 <label for="password">Lösenord</label>
-                <input id="password" placeholder="Lösenord">
+                <input id="password" v-model="password" placeholder="Lösenord">
             </div>
             <div>
                 <label for="confirm-password">Bekräfta Lösenord</label>
-                <input id="confirm-password" placeholder="Bekräfta Lösenord">
+                <input id="confirm-password" v-model="confirmPassword" placeholder="Bekräfta Lösenord">
             </div>
             <button type="submit">Registrera</button>
         </form>
