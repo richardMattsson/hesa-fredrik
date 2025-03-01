@@ -2,6 +2,12 @@
 export default {
     data() {
         return {
+            username: '',
+            password: ''
+        }
+    },
+    methods: {
+        login(){
 
         }
     }
@@ -13,13 +19,13 @@ export default {
         <form id="form-create-account">
             <div>
                 <label for="username">Användarnamn</label>
-                <input id="username" placeholder="Användarnamn">
+                <input id="username" v-model="username" placeholder="Användarnamn">
             </div>
             <div>
                 <label for="password">Lösenord</label>
-                <input id="password" placeholder="Lösenord">
+                <input id="password" v-model="password" placeholder="Lösenord">
             </div>
-            <button type="button">Logga in</button>
+            <button @click="login()" type="button">Logga in</button>
         </form>
         <p> Saknar du konto? <router-link to="/createuser">Skapa konto här</router-link></p>
     </article>
