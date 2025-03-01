@@ -27,6 +27,9 @@
     <router-link to="/question" tag="button"
       ><button class="start-button">Starta spel</button></router-link
     >
+
+    <router-link to="/login">Logga in här</router-link>
+    <router-link to="/createuser">Skapa konto här</router-link>
   </main>
 </template>
 
