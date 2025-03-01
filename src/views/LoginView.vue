@@ -15,7 +15,7 @@ export default {
 </script>
 <template>
     <article id="article-create-account">
-        <h1>Registrera Konto</h1>
+        <h1>Logga in på ditt konto</h1>
         <form id="form-create-account">
             <div>
                 <label for="username">Användarnamn</label>
