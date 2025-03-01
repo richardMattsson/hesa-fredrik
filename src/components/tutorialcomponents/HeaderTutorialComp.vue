@@ -5,7 +5,7 @@
       <router-link :to="navigateBack"
         ><button>{{ previousPage }}</button></router-link
       >
-      <div :class="counterStore.color[counterStore.value]">
+      <div>
         {{ counterStore.color[counterStore.value] }}
       </div>
       <router-link :to="navigateForward" @click="counterStore.increment()"
