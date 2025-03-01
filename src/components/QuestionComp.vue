@@ -1,40 +1,44 @@
 <!-- Main component for section-question and content -->
 <script>
-  export default {
-    props: {
-      results: {
-        type: Array,
-        default() {
-          return [];
-        }
-      }
-      // question: { type: String },
-    },
-
-    data() {
-      return {
-        answer: null,
-        points: 0,
-        index: 0
-      };
-    },
-    methods: {
-      onClick() {
-        if (this.answer === this.results[this.index].correctAnswer) {
-          this.points++;
-        }
-        this.answer = null;
-        this.index++;
-
-        // This will dictate the amount of questions - deciding later
-        if (this.index > 6) {
-          localStorage.setItem('points', JSON.stringify(this.points));
-          localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
-          this.$router.push('/register');
-        }
+export default {
+  props: {
+    results: {
+      type: Array,
+      default() {
+        return [];
       }
     }
-  };
+  },
+  data() {
+    return {
+      answer: null,
+      points: 0,
+      index: 0,
+      showResults: false
+    };
+  },
+  methods: {
+    onClick() {
+      if (this.answer === this.results[this.index].correctAnswer) {
+        this.points++;
+      }
+      this.showResults = true; // Visar röd/grön efter "nästa"
+
+      setTimeout(() => {
+        this.answer = null;
+        this.index++;
+        this.showResults = false; // Reset för nästa fråga
+      }, 2500); // delay innan ny fråga
+
+      if (this.index > 6) {
+        localStorage.setItem('points', JSON.stringify(this.points));
+        localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
+        this.$router.push('/register');
+      }
+    }
+  }
+};
+
 </script>
 <template>
   <!---->
@@ -48,12 +52,17 @@
         <!-- Nedan key id är frågan plus svarsalternativet för att få ett unikt id.  -->
         <label
           class="container-answer-options"
-          :key="results[index].question + answerAlternative + answerAlternative"
+          :key="results[index].question + answerAlternative"
           v-for="answerAlternative in results[index].answerAlternatives"
-        >
-          <input v-model="answer" type="radio" :value="answerAlternative" />
-          {{ answerAlternative }}
-        </label>
+          :class="{
+            'correct': showResults && answerAlternative === results[index].correctAnswer,
+            'incorrect': showResults && answerAlternative !== results[index].correctAnswer && answer === answerAlternative
+          }"
+>
+  <input v-model="answer" type="radio" :value="answerAlternative" />
+  {{ answerAlternative }}
+</label>
+
       </section>
       <section class="section-answer-button">
         <input
@@ -117,4 +126,14 @@
     background-color: white;
     border-radius: 5px;
   }
+.correct {
+  background-color: lightgreen;
+  color: black;
+}
+
+.incorrect {
+  background-color: lightcoral;
+  color: black;
+}
+
 </style>
