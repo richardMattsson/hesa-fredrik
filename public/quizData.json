@@ -6,8 +6,8 @@
       "answerAlternatives": [
         "1-2 liter",
         "2-3 liter",
-        "3-4 liter",
-        "5-6 liter"
+        "5-6 liter",
+        "3-4 liter"
       ],
       "id": 1
     },
@@ -25,7 +25,11 @@
     {
       "question": "När det blir ett elavbrott på vintern, hur lång tid tar det i genomsnitt för ett hus att bli utkylt?",
       "correctAnswer": "Tre dagar",
-      "answerAlternatives": ["En dag", "Två dagar", "Fyra dagar", "Tre dagar"],
+      "answerAlternatives": [
+        "En dag",
+        "Två dagar",
+        "Tre dagar",
+        "Fyra dagar" ],
       "id": 3
     },
     {
@@ -43,10 +47,10 @@
       "question": "Vilket av följande uttalanden är alltid sant?",
       "correctAnswer": "Om Sverige blir angripet kommer vi aldrig att ge upp.",
       "answerAlternatives": [
+        "Om Sverige blir angripet kommer vi aldrig att ge upp.",
         "Om Norge blir angripet kommer vi skicka militärt stöd",
         "Om Sverige blir angripet kommer vi bedriva offensig krigsföring som svar",
-        "Om ett nordiskt land blir angripet kommer den Nordiska unionen enas i försvar",
-        "Om Sverige blir angripet kommer vi aldrig att ge upp."
+        "Om ett nordiskt land blir angripet kommer den Nordiska unionen enas i försvar"
       ],
       "id": 5
     },
@@ -55,9 +59,9 @@
       "correctAnswer": "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer",
       "answerAlternatives": [
         "Du är totalförsvarspliktig från 16 års ålder upp till 70 års ålder.",
+        "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer",
         "Vid höjd beredskap fortsätter du att gå till din arbetsplats",
-        "Syftet med NATO-alliansen är att avskräcka potentiella angripare",
-        "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer"
+        "Syftet med NATO-alliansen är att avskräcka potentiella angripare"
       ],
       "id": 6
     },
@@ -75,13 +79,21 @@
     {
       "question": "Hur mycket av det livsmedel som konsumeras i Sverige är importerat och skulle ha svårt att nå Sverige vid en kris eller ett krig?",
       "correctAnswer": "50 %",
-      "answerAlternatives": ["15 %", "30 %", "50 %", "75%"],
+      "answerAlternatives": [
+        "15 %",
+        "30 %",
+        "50 %",
+        "75%"],
       "id": 8
     },
     {
       "question": "Om leveranser av livsmedel inte kan nå fram till din matbutik, hur länge räcker butikens lager av färskvaror som mjölk, kött, frukt, ost och ägg?",
       "correctAnswer": "En till två dagar",
-      "answerAlternatives": ["En till två dagar", "Fem dagar", "Tio dagar", "En månad"],
+      "answerAlternatives": [
+        "En till två dagar",
+        "Fem dagar",
+        "Tio dagar",
+        "En månad"],
       "id": 9
     },
     {
@@ -98,7 +110,11 @@
     {
       "question": "Förr fanns det i Sverige större lager av bränsle, mat och annat. Hur många kaffepaket hade Sverige i beredskapslager under kalla kriget?",
       "correctAnswer": "13 miljoner",
-      "answerAlternatives": ["13 miljoner", "6 miljoner", "1 miljon", "20 miljoner"],
+      "answerAlternatives": [
+       "13 miljoner",
+       "6 miljoner",
+       "1 miljon",
+       "20 miljoner"],
       "id": 11
     },
     {
@@ -126,7 +142,11 @@
     {
       "question": "En cyberattack betyder att angripare försöker komma åt data, information eller kontakter i it-system, ibland för att göra skada eller utpressa. Hur många cyberattacker inträffar mot svenska myndigheter och kommuner varje månad?",
       "correctAnswer": "10 000-15 000",
-      "answerAlternatives": ["100-150", "1 000-1500", "10 000-15 000", "15 000-25 000"],
+      "answerAlternatives": [
+        "100-150",
+        "1 000-1500",
+        "10 000-15 000",
+        "15 000-25 000"],
       "id": 14
     }
   ]
