@@ -1,12 +1,7 @@
 <script>
-  // import { defineConfig } from 'vite';
-  // import vueDevTools from 'vite-plugin-vue-devtools';
-
-  // export default defineConfig({
-  //   plugins: [vueDevTools()]
-  // });
   import NavigationComp from './components/NavigationComp.vue';
-
+  import { useCounterStore } from './store';
+  useCounterStore();
   export default {
     components: { NavigationComp }
   };
