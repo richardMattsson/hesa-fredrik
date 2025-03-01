@@ -1,11 +1,11 @@
 <script>
-  import { mapStores } from 'pinia';
-  import { useCounterStore } from '../store';
+  // import { mapStores } from 'pinia';
+  // import { useCounterStore } from '../store';
   export default {
     // computed: Object.assign({}, mapStores(useCounterStore))
-    computed: {
-      ...mapStores(useCounterStore)
-    }
+    // computed: {
+    // ...mapStores(useCounterStore)
+    // }
   };
 </script>
 <template>
