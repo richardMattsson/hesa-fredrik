@@ -18,7 +18,7 @@
 </template>
 <script>
   import { mapStores } from 'pinia';
-  import { useCounterStore } from '../../store';
+  import { useCounterStore } from '../../stores/store';
 
   export default {
     index: 0,
