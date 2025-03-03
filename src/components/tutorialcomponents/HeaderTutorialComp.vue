@@ -39,19 +39,16 @@
 </template>
 
 <style>
-  .progress-indicator {
-    background-color: red;
+  progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 5px;
   }
-  .blue {
-    background-color: blue;
+  progress::-webkit-progress-value {
+    background-color: #4caf50;
+    border-radius: 5px;
   }
-  .yellow {
-    background-color: yellow;
-  }
-  .green {
-    background-color: green;
-  }
-  .purple {
-    background-color: purple;
+  progress::-moz-progress-bar {
+    background-color: #4caf50;
+    border-radius: 5px;
   }
 </style>
