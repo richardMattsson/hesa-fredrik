@@ -15,14 +15,13 @@
           for (let i = this.results.length - 1; i > 0; i--) {
             // skapar ett slumpat indextal som jag sparar undan i variabeln j
             let j = Math.floor(Math.random() * (i + 1));
-            // sparar undan kortet som ska blandas temporärt i en varibel temp
+            // sparar undan frågan som ska blandas i en temporär varibel "temp"
             let temp = this.results[i];
-            // ändrar kortet till det slumpade indexet i variabeln j
+            // frågan som ska blandas byter plats i arrayen.
             this.results[i] = this.results[j];
-            // tar det slumpade kortet i variabeln j och låter det få det bytta kortets plats.
+            // tar den slumpade frågan i variabeln j och låter den byta platsmed temp.
             this.results[j] = temp;
           }
-          // console.log(this.results);
         })
         .catch(function (error) {
           console.log(error);
