@@ -24,7 +24,7 @@
 
     <p>Testa din krisberedskap – innan det är skarpt läge!</p>
 
-    <router-link to="/question" tag="button"
+    <router-link to="/question"
       ><button class="start-button">Starta spel</button></router-link
     >
 

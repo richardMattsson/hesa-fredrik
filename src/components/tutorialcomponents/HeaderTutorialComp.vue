@@ -1,3 +1,20 @@
+<script>
+  import { mapStores } from 'pinia';
+  import { useCounterStore } from '../../stores/store';
+
+  export default {
+    props: {
+      title: { type: String, default: 'Rubrik 1' },
+      previousPage: { type: String, default: 'Föregående sida' },
+      nextPage: { type: String, default: 'Nästa sida' },
+      navigateBack: { type: String, default: '/tutorial/introduktion' },
+      navigateForward: { type: String, default: '/tutorial/introduktion' }
+    },
+    computed: {
+      ...mapStores(useCounterStore)
+    }
+  };
+</script>
 <template>
   <header class="container-white">
     <h1 class="tutorial-h1">{{ title }}</h1>
@@ -16,24 +33,8 @@
     </nav>
   </header>
 </template>
-<script>
-  import { mapStores } from 'pinia';
-  import { useCounterStore } from '../../stores/store';
 
-  export default {
-    index: 0,
-    props: {
-      title: { type: String, default: 'Rubrik 1' },
-      previousPage: { type: String, default: 'Föregående sida' },
-      nextPage: { type: String, default: 'Nästa sida' },
-      navigateBack: { type: String, default: '/tutorial/introduktion' },
-      navigateForward: { type: String, default: '/tutorial/introduktion' }
-    },
-    computed: {
-      ...mapStores(useCounterStore)
-    }
-  };
-</script>
+
 <style>
   .progress-indicator {
     background-color: red;
