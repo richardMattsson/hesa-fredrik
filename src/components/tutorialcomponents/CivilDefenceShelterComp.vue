@@ -152,7 +152,4 @@
     margin: 2px;
     margin-top: 4px;
   }
-  .progress-indicator {
-    background-color: rgb(30, 255, 0);
-  }
 </style>

@@ -58,9 +58,7 @@
     border-radius: 50%;
     padding: 2px;
   }
-  .progress-indicator {
-    background-color: rgb(19, 201, 207);
-  }
+
   a {
     color: black;
   }

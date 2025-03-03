@@ -79,7 +79,4 @@
   .checklist {
     list-style-type: square;
   }
-  .progress-indicator {
-    background-color: rgb(187, 255, 0);
-  }
 </style>
