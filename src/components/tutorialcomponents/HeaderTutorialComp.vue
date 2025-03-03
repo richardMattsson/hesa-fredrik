@@ -1,6 +1,7 @@
 <script>
   import { mapStores } from 'pinia';
   import { useCounterStore } from '../../stores/store';
+
   export default {
     props: {
       title: { type: String, default: 'Rubrik 1' },
@@ -18,20 +19,12 @@
   <header class="container-white">
     <h1 class="tutorial-h1">{{ title }}</h1>
     <nav class="container-flex tutorial-nav">
-      <router-link :to="navigateBack" @click="counterStore.increment()">
-        <button>{{ previousPage }}</button></router-link
+      <router-link :to="navigateBack"
+        ><button>{{ previousPage }}</button></router-link
       >
-      <!-- <div class="progress-indicator">😲</div>
-      <router-link :to="navigateForward"
-        ><button>{{ nextPage }}</button></router-link
-      > -->
       <div>
         {{ counterStore.color[counterStore.value] }}
       </div>
-      <section>
-        <progress :value="counterStore.value" :max="4" />
-        <p>{{ counterStore.value }} / 4</p>
-      </section>
       <router-link :to="navigateForward" @click="counterStore.increment()"
         ><button>
           {{ nextPage }}
@@ -40,6 +33,7 @@
     </nav>
   </header>
 </template>
+
 
 <style>
   .progress-indicator {
