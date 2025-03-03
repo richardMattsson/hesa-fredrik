@@ -1,57 +1,52 @@
 <!-- Main component for section-question and content -->
 <script>
-export default {
-  props: {
-    results: {
-      type: Array,
-      default() {
-        return [];
+  export default {
+    props: {
+      results: {
+        type: Array,
+        default() {
+          return [];
+        }
+      }
+    },
+    data() {
+      return {
+        answer: null,
+        points: 0,
+        index: 0,
+        showResults: false
+      };
+    },
+    methods: {
+      onClick() {
+        if (this.answer === this.results[this.index].correctAnswer) {
+          this.points++;
+        }
+        this.showResults = true; // Visar röd/grön efter "nästa"
+
+        setTimeout(() => {
+          this.answer = null;
+          this.index++;
+          this.showResults = false; // Reset för nästa fråga
+        }, 2500); // delay innan ny fråga
+
+        if (this.index > 6) {
+          localStorage.setItem('points', JSON.stringify(this.points));
+          localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
+          this.$router.push('/register');
+        }
       }
     }
-  },
-  data() {
-    return {
-      answer: null,
-      points: 0,
-      index: 0,
-      showResults: false
-    };
-  },
-  methods: {
-    onClick() {
-      if (this.answer === this.results[this.index].correctAnswer) {
-        this.points++;
-      }
-      this.showResults = true; // Visar röd/grön efter "nästa"
-
-      setTimeout(() => {
-        this.answer = null;
-        this.index++;
-        this.showResults = false; // Reset för nästa fråga
-      }, 2500); // delay innan ny fråga
-
-      if (this.index > 6) {
-        localStorage.setItem('points', JSON.stringify(this.points));
-        localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
-        this.$router.push('/register');
-      }
-    }
-  }
-};
-
+  };
 </script>
 <template>
-
-
-
   <article class="container-questions">
     <!-- progress bar -->
-      <section class="progress-bar">
-    <progress :value="index" :max="7"></progress>
-    <p>{{ index }} / 7</p>
-  </section>
+    <section class="progress-bar">
+      <progress :value="index" :max="7"></progress>
+      <p>{{ index }} / 7</p>
+    </section>
     <template v-if="index < results.length">
-
       <section class="section-question">
         <p id="question">{{ results[index].question }}</p>
         <!-- <p>{{ question }}</p> -->
@@ -59,30 +54,39 @@ export default {
       <section class="section-answer-options">
         <!-- Nedan key id är frågan plus svarsalternativet för att få ett unikt id.  -->
         <label
-  class="container-answer-options"
-  :key="results[index].question + answerAlternative"
-  v-for="answerAlternative in results[index].answerAlternatives"
-  :class="{
-    'correct': showResults && answerAlternative === results[index].correctAnswer,
-    'incorrect': showResults && answerAlternative !== results[index].correctAnswer && answer === answerAlternative
-  }"
->
-  <input v-model="answer" type="radio" :value="answerAlternative" />
-  {{ answerAlternative }}
+          class="container-answer-options"
+          :key="results[index].question + answerAlternative"
+          v-for="answerAlternative in results[index].answerAlternatives"
+          :class="{
+            correct:
+              showResults && answerAlternative === results[index].correctAnswer,
+            incorrect:
+              showResults &&
+              answerAlternative !== results[index].correctAnswer &&
+              answer === answerAlternative
+          }"
+        >
+          <input v-model="answer" type="radio" :value="answerAlternative" />
+          {{ answerAlternative }}
 
-  <span v-if="showResults">
-    <span v-if="answerAlternative === results[index].correctAnswer" class="feedback correct-feedback" aria-live="polite">
-      ✔️ Correct answer
-    </span>
-    <span v-else-if="answer === answerAlternative" class="feedback incorrect-feedback" aria-live="polite">
-      ❌ Wrong answer
-    </span>
-  </span>
-</label>
-
-
+          <span v-if="showResults">
+            <span
+              v-if="answerAlternative === results[index].correctAnswer"
+              class="feedback correct-feedback"
+              aria-live="polite"
+            >
+              ✔️ Correct answer
+            </span>
+            <span
+              v-else-if="answer === answerAlternative"
+              class="feedback incorrect-feedback"
+              aria-live="polite"
+            >
+              ❌ Wrong answer
+            </span>
+          </span>
+        </label>
       </section>
-
       <section class="section-answer-button">
         <input
           id="answer-button"
@@ -92,11 +96,8 @@ export default {
           :disabled="!answer"
         />
       </section>
-
     </template>
-
   </article>
-
 </template>
 <style scoped>
   .container-questions {
@@ -148,57 +149,56 @@ export default {
     background-color: white;
     border-radius: 5px;
   }
-.correct {
-  background-color: lightgreen;
-  color: black;
-}
+  .correct {
+    background-color: lightgreen;
+    color: black;
+  }
 
-.incorrect {
-  background-color: lightcoral;
-  color: black;
-}
+  .incorrect {
+    background-color: lightcoral;
+    color: black;
+  }
 
-.feedback {
-  margin-left: 10px;
-  font-weight: bold;
-}
+  .feedback {
+    margin-left: 10px;
+    font-weight: bold;
+  }
 
-.correct-feedback {
-  color: black
-}
+  .correct-feedback {
+    color: black;
+  }
 
-.incorrect-feedback {
-  color: black;
-}
+  .incorrect-feedback {
+    color: black;
+  }
 
-.progress-bar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-}
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 
-progress {
-  width: 100%;
-  height: 10px;
-  appearance: none;
-  border: none;
-  background-color: #ddd;
-}
+  progress {
+    width: 100%;
+    height: 10px;
+    appearance: none;
+    border: none;
+    background-color: #ddd;
+  }
 
-progress::-webkit-progress-bar {
-  background-color: #ddd;
-  border-radius: 5px;
-}
+  progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
 
-progress::-webkit-progress-value {
-  background-color: #4caf50;
-  border-radius: 5px;
-}
+  progress::-webkit-progress-value {
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
 
-progress::-moz-progress-bar {
-  background-color: #4caf50;
-  border-radius: 5px;
-}
-
+  progress::-moz-progress-bar {
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
 </style>

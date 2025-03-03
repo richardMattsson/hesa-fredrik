@@ -1,11 +1,10 @@
+<script setup>
+  import logo from '/hesa-fredrik-logo.png';
+</script>
 <template>
   <main id="container-main">
     <h1>HESA FREDRIK</h1>
-    <img
-      src="/hesa-fredrik-logo.png"
-      alt="hesa fredrik logga, radiomast alarm"
-      id="img-home"
-    />
+    <img :src="logo" alt="hesa fredrik logga, radiomast alarm" id="img-home" />
 
     <p>Testa din krisberedskap – innan det är skarpt läge!</p>
 

@@ -17,12 +17,11 @@
             let j = Math.floor(Math.random() * (i + 1));
             // sparar undan frågan som ska blandas i en temporär varibel "temp"
             let temp = this.results[i];
-            // frågan som ska blandas får en ny plats i arrayen.
+            // frågan som ska blandas byter plats i arrayen.
             this.results[i] = this.results[j];
             // tar den slumpade frågan i variabeln j och låter den byta platsmed temp.
             this.results[j] = temp;
           }
-          // console.log(this.results);
         })
         .catch(function (error) {
           console.log(error);
