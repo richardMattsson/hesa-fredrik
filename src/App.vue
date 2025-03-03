@@ -1,7 +1,6 @@
 <script>
   import NavigationComp from './components/NavigationComp.vue';
-  import { useCounterStore } from './store';
-  useCounterStore();
+
   export default {
     components: { NavigationComp }
   };

@@ -5,11 +5,10 @@
       <router-link :to="navigateBack" @click="counterStore.increment()">
         <button>{{ previousPage }}</button></router-link
       >
-<<<<<<< Updated upstream
       <div class="progress-indicator">😲</div>
       <router-link :to="navigateForward"
         ><button>{{ nextPage }}</button></router-link
-=======
+      >
       <div>
         {{ counterStore.color[counterStore.value] }}
       </div>
@@ -21,7 +20,6 @@
         ><button>
           {{ nextPage }}
         </button></router-link
->>>>>>> Stashed changes
       >
     </nav>
   </header>
