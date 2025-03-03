@@ -1,9 +1,14 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
+  import { mapStores } from 'pinia';
+  import { useTutorialProgressStore } from '../../stores/store';
 
   export default {
     components: {
       HeaderTutorialComp
+    },
+    computed: {
+      ...mapStores(useTutorialProgressStore)
     },
     data() {
       return {
@@ -16,13 +21,25 @@
   <HeaderTutorialComp
     title="Om krisen eller kriget kommer - övningar"
     previous-page="Tillbaka Hem"
-    next-page="Starta övning Hemberedskap"
+    next-page="Gå till Hemberedskap"
     navigate-back="/"
     navigate-forward="/tutorial/hemberedskap"
   />
 
   <article class="container-color article-tutorial">
     <section class="section-intro">
+      <section
+        v-if="tutorialProgressStore.value > 3"
+        class="container-white section-info"
+      >
+        <h2 class="tutorial-h2">
+          Du har genomfört alla upgifterna! Bra jobbat 💪
+        </h2>
+        <p>Om du vill kan du nu testa dina nya kunskaper i ett quiz.</p>
+        <router-link to="/question"
+          ><button>Starta quiz nu</button></router-link
+        >
+      </section>
       <h2 class="tutorial-h2">Introduktion</h2>
       <p>
         Vi lever i en orolig tid. Krig pågår i vår omvärld. Terrorism,
@@ -38,7 +55,7 @@
       >
     </section>
     <section class="container-white section-info">
-      <h2>Exempel inom varje tema</h2>
+      <h2 class="tutorial-h2">Exempel inom varje tema</h2>
       <p>
         Inom varje tema kommer du att få information om ämnet samt någon
         exempelfråga för att testa din kunskap.
@@ -70,8 +87,5 @@
   .section-info {
     margin-top: 20px;
     border: 1px dotted black;
-  }
-  .progress-indicator {
-    background-color: red;
   }
 </style>

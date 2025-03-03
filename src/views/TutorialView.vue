@@ -47,4 +47,28 @@
     padding: 0.5rem;
     margin-top: 10px;
   }
+  @media screen and (min-width: 900px) {
+    .article-tutorial {
+      margin-left: 7rem;
+      margin-right: 7rem;
+      height: 100%;
+      margin-top: auto;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .article-tutorial {
+      margin-left: 10rem;
+      margin-right: 10rem;
+      height: 100%;
+      margin-top: auto;
+    }
+  }
+  @media screen and (min-width: 1500px) {
+    .article-tutorial {
+      margin-left: 20rem;
+      margin-right: 20rem;
+      height: 100%;
+      margin-top: auto;
+    }
+  }
 </style>

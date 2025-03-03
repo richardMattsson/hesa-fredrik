@@ -50,7 +50,6 @@
       <a :href="audio.src"> Ladda ned ljudfil. </a>
     </figure>
   </article>
-  Working progress ... 😳😲🤗🤩
 </template>
 <style scoped>
   .progress-indicator {
