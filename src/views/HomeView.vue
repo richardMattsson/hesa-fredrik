@@ -1,20 +1,5 @@
-<script>
-  // import { mapStores } from 'pinia';
-  // import { useCounterStore } from '../store';
-  export default {
-    // computed: Object.assign({}, mapStores(useCounterStore))
-    // computed: {
-    // ...mapStores(useCounterStore)
-    // }
-  };
-</script>
 <template>
   <main id="container-main">
-    <!-- <input
-      @click="counterStore.increment(2)"
-      type="button"
-      :value="counterStore.value"
-    /> -->
     <h1>HESA FREDRIK</h1>
     <img
       src="/hesa-fredrik-logo.png"

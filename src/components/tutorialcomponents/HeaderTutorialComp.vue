@@ -1,6 +1,6 @@
 <script>
   import { mapStores } from 'pinia';
-  import { useCounterStore } from '../../stores/store';
+  import { useTutorialProgressStore } from '../../stores/store';
 
   export default {
     props: {
@@ -11,7 +11,7 @@
       navigateForward: { type: String, default: '/tutorial/introduktion' }
     },
     computed: {
-      ...mapStores(useCounterStore)
+      ...mapStores(useTutorialProgressStore)
     }
   };
 </script>
@@ -23,13 +23,15 @@
         ><button>{{ previousPage }}</button></router-link
       >
       <div>
-        {{ counterStore.color[counterStore.value] }}
+        {{ tutorialProgressStore.reaction[tutorialProgressStore.value] }}
       </div>
       <section class="progress-bar">
-        <progress :value="counterStore.value" :max="4" />
-        <p>{{ counterStore.value }} / 4</p>
+        <progress :value="tutorialProgressStore.value" :max="4" />
+        <p>{{ tutorialProgressStore.value }} / 4</p>
       </section>
-      <router-link :to="navigateForward" @click="counterStore.increment()"
+      <router-link
+        :to="navigateForward"
+        @click="tutorialProgressStore.increment()"
         ><button>
           {{ nextPage }}
         </button></router-link
@@ -39,19 +41,32 @@
 </template>
 
 <style>
-  .progress-indicator {
-    background-color: red;
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  .blue {
-    background-color: blue;
+  .progress-bar > p {
+    margin: 0;
+    margin-top: 5px;
+    width: 80%;
   }
-  .yellow {
-    background-color: yellow;
+  progress {
+    width: 80%;
   }
-  .green {
-    background-color: green;
+  progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 5px;
   }
-  .purple {
-    background-color: purple;
+  progress::-webkit-progress-value {
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
+  progress::-moz-progress-bar {
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
+  a > button {
+    padding: 5px 5px;
   }
 </style>

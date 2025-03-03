@@ -34,7 +34,7 @@
           },
           {
             title: 'Kommunikation',
-            info: 'Du behöber kunna ta emot nyheter och viktig information frånmyndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
+            info: 'Du behöver kunna ta emot nyheter och viktig information frånmyndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
             question:
               'En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?',
             answer: 'Att lyssna på radio.'
@@ -109,8 +109,5 @@
   }
   .checklist {
     list-style-type: circle;
-  }
-  .progress-indicator {
-    background-color: rgb(255, 217, 0);
   }
 </style>

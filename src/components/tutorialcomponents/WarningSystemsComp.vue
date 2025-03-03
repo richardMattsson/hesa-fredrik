@@ -50,7 +50,6 @@
       <a :href="audio.src"> Ladda ned ljudfil. </a>
     </figure>
   </article>
-  Working progress ... 😳😲🤗🤩
 </template>
 <style scoped>
   .progress-indicator {
@@ -58,9 +57,7 @@
     border-radius: 50%;
     padding: 2px;
   }
-  .progress-indicator {
-    background-color: rgb(19, 201, 207);
-  }
+
   a {
     color: black;
   }
