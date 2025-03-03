@@ -25,6 +25,10 @@
       <div>
         {{ counterStore.color[counterStore.value] }}
       </div>
+      <section class="progress-bar">
+        <progress :value="counterStore.value" :max="4" />
+        <p>{{ counterStore.value }} / 4</p>
+      </section>
       <router-link :to="navigateForward" @click="counterStore.increment()"
         ><button>
           {{ nextPage }}
@@ -33,7 +37,6 @@
     </nav>
   </header>
 </template>
-
 
 <style>
   .progress-indicator {
