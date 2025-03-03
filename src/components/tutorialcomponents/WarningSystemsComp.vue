@@ -33,7 +33,7 @@
   <HeaderTutorialComp
     title="Varningssystem"
     previous-page="Tillbaka till Skyddsrum"
-    next-page="Du har genomfört alla övningarna!"
+    next-page="Tillbaka till introduktionen"
     navigate-back="/tutorial/skyddsrum"
     navigate-forward="/tutorial/introduktion"
   />
