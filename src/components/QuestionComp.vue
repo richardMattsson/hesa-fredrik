@@ -1,92 +1,59 @@
-<!-- Main component for section-question and content -->
-<script>
-  export default {
-    props: {
-      results: {
-        type: Array,
-        default() {
-          return [];
-        }
-      }
-    },
-    data() {
-      return {
-        answer: null,
-        points: 0,
-        index: 0,
-        showResults: false
-      };
-    },
-    methods: {
-      onClick() {
-        if (this.answer === this.results[this.index].correctAnswer) {
-          this.points++;
-        }
-        this.showResults = true; // Visar röd/grön efter "nästa"
-
-        setTimeout(() => {
-          this.answer = null;
-          this.index++;
-          this.showResults = false; // Reset för nästa fråga
-        }, 2500); // delay innan ny fråga
-
-        if (this.index > 6) {
-          localStorage.setItem('points', JSON.stringify(this.points));
-          localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
-          this.$router.push('/register');
-        }
-      }
-    }
-  };
-</script>
 <template>
   <article class="container-questions">
-    <!-- progress bar -->
+    <!-- Progress bar -->
     <section class="progress-bar">
-      <progress :value="index" :max="7"></progress>
-      <p>{{ index }} / 7</p>
+      <progress :value="index" :max="results.length"></progress>
+      <p>{{ index }} / {{ results.length }}</p>
     </section>
-    <template v-if="index < results.length">
+
+    <!-- Display questions and answers -->
+    <template v-if="results.length > 0 && index < results.length">
       <section class="section-question">
         <p id="question">{{ results[index].question }}</p>
-        <!-- <p>{{ question }}</p> -->
       </section>
+
       <section class="section-answer-options">
-        <!-- Nedan key id är frågan plus svarsalternativet för att få ett unikt id.  -->
         <label
           class="container-answer-options"
-          :key="results[index].question + answerAlternative"
-          v-for="answerAlternative in results[index].answerAlternatives"
+          v-for="(answerAlternative, i) in results[index].answerAlternatives"
+          :key="i"
           :class="{
             correct:
               showResults && answerAlternative === results[index].correctAnswer,
             incorrect:
               showResults &&
               answerAlternative !== results[index].correctAnswer &&
-              answer === answerAlternative
+              answer === answerAlternative,
           }"
         >
-          <input v-model="answer" type="radio" :value="answerAlternative" />
+          <input
+            v-model="answer"
+            type="radio"
+            :value="answerAlternative"
+            :disabled="showResults"
+          />
           {{ answerAlternative }}
 
+          <!-- Feedback for correct/incorrect answers -->
           <span v-if="showResults">
             <span
               v-if="answerAlternative === results[index].correctAnswer"
               class="feedback correct-feedback"
               aria-live="polite"
             >
-              ✔️ Correct answer
+              ✔️ Rätt svar!
             </span>
             <span
               v-else-if="answer === answerAlternative"
               class="feedback incorrect-feedback"
               aria-live="polite"
             >
-              ❌ Wrong answer
+              ❌ Fel svar!
             </span>
           </span>
         </label>
       </section>
+
       <section class="section-answer-button">
         <input
           id="answer-button"
@@ -99,6 +66,75 @@
     </template>
   </article>
 </template>
+
+<script>
+import { useQuizStore } from '../stores/quizStore';
+import { onMounted, computed, ref } from 'vue';
+
+export default {
+  setup() {
+    const quizStore = useQuizStore();
+
+    const answer = ref(null);
+    const index = ref(0);
+    const showResults = ref(false);
+
+
+    const results = computed(() => quizStore.questions);
+    const loading = computed(() => results.value.length === 0);
+// den måste vara mountad för att fetcha korrekt
+    onMounted(() => {
+      quizStore.fetchQuestions();
+    });
+
+    const onClick = () => {
+  // tar bort klickknappen om inget svar är valt
+  if (results.value.length === 0 || index.value >= results.value.length) {
+    return;
+  }
+
+  // kollar om svar är rätt
+  if (answer.value === results.value[index.value].correctAnswer) {
+    quizStore.points++;
+  }
+
+  // lägger result till store
+  quizStore.addResult(
+    results.value[index.value].question,
+    answer.value,
+    results.value[index.value].correctAnswer
+  );
+
+  showResults.value = true;
+
+  setTimeout(() => {
+    showResults.value = false;
+    answer.value = null;
+
+    // nästa fråga
+    if (index.value < results.value.length - 1) {
+      index.value++;
+    } else {
+      // går till register efter quizet är klart
+      quizStore.updateScore(quizStore.points, results.value.length);
+      window.location.href = '/register';
+    }
+  }, 2500);
+};
+
+    return {
+      quizStore,
+      answer,
+      index,
+      showResults,
+      results,
+      loading,
+      onClick,
+    };
+  },
+};
+</script>
+
 <style scoped>
   .container-questions {
     background-color: #ffda00;
@@ -125,7 +161,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* min-height: 812px; */
     font-size: 1.2rem;
     padding: 10px;
     margin-bottom: 10px;
