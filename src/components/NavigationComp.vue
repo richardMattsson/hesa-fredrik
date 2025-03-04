@@ -66,10 +66,10 @@ export default{
     list-style-type: none;
   }
   .container-links {
-    height: 4rem;
+    height: 2rem;
     display: flex;
     /* justify-content: center; */
-    padding: 0.4rem;
+    padding: 0.2rem;
     align-items: center;
   }
   .container-links:hover {
@@ -80,7 +80,7 @@ export default{
     background-color: #333;
     color: whitesmoke;
     height: 2rem;
-    padding: 5px;
+    padding: 0.2rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
