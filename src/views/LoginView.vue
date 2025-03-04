@@ -52,7 +52,7 @@ export default {
         
     </article>
 </template>
-<style>
+<style scoped>
 #article-create-account {
    margin: auto;
 }
