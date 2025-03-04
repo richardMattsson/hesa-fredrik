@@ -1,7 +1,26 @@
+<script>
+import { useAuthStore } from '../stores/useAuthStore';
+
+export default{
+  data(){
+    return {
+      authStore: useAuthStore()
+    }
+  },
+  computed: {
+    currentUser(){
+      return this.authStore.currentUser
+    }
+  }
+}
+</script>
 <template>
   <header id="container-header">
     <nav id="container-nav">
       <ul id="container-ul">
+        <li>
+          <a v-if="currentUser" class="container-links" href="#" @click.prevent="authStore.logout()">Logga ut</a>
+          <a v-else class="container-links" href="#/login" >Logga in</a></li>
         <li class="container-links" id="nav-home">
           <RouterLink to="/">Hem</RouterLink>
         </li>
@@ -18,10 +37,12 @@
     </nav>
   </header>
   <footer id="container-footer">
-    <p class="info-text">Quiz om förberedelser inför en eventuell kris.</p>
+    <!--<p class="info-text">Quiz om förberedelser inför en eventuell kris.</p>
     <p class="info-text">
       Av: Richard Mattsson, Kåre Lindqvist, Louise Nensén Lagnefors
-    </p>
+    </p>-->
+    <p v-if="currentUser" >Inloggad som: {{currentUser.username}}</p>
+    <p v-else >Du är inte inloggad</p>
   </footer>
 </template>
 <style scoped>

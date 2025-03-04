@@ -3,7 +3,8 @@ import CryptoJS from 'crypto-js'
 
 export const useAuthStore = defineStore ('auth', {
     state: () => ({
-        users: JSON.parse(localStorage.getItem('users')) || []
+        users: JSON.parse(localStorage.getItem('users')) || [],
+        currentUser: JSON.parse(localStorage.getItem('currentUser')) || null
     }),
     actions: {
         hashPassword(password){
@@ -30,11 +31,26 @@ export const useAuthStore = defineStore ('auth', {
             return {success: true, message: 'Registering lyckades! Du kan nu logga in.'}
 
         },
+        login(username, password){
+        const hashedPassword = this.hashPassword(password)
+        const user = this.users.find(user => user.username === username && user.password === hashedPassword)
+
+        if(!user){
+            return {
+                success: false, message: 'Fel användarnamn eller lösenord'
+            }
+        }
+
+        this.currentUser = user
+        localStorage.setItem('currentUser', JSON.stringify(user))
+
+        return {success: true, message: 'Inloggning lyckades!'}
+
+        },
         logout(){
-
+            this.currentUser = null
+            localStorage.removeItem('currentUser')
         },
-        login(){
-
-        },
+        
     }
 })
