@@ -1,3 +1,48 @@
+<script>
+import { useAuthStore } from '../stores/useAuthStore'
+  
+export default {
+    data() {
+      return {
+        authStore: useAuthStore(),
+        points: JSON.parse(localStorage.getItem('points')),
+        numberOfQuestions: JSON.parse(
+          localStorage.getItem('numberOfQuestions')
+        ),
+        newPlayer: { player: '', result: '' },
+        playerName:  '',
+        resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
+      };
+    },
+    methods: {
+      onSave() {
+        if (this.currentUser){
+          this.newPlayer.player = this.currentUser.username
+        }
+        else{
+          this.newPlayer.player = this.playerName;
+        }
+        this.newPlayer.result = this.points;
+        this.resultData.push(this.newPlayer);
+        this.resultData.sort((a, b) => b.result - a.result);
+        this.newPlayer = null;
+        localStorage.setItem('savedResult', JSON.stringify(this.resultData));
+        console.log('Ny spelare: ', this.resultData);
+        this.$router.push('/scoretable');
+      },
+
+      restartQuiz() {
+        this.$router.push('/question');
+      }
+    },
+    computed: {
+      currentUser(){
+      return this.authStore.currentUser
+    }
+    }
+  };
+</script>
+
 <template>
   <article class="container-result">
     <section class="section-form">
@@ -7,7 +52,7 @@
         </p>
         <label id="container-input-name" for="">
           Vill du spara ditt resultat?
-          <input
+          <input v-if="!currentUser"
             id="input-name"
             v-model="playerName"
             type="text"
@@ -30,37 +75,7 @@
     </section>
   </article>
 </template>
-<script>
-  export default {
-    data() {
-      return {
-        points: JSON.parse(localStorage.getItem('points')),
-        numberOfQuestions: JSON.parse(
-          localStorage.getItem('numberOfQuestions')
-        ),
-        newPlayer: { player: '', result: '' },
-        playerName: '',
-        resultData: JSON.parse(localStorage.getItem('savedResult')) || []
-      };
-    },
-    methods: {
-      onSave() {
-        this.newPlayer.player = this.playerName;
-        this.newPlayer.result = this.points;
-        this.resultData.push(this.newPlayer);
-        this.resultData.sort((a, b) => b.result - a.result);
-        this.newPlayer = null;
-        localStorage.setItem('savedResult', JSON.stringify(this.resultData));
-        console.log('Ny spelare: ', this.resultData);
-        this.$router.push('/scoretable');
-      },
 
-      restartQuiz() {
-        this.$router.push('/question');
-      }
-    }
-  };
-</script>
 <style scoped>
   .container-result {
     background-color: #ffda00;
