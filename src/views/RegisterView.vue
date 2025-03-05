@@ -68,6 +68,12 @@
 
         this.$router.push('/scoretable');
       }
+    },
+    methods: {
+      restartQuiz() {
+        this.quizStore.resetQuiz();
+        this.$router.push('/question');
+      }
     }
   };
 </script>
