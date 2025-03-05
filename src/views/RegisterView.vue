@@ -1,3 +1,48 @@
+<script>
+import { useAuthStore } from '../stores/useAuthStore'
+  
+export default {
+    data() {
+      return {
+        authStore: useAuthStore(),
+        points: JSON.parse(localStorage.getItem('points')),
+        numberOfQuestions: JSON.parse(
+          localStorage.getItem('numberOfQuestions')
+        ),
+        newPlayer: { player: '', result: '' },
+        playerName:  '',
+        resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
+      };
+    },
+    methods: {
+      onSave() {
+        if (this.currentUser){
+          this.newPlayer.player = this.currentUser.username
+        }
+        else{
+          this.newPlayer.player = this.playerName;
+        }
+        this.newPlayer.result = this.points;
+        this.resultData.push(this.newPlayer);
+        this.resultData.sort((a, b) => b.result - a.result);
+        this.newPlayer = null;
+        localStorage.setItem('savedResult', JSON.stringify(this.resultData));
+        console.log('Ny spelare: ', this.resultData);
+        this.$router.push('/scoretable');
+      },
+
+      restartQuiz() {
+        this.$router.push('/question');
+      }
+    },
+    computed: {
+      currentUser(){
+      return this.authStore.currentUser
+    }
+    }
+  };
+</script>
+
 <template>
   <article class="container-result">
     <section class="section-form">
@@ -5,7 +50,7 @@
         <p id="quiz-result">{{ quizStore.score }} rätta svar av 7</p>
         <label id="container-input-name" for="">
           Vill du spara ditt resultat?
-          <input
+          <input v-if="!currentUser"
             id="input-name"
             v-model="playerName"
             type="text"
@@ -28,56 +73,6 @@
     </section>
   </article>
 </template>
-<script>
-  import { useQuizStore } from '../stores/quizStore';
-
-  export default {
-    data() {
-      return {
-        points: JSON.parse(localStorage.getItem('points')),
-        numberOfQuestions: JSON.parse(
-          localStorage.getItem('numberOfQuestions')
-        ),
-        newPlayer: { player: '', result: '' },
-        playerName: '',
-        resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
-        quizStore: useQuizStore()
-      };
-    },
-    methods: {
-      onSave() {
-        this.newPlayer.player = this.playerName;
-        this.newPlayer.result = this.points;
-
-        // hämtar från local
-        let existingResults =
-          JSON.parse(localStorage.getItem('savedResult')) || [];
-
-        // lägger till score från pinia
-        existingResults.push({
-          player: this.playerName,
-          result: this.quizStore.score
-        });
-
-        existingResults.sort((a, b) => b.result - a.result);
-
-        // Sparar tillbaks till localstorage
-        localStorage.setItem('savedResult', JSON.stringify(existingResults));
-
-        console.log('Updated saved results:', existingResults);
-
-        this.$router.push('/scoretable');
-      }
-    },
-    methods: {
-      restartQuiz() {
-        this.quizStore.resetQuiz();
-        this.$router.push('/question');
-      }
-    }
-  };
-</script>
-
 <style scoped>
   .container-result {
     background-color: #ffda00;
