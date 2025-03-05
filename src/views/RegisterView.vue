@@ -47,9 +47,7 @@ export default {
   <article class="container-result">
     <section class="section-form">
       <form id="container-form" action="">
-        <p id="quiz-result">
-          {{ points }} rätta svar av {{ numberOfQuestions }}
-        </p>
+        <p id="quiz-result">{{ quizStore.score }} rätta svar av 7</p>
         <label id="container-input-name" for="">
           Vill du spara ditt resultat?
           <input v-if="!currentUser"
@@ -75,7 +73,6 @@ export default {
     </section>
   </article>
 </template>
-
 <style scoped>
   .container-result {
     background-color: #ffda00;

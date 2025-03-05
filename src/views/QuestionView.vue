@@ -1,32 +1,8 @@
 <script>
-  import axios from 'axios';
   import QuestionComp from '../components/QuestionComp.vue';
   export default {
     components: {
       QuestionComp
-    },
-    created() {
-      axios
-        .get('/quizData.json')
-        .then((response) => {
-          // console.log(response.data.results);
-          // console.log(this.results)
-          this.results = response.data.results;
-          for (let i = this.results.length - 1; i > 0; i--) {
-            // skapar ett slumpat indextal som jag sparar undan i variabeln j
-            let j = Math.floor(Math.random() * (i + 1));
-            // sparar undan frågan som ska blandas i en temporär varibel "temp"
-            let temp = this.results[i];
-            // frågan som ska blandas byter plats i arrayen.
-            this.results[i] = this.results[j];
-            // tar den slumpade frågan i variabeln j och låter den byta platsmed temp.
-            this.results[j] = temp;
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-        .finally(function () {});
     },
 
     data() {
