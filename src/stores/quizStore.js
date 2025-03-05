@@ -7,18 +7,33 @@ export const useQuizStore = defineStore('quizStore', {
     score: 0,
   }),
   actions: {
+    updateScore(score, total) {
+      this.score = score;
+      console.log(`Final Score: ${score}/${total}`);
+    },
+
     async fetchQuestions() {
       try {
-        const response = await fetch('/quizData.json'); // Fetch
+        const response = await fetch('/quizData.json');
         const data = await response.json();
 
-        // sju random frågor
-        this.questions = this.getRandomQuestions(data.results, 7);
+        if (data.results && data.results.length > 0) {
+          let shuffledQuestions = [...data.results];
 
+          for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = shuffledQuestions[i];
+            shuffledQuestions[i] = shuffledQuestions[j];
+            shuffledQuestions[j] = temp;
+          }
+
+          this.questions = shuffledQuestions.slice(0, 7);
+        }
       } catch (error) {
         console.error('Error fetching quiz data:', error);
       }
     },
+
     getRandomQuestions(allQuestions, num) {
       if (!allQuestions || allQuestions.length === 0) return [];
 

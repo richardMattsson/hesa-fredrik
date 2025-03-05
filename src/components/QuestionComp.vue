@@ -2,28 +2,42 @@
   <article class="container-questions">
     <!-- Progress bar -->
     <section class="progress-bar">
-      <progress :value="index" :max="results.length"></progress>
-      <p>{{ index }} / {{ results.length }}</p>
+      <progress
+        :value="quizStore.currentQuestionIndex"
+        :max="results.length"
+      ></progress>
+      <p>{{ quizStore.currentQuestionIndex + 1 }} / {{ results.length }}</p>
     </section>
 
     <!-- Display questions and answers -->
-    <template v-if="results.length > 0 && index < results.length">
+    <template
+      v-if="
+        results.length > 0 && quizStore.currentQuestionIndex < results.length
+      "
+    >
       <section class="section-question">
-        <p id="question">{{ results[index].question }}</p>
+        <p id="question">
+          {{ results[quizStore.currentQuestionIndex].question }}
+        </p>
       </section>
 
       <section class="section-answer-options">
         <label
           class="container-answer-options"
-          v-for="(answerAlternative, i) in results[index].answerAlternatives"
+          v-for="(answerAlternative, i) in results[
+            quizStore.currentQuestionIndex
+          ].answerAlternatives"
           :key="i"
           :class="{
             correct:
-              showResults && answerAlternative === results[index].correctAnswer,
+              showResults &&
+              answerAlternative ===
+                results[quizStore.currentQuestionIndex].correctAnswer,
             incorrect:
               showResults &&
-              answerAlternative !== results[index].correctAnswer &&
-              answer === answerAlternative,
+              answerAlternative !==
+                results[quizStore.currentQuestionIndex].correctAnswer &&
+              answer === answerAlternative
           }"
         >
           <input
@@ -37,7 +51,10 @@
           <!-- Feedback for correct/incorrect answers -->
           <span v-if="showResults">
             <span
-              v-if="answerAlternative === results[index].correctAnswer"
+              v-if="
+                answerAlternative ===
+                results[quizStore.currentQuestionIndex].correctAnswer
+              "
               class="feedback correct-feedback"
               aria-live="polite"
             >
@@ -68,71 +85,66 @@
 </template>
 
 <script>
-import { useQuizStore } from '../stores/quizStore';
-import { onMounted, computed, ref } from 'vue';
+  import { useQuizStore } from '../stores/quizStore';
+  import { onMounted, computed, ref } from 'vue';
+  import { useRouter } from 'vue-router';
 
-export default {
-  setup() {
-    const quizStore = useQuizStore();
+  export default {
+    setup() {
+      const quizStore = useQuizStore();
+      const answer = ref(null);
+      const showResults = ref(false);
 
-    const answer = ref(null);
-    const index = ref(0);
-    const showResults = ref(false);
+      const results = computed(() => quizStore.questions);
+      const loading = computed(() => results.value.length === 0);
 
+      onMounted(() => {
+        quizStore.fetchQuestions();
+      });
 
-    const results = computed(() => quizStore.questions);
-    const loading = computed(() => results.value.length === 0);
-// den måste vara mountad för att fetcha korrekt
-    onMounted(() => {
-      quizStore.fetchQuestions();
-    });
+      const router = useRouter();
 
-    const onClick = () => {
-  // tar bort klickknappen om inget svar är valt
-  if (results.value.length === 0 || index.value >= results.value.length) {
-    return;
-  }
+      const onClick = () => {
+        console.log('Answer:', answer.value);
+        if (
+          results.value.length === 0 ||
+          quizStore.currentQuestionIndex >= results.value.length
+        ) {
+          return;
+        }
 
-  // kollar om svar är rätt
-  if (answer.value === results.value[index.value].correctAnswer) {
-    quizStore.points++;
-  }
+        if (
+          answer.value ===
+          results.value[quizStore.currentQuestionIndex].correctAnswer
+        ) {
+          quizStore.score++;
+        }
 
-  // lägger result till store
-  quizStore.addResult(
-    results.value[index.value].question,
-    answer.value,
-    results.value[index.value].correctAnswer
-  );
+        showResults.value = true;
 
-  showResults.value = true;
+        setTimeout(() => {
+          showResults.value = false;
+          answer.value = null;
 
-  setTimeout(() => {
-    showResults.value = false;
-    answer.value = null;
+          if (quizStore.currentQuestionIndex < results.value.length - 1) {
+            quizStore.nextQuestion();
+          } else {
+            quizStore.updateScore(quizStore.score, results.value.length);
+            router.push('/register');
+          }
+        }, 2500);
+      };
 
-    // nästa fråga
-    if (index.value < results.value.length - 1) {
-      index.value++;
-    } else {
-      // går till register efter quizet är klart
-      quizStore.updateScore(quizStore.points, results.value.length);
-      window.location.href = '/register';
+      return {
+        quizStore,
+        answer,
+        showResults,
+        results,
+        loading,
+        onClick
+      };
     }
-  }, 2500);
-};
-
-    return {
-      quizStore,
-      answer,
-      index,
-      showResults,
-      results,
-      loading,
-      onClick,
-    };
-  },
-};
+  };
 </script>
 
 <style scoped>
