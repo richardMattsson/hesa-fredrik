@@ -45,18 +45,18 @@ export default{
 }
 
 div {
-  width: 150px;
+  width: 160px;
 }
 
 button {
   width: 100%;
-  height: 30px;
+  height: 40px;
   border-radius: 4px;
   border-style: none;
   color: #333;
   font-weight: 750;
   font-size: small;
-  background-color: whitesmoke;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
   margin-top: 1rem;
 }
 </style>
