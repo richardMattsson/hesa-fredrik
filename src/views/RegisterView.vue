@@ -50,17 +50,25 @@
       onSave() {
         this.newPlayer.player = this.playerName;
         this.newPlayer.result = this.points;
-        this.resultData.push(this.newPlayer);
-        this.resultData.sort((a, b) => b.result - a.result);
-        this.newPlayer = null;
-        localStorage.setItem('savedResult', JSON.stringify(this.resultData));
-        console.log('Ny spelare: ', this.resultData);
-        this.$router.push('/scoretable');
-      },
 
-      restartQuiz() {
-        this.quizStore.resetQuiz();
-        this.$router.push('/question');
+        // hämtar från local
+        let existingResults =
+          JSON.parse(localStorage.getItem('savedResult')) || [];
+
+        // lägger till score från pinia
+        existingResults.push({
+          player: this.playerName,
+          result: this.quizStore.score
+        });
+
+        existingResults.sort((a, b) => b.result - a.result);
+
+        // Sparar tillbaks till localstorage
+        localStorage.setItem('savedResult', JSON.stringify(existingResults));
+
+        console.log('Updated saved results:', existingResults);
+
+        this.$router.push('/scoretable');
       }
     }
   };
