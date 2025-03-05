@@ -98,7 +98,7 @@ export default {
 }
 
 
-@media screen and (max-width: 428px) {
+@media screen and (max-width: 430px) {
 
   /*
    container-footer {

@@ -19,82 +19,83 @@
       </table>
     </section>
     <section class="section-restart">
-      <input
-        class="restart-button"
-        type="button"
-        @click="restartQuiz"
-        value="Starta om quiz"
-      />
+      <input class="restart-button" type="button" @click="restartQuiz" value="Starta om quiz" />
     </section>
   </article>
 </template>
 <script>
-  import { useQuizStore } from '../stores/quizStore';
+import { useQuizStore } from '../stores/quizStore';
 
-  export default {
-    data() {
-      return {
-        resultData: JSON.parse(localStorage.getItem('savedResult')),
-        quizStore: useQuizStore()
-      };
-    },
+export default {
+  data() {
+    return {
+      resultData: JSON.parse(localStorage.getItem('savedResult')),
+      quizStore: useQuizStore()
+    };
+  },
 
-    methods: {
-      restartQuiz() {
-        this.quizStore.resetQuiz();
-        this.$router.push('/question');
-      }
+  methods: {
+    restartQuiz() {
+      this.quizStore.resetQuiz();
+      this.$router.push('/question');
     }
-  };
+  }
+};
 </script>
 
 <style scoped>
-  .article-resulttable {
-    width: 100%;
-    height: 80vh;
-    margin: 15px auto;
-    height: 100vh;
-    margin-bottom: auto;
-  }
+.article-resulttable {
+  width: 100%;
+  height: 80vh;
+  margin: 15px auto;
+  height: 100vh;
+  margin-bottom: auto;
+}
 
-  .section-resulttable {
-    border-radius: 5px;
-    max-height: 88%;
-    width: 90%;
-    overflow: scroll; /* hidden eller scroll?  */
-    margin: 0 auto 15px;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
+.section-resulttable {
+  border-radius: 5px;
+  max-height: 88%;
+  width: 90%;
+  overflow: scroll;
+  /* hidden eller scroll?  */
+  margin: 0 auto 15px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-  .table-resulttable {
-    background-color: whitesmoke;
-    padding: 10px;
-    table-layout: auto;
-    width: 100%;
-    border-collapse: collapse;
-  }
+.table-resulttable {
+  background-color: whitesmoke;
+  padding: 10px;
+  table-layout: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
 
-  th,
-  td {
-    text-align: center;
-    padding: 5px 0;
-  }
+th,
+td {
+  text-align: center;
+  padding: 5px 0;
+}
 
-  th {
-    position: sticky;
-    top: 0;
-    width: 33%;
-    background-color: whitesmoke;
-  }
+th {
+  position: sticky;
+  top: 0;
+  width: 33%;
+  background-color: whitesmoke;
+}
 
-  .section-restart {
-    display: flex;
-    justify-content: center;
-  }
+.section-restart {
+  display: flex;
+  justify-content: center;
+}
 
-  .restart-button {
-    width: 100px;
-    height: 40px;
-    border-radius: 4px;
-  }
+.restart-button {
+  height: 40px;
+  border-radius: 4px;
+  border-style: none;
+  color: #333;
+  font-weight: 750;
+  font-size: small;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  margin-top: 1rem;
+}
 </style>
