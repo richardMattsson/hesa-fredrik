@@ -14,7 +14,7 @@ export default {
         }
     },
     methods: {
-        login(){
+        login() {
             try {
                 const response = this.authStore.login(this.username, this.password)
                 this.message = response.message
@@ -24,8 +24,8 @@ export default {
                     this.password = ''
                     this.$router.push('/')
                 }
-            }  
-            catch(error){
+            }
+            catch (error) {
                 console.error("Inloggningsfel: ", error)
                 this.message = "Ett oväntat fel uppstod vid inloggning"
             }
@@ -34,36 +34,35 @@ export default {
 }
 </script>
 <template>
-    <article id="article-create-account">
-        <form id="form-create-account" @submit.prevent="login">
-            <h1>Logga in på ditt konto</h1>
+    <article id="article-login">
+        <form id="form-login" @submit.prevent="login">
+            <h1>Logga in</h1>
             <div class="div-create-account">
-                <input id="username" v-model="username" placeholder="Användarnamn" required>
+                <input id="username" v-model="username" placeholder="Användarnamn" aria-label="username" required>
             </div>
             <div class="div-create-account">
-                <input id="password" type="password" v-model="password" placeholder="Lösenord" required>
+                <input id="password" type="password" v-model="password" placeholder="Lösenord" aria-label="password"
+                    required>
             </div>
-            <button type="submit">Logga in</button>
+            <div class="div-create-account">
+                <button id="login-button" type="submit">Logga in</button>
+            </div>
             <p v-if="message">{{ message }}</p>
-            
-            <p><router-link to="/createuser"><button>Skapa konto här</button></router-link></p>
-            
         </form>
-        
+        <hr>
+        <router-link to="/createuser"><button id="create-account-nav-btn">Skapa nytt konto</button></router-link>
     </article>
 </template>
 <style scoped>
-#article-create-account {
-   margin: auto;
-}
-#form-create-account {
+#article-login {
+    margin: auto;
     background-color: white;
     padding: 2rem 2rem;
     border-radius: 8px;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-h1 { 
+h1 {
     margin-top: auto;
     margin-bottom: 1rem;
 }
@@ -72,16 +71,36 @@ h1 {
     margin-bottom: 1rem;
 }
 
-a:-webkit-any-link { color: black}
-
-.label-create-account{
-    margin-right: 0.5rem;
-}
-
-button{
-    height: 30px;
+button,
+input {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 100%;
     border-radius: 4px;
 }
 
+input {
+    border: 1px solid black;
+    background-color: white;
+    padding-left: 10px;
+}
 
+button {
+    border-style: none;
+    color: whitesmoke;
+    font-weight: 750;
+    font-size: small;
+}
+
+#login-button {
+    background-color: #FF8000;
+}
+
+#create-account-nav-btn {
+    background-color: #32CD32;
+}
+
+hr {
+    margin: 20px 0;
+}
 </style>
