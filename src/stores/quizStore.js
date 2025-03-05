@@ -34,12 +34,6 @@ export const useQuizStore = defineStore('quizStore', {
       }
     },
 
-    getRandomQuestions(allQuestions, num) {
-      if (!allQuestions || allQuestions.length === 0) return [];
-
-      const shuffled = allQuestions.sort(() => Math.random() - 0.5); // Shufflar om
-      return shuffled.slice(0, num);
-    },
     nextQuestion() {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         this.currentQuestionIndex++;
