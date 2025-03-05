@@ -1,92 +1,76 @@
-<!-- Main component for section-question and content -->
-<script>
-  export default {
-    props: {
-      results: {
-        type: Array,
-        default() {
-          return [];
-        }
-      }
-    },
-    data() {
-      return {
-        answer: null,
-        points: 0,
-        index: 0,
-        showResults: false
-      };
-    },
-    methods: {
-      onClick() {
-        if (this.answer === this.results[this.index].correctAnswer) {
-          this.points++;
-        }
-        this.showResults = true; // Visar röd/grön efter "nästa"
-
-        setTimeout(() => {
-          this.answer = null;
-          this.index++;
-          this.showResults = false; // Reset för nästa fråga
-        }, 2500); // delay innan ny fråga
-
-        if (this.index > 6) {
-          localStorage.setItem('points', JSON.stringify(this.points));
-          localStorage.setItem('numberOfQuestions', JSON.stringify(this.index));
-          this.$router.push('/register');
-        }
-      }
-    }
-  };
-</script>
 <template>
   <article class="container-questions">
-    <!-- progress bar -->
+    <!-- Progress bar -->
     <section class="progress-bar">
-      <progress :value="index" :max="7"></progress>
-      <p>{{ index }} / 7</p>
+      <progress
+        :value="quizStore.currentQuestionIndex"
+        :max="results.length"
+      ></progress>
+      <p>{{ quizStore.currentQuestionIndex + 1 }} / {{ results.length }}</p>
     </section>
-    <template v-if="index < results.length">
+
+    <!-- Display questions and answers -->
+    <template
+      v-if="
+        results.length > 0 && quizStore.currentQuestionIndex < results.length
+      "
+    >
       <section class="section-question">
-        <p id="question">{{ results[index].question }}</p>
-        <!-- <p>{{ question }}</p> -->
+        <p id="question">
+          {{ results[quizStore.currentQuestionIndex].question }}
+        </p>
       </section>
+
       <section class="section-answer-options">
-        <!-- Nedan key id är frågan plus svarsalternativet för att få ett unikt id.  -->
         <label
           class="container-answer-options"
-          :key="results[index].question + answerAlternative"
-          v-for="answerAlternative in results[index].answerAlternatives"
+          v-for="(answerAlternative, i) in results[
+            quizStore.currentQuestionIndex
+          ].answerAlternatives"
+          :key="i"
           :class="{
             correct:
-              showResults && answerAlternative === results[index].correctAnswer,
+              showResults &&
+              answerAlternative ===
+                results[quizStore.currentQuestionIndex].correctAnswer,
             incorrect:
               showResults &&
-              answerAlternative !== results[index].correctAnswer &&
+              answerAlternative !==
+                results[quizStore.currentQuestionIndex].correctAnswer &&
               answer === answerAlternative
           }"
         >
-          <input v-model="answer" type="radio" :value="answerAlternative" />
+          <input
+            v-model="answer"
+            type="radio"
+            :value="answerAlternative"
+            :disabled="showResults"
+          />
           {{ answerAlternative }}
 
+          <!-- Feedback for correct/incorrect answers -->
           <span v-if="showResults">
             <span
-              v-if="answerAlternative === results[index].correctAnswer"
+              v-if="
+                answerAlternative ===
+                results[quizStore.currentQuestionIndex].correctAnswer
+              "
               class="feedback correct-feedback"
               aria-live="polite"
             >
-              ✔️ Correct answer
+              ✔️ Rätt svar!
             </span>
             <span
               v-else-if="answer === answerAlternative"
               class="feedback incorrect-feedback"
               aria-live="polite"
             >
-              ❌ Wrong answer
+              ❌ Fel svar!
             </span>
           </span>
         </label>
       </section>
+
       <section class="section-answer-button">
         <input
           id="answer-button"
@@ -99,6 +83,70 @@
     </template>
   </article>
 </template>
+
+<script>
+  import { useQuizStore } from '../stores/quizStore';
+  import { onMounted, computed, ref } from 'vue';
+  import { useRouter } from 'vue-router';
+
+  export default {
+    setup() {
+      const quizStore = useQuizStore();
+      const answer = ref(null);
+      const showResults = ref(false);
+
+      const results = computed(() => quizStore.questions);
+      const loading = computed(() => results.value.length === 0);
+
+      onMounted(() => {
+        quizStore.fetchQuestions();
+      });
+
+      const router = useRouter();
+
+      const onClick = () => {
+        console.log('Answer:', answer.value);
+        if (
+          results.value.length === 0 ||
+          quizStore.currentQuestionIndex >= results.value.length
+        ) {
+          return;
+        }
+
+        if (
+          answer.value ===
+          results.value[quizStore.currentQuestionIndex].correctAnswer
+        ) {
+          quizStore.score++;
+        }
+
+        showResults.value = true;
+
+        setTimeout(() => {
+          showResults.value = false;
+          answer.value = null;
+
+          if (quizStore.currentQuestionIndex < results.value.length - 1) {
+            quizStore.nextQuestion();
+          } else {
+            quizStore.updateScore(quizStore.score, results.value.length);
+            router.push('/register');
+          }
+        }, 2500);
+      };
+
+      return {
+        quizStore,
+        answer,
+        showResults,
+        results,
+        loading,
+        onClick
+      };
+    }
+  };
+</script>
+
 <style scoped>
   .container-questions {
     background-color: #ffda00;
@@ -125,7 +173,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* min-height: 812px; */
     font-size: 1.2rem;
     padding: 10px;
     margin-bottom: 10px;
