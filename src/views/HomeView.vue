@@ -3,15 +3,15 @@ import logo from '/hesa-fredrik-logo.png';
 import { RouterLink } from 'vue-router';
 import { useAuthStore } from '../stores/useAuthStore';
 
-export default{
-  data(){
+export default {
+  data() {
     return {
       logo,
       authStore: useAuthStore()
     }
   },
   computed: {
-    currentUser(){
+    currentUser() {
       return this.authStore.currentUser
     }
   }
@@ -21,13 +21,13 @@ export default{
 <template>
   <article id="article-main">
     <h1>HESA FREDRIK</h1>
-    <img :src="logo" alt="hesa fredrik logga, radiomast alarm" id="img-home"/>
-    <p>Testa din krisberedskap – innan det är skarpt läge!</p>
-    <p v-if="currentUser" >Inloggad som: {{currentUser.username}}</p>
-    <p v-else >Du är inte inloggad</p>
-    <div><router-link to="/question"><button class="start-button">Starta spel</button></router-link></div>
-    <div v-if="!currentUser"><router-link to="/login" ><button>Logga in här</button></router-link></div>
-    <div><router-link to="/createuser"><button>Skapa nytt konto</button></router-link></div>
+    <img :src="logo" alt="hesa fredrik logga, radiomast alarm" id="img-home" />
+    <p id="slogan">Testa din krisberedskap – innan det är skarpt läge!</p>
+    <p class="inloggningsstatus" v-if="currentUser">Inloggad som: {{ currentUser.username }}</p>
+    <p class="inloggningsstatus" v-else>Du är inte inloggad</p>
+    <div><router-link to="/question"><button id="start-button">Starta Quiz</button></router-link></div>
+    <div v-if="!currentUser"><router-link to="/login" class="navigation-link">Logga in här</router-link></div>
+    <div v-if="!currentUser"><router-link to="/createuser" class="navigation-link">Skapa nytt konto</router-link></div>
   </article>
 </template>
 
@@ -46,17 +46,33 @@ export default{
 
 div {
   width: 160px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+
+#slogan {
+  font-style: italic;
+}
+
+.inloggningsstatus {
+  font-weight: bold;
 }
 
 button {
   width: 100%;
   height: 40px;
-  border-radius: 4px;
   border-style: none;
-  color: #333;
+  border-radius: 4px;
   font-weight: 750;
-  font-size: small;
-  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
-  margin-top: 1rem;
+  background-color: #333;
+  margin: 1rem 0;
+  font-size: medium;
+  color: whitesmoke;
+}
+
+.navigation-link {
+  color: #333;
+  text-decoration: underline;
 }
 </style>
