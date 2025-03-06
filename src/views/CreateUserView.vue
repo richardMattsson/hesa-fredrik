@@ -97,11 +97,11 @@ button {
 }
 
 #register-button {
-    background: linear-gradient(to bottom, #ff9a3e, #e06b00);
+    background-color: #0145E6;
 }
 
 #login-nav-btn {
-    background: linear-gradient(to bottom, #3eea3e, #2ca02c);
+    background-color: #28800C;
 }
 
 hr {
