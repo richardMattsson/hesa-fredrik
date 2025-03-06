@@ -113,10 +113,13 @@
           return;
         }
 
-        if (
-          answer.value ===
-          results.value[quizStore.currentQuestionIndex].correctAnswer
-        ) {
+        // sparar svar
+        const currentQuestion = results.value[quizStore.currentQuestionIndex];
+        currentQuestion.userAnswer = answer.value;
+        currentQuestion.correct =
+          answer.value === currentQuestion.correctAnswer;
+
+        if (currentQuestion.correct) {
           quizStore.score++;
         }
 

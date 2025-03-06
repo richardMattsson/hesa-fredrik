@@ -8,7 +8,6 @@
         numberOfQuestions: JSON.parse(
           localStorage.getItem('numberOfQuestions')
         ),
-
         newPlayer: { player: '', result: '' },
         playerName: '',
         resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
@@ -16,16 +15,19 @@
       };
     },
 
+    computed: {
+      randomizedQuestions() {
+        return this.quizStore.questions;
+      }
+    },
+
     methods: {
       onSave() {
         this.newPlayer.player = this.playerName;
         this.newPlayer.result = this.points;
 
-        // hämtar från local
         let existingResults =
           JSON.parse(localStorage.getItem('savedResult')) || [];
-
-        // lägger till score från pinia
 
         existingResults.push({
           player: this.playerName,
@@ -33,13 +35,9 @@
         });
 
         existingResults.sort((a, b) => b.result - a.result);
-
-        // Sparar tillbaks till localstorage
-
         localStorage.setItem('savedResult', JSON.stringify(existingResults));
 
         console.log('Updated saved results:', existingResults);
-
         this.$router.push('/scoretable');
       },
       restartQuiz() {
@@ -67,6 +65,28 @@
             placeholder="Namn"
           />
         </label>
+        <section class="quiz-summary">
+          <h3>Frågor och svar:</h3>
+          <ul>
+            <li v-for="(question, index) in randomizedQuestions" :key="index">
+              <p>
+                <strong>Fråga {{ index + 1 }}:</strong> {{ question.question }}
+              </p>
+              <p>
+                Ditt svar:
+                <span
+                  :class="{
+                    correct: question.correct,
+                    incorrect: !question.correct
+                  }"
+                >
+                  {{ question.userAnswer || 'Ej besvarad' }}
+                </span>
+              </p>
+              <p>Korrekt svar: {{ question.correctAnswer }}</p>
+            </li>
+          </ul>
+        </section>
 
         <section id="section-save-button">
           <input id="save-button" type="button" value="Spara" @click="onSave" />
@@ -92,6 +112,7 @@
     padding: 5px;
     grid: auto auto / auto auto auto;
     height: 100vh;
+    overflow: auto;
   }
 
   .section-form {
@@ -101,11 +122,9 @@
   #container-form {
     display: grid;
     grid: auto auto / auto auto;
-    /* border: 3px solid rgb(18, 179, 48); */
   }
 
   #quiz-result {
-    /* border: 3px solid rgb(206, 65, 157); */
     grid-area: 1 / 1 / span 1 / span 2;
   }
 
@@ -114,7 +133,6 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-evenly;
-    /* border: 3px solid rgb(36, 23, 172); */
     grid-area: 2 / 1 / span 1 / span 1;
   }
 
@@ -125,10 +143,7 @@
   }
 
   #section-save-button {
-    /* border: 3px solid rgb(179, 17, 17); */
     grid-area: 2 / 2 / span 1 / span 1;
-    /* width: 100px;
-  height: 50px; */
     display: flex;
     justify-content: center;
     align-items: end;
@@ -154,5 +169,22 @@
     width: 100px;
     height: 40px;
     border-radius: 4px;
+  }
+
+  .quiz-summary {
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+  .correct {
+    color: green;
+    font-weight: bold;
+  }
+  .incorrect {
+    color: red;
+    font-weight: bold;
   }
 </style>
