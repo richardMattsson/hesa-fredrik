@@ -1,6 +1,7 @@
 <script>
   import { mapStores } from 'pinia';
   import { useTutorialProgressStore } from '../../stores/store';
+  import { useAuthStore } from '../../stores/useAuthStore';
 
   export default {
     props: {
@@ -11,7 +12,7 @@
       navigateForward: { type: String, default: '/tutorial/introduktion' }
     },
     computed: {
-      ...mapStores(useTutorialProgressStore)
+      ...mapStores(useTutorialProgressStore, useAuthStore)
     }
   };
 </script>
@@ -29,9 +30,7 @@
         <progress :value="tutorialProgressStore.value" :max="4" />
         <p>{{ tutorialProgressStore.value }} / 4</p>
       </section>
-      <router-link
-        :to="navigateForward"
-        @click="tutorialProgressStore.increment()"
+      <router-link :to="navigateForward" @click="authStore.progress()"
         ><button>
           {{ nextPage }}
         </button></router-link
