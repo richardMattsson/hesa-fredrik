@@ -5,7 +5,9 @@
     data() {
       return {
         points: JSON.parse(localStorage.getItem('points')),
-        numberOfQuestions: JSON.parse(localStorage.getItem('numberOfQuestions')),
+        numberOfQuestions: JSON.parse(
+          localStorage.getItem('numberOfQuestions')
+        ),
 
         newPlayer: { player: '', result: '' },
         playerName: '',
@@ -20,11 +22,15 @@
         this.newPlayer.result = this.points;
 
         // hämtar från local
-        let existingResults = JSON.parse(localStorage.getItem('savedResult')) || [];
+        let existingResults =
+          JSON.parse(localStorage.getItem('savedResult')) || [];
 
         // lägger till score från pinia
 
-        existingResults.push({player: this.playerName, result: this.quizStore.score});
+        existingResults.push({
+          player: this.playerName,
+          result: this.quizStore.score
+        });
 
         existingResults.sort((a, b) => b.result - a.result);
 
@@ -35,15 +41,13 @@
         console.log('Updated saved results:', existingResults);
 
         this.$router.push('/scoretable');
-
       },
       restartQuiz() {
         this.quizStore.resetQuiz();
         this.$router.push('/question');
       }
-    },
+    }
   };
-
 </script>
 
 <template>
@@ -51,11 +55,17 @@
     <section class="section-form">
       <form id="container-form" action="">
         <p id="quiz-result">
-          {{ points }} rätta svar av {{ numberOfQuestions }}
+          {{ quizStore.score }} rätta svar av
+          {{ quizStore.currentQuestionIndex + 1 }}
         </p>
         <label id="container-input-name" for="">
           Vill du spara ditt resultat?
-          <input  id="input-name" v-model="playerName" type="text" placeholder="Namn" />
+          <input
+            id="input-name"
+            v-model="playerName"
+            type="text"
+            placeholder="Namn"
+          />
         </label>
 
         <section id="section-save-button">
@@ -64,80 +74,85 @@
       </form>
     </section>
     <section class="section-restart">
-      <input class="restart-button" type="button" @click="restartQuiz" value="Starta om quiz" />
+      <input
+        class="restart-button"
+        type="button"
+        @click="restartQuiz"
+        value="Starta om quiz"
+      />
     </section>
   </article>
 </template>
 
 <style scoped>
-.container-result {
-  background-color: #ffda00;
-  display: grid;
-  gap: 5px;
-  padding: 5px;
-  grid: auto auto / auto auto auto;
-  height: 100vh;
-}
+  .container-result {
+    background-color: #ffda00;
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    grid: auto auto / auto auto auto;
+    height: 100vh;
+  }
 
-.section-form {
-  grid-area: 1 / 1 / span 1 / span 3;
-}
+  .section-form {
+    grid-area: 1 / 1 / span 1 / span 3;
+  }
 
-#container-form {
-  display: grid;
-  grid: auto auto / auto auto;
-  /* border: 3px solid rgb(18, 179, 48); */
-}
+  #container-form {
+    display: grid;
+    grid: auto auto / auto auto;
+    /* border: 3px solid rgb(18, 179, 48); */
+  }
 
-#quiz-result {
-  /* border: 3px solid rgb(206, 65, 157); */
-  grid-area: 1 / 1 / span 1 / span 2;
-}
+  #quiz-result {
+    /* border: 3px solid rgb(206, 65, 157); */
+    grid-area: 1 / 1 / span 1 / span 2;
+  }
 
-#container-input-name {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-evenly;
-  /* border: 3px solid rgb(36, 23, 172); */
-  grid-area: 2 / 1 / span 1 / span 1;
-}
+  #container-input-name {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    /* border: 3px solid rgb(36, 23, 172); */
+    grid-area: 2 / 1 / span 1 / span 1;
+  }
 
-#input-name {
-  margin-top: 5px;
-  width: 250px;
-  height: 80%;
-}
+  #input-name {
+    margin-top: 5px;
+    width: 250px;
+    height: 80%;
+  }
 
-#section-save-button {
-  /* border: 3px solid rgb(179, 17, 17); */
-  grid-area: 2 / 2 / span 1 / span 1;
-  /* width: 100px;
+  #section-save-button {
+    /* border: 3px solid rgb(179, 17, 17); */
+    grid-area: 2 / 2 / span 1 / span 1;
+    /* width: 100px;
   height: 50px; */
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  padding-left: 10px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-left: 10px;
+  }
 
-#save-button {
-  width: 80px;
-  height: 40px;
-  border-radius: 4px;
-}
+  #save-button {
+    width: 80px;
+    height: 40px;
+    border-radius: 4px;
+  }
 
-.section-link {
-  grid-area: 2 / 1 / span 1 / span 1;
-}
+  .section-link {
+    grid-area: 2 / 1 / span 1 / span 1;
+  }
 
-.section-restart {
-  display: flex;
-  justify-content: center;
-}
+  .section-restart {
+    display: flex;
+    justify-content: center;
+  }
 
-.restart-button {
-  width: 100px;
-  height: 40px;
-  border-radius: 4px;
-}
+  .restart-button {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+  }
 </style>
