@@ -1,6 +1,5 @@
 <script>
   import { mapStores } from 'pinia';
-  import { useTutorialProgressStore } from '../../stores/store';
   import { useAuthStore } from '../../stores/useAuthStore';
 
   export default {
@@ -12,7 +11,7 @@
       navigateForward: { type: String, default: '/tutorial/introduktion' }
     },
     computed: {
-      ...mapStores(useTutorialProgressStore, useAuthStore)
+      ...mapStores(useAuthStore)
     }
   };
 </script>
@@ -23,12 +22,16 @@
       <router-link :to="navigateBack"
         ><button>{{ previousPage }}</button></router-link
       >
-      <div>
-        {{ tutorialProgressStore.reaction[tutorialProgressStore.value] }}
-      </div>
       <section class="progress-bar">
-        <progress :value="tutorialProgressStore.value" :max="4" />
-        <p>{{ tutorialProgressStore.value }} / 4</p>
+        <progress
+          v-if="authStore.currentUser"
+          :value="authStore.currentUser.level ? authStore.currentUser.level : 0"
+          :max="4"
+        />
+        <p v-if="authStore.currentUser">
+          {{ authStore.currentUser.level ? authStore.currentUser.level : 0 }} /
+          4
+        </p>
       </section>
       <router-link :to="navigateForward" @click="authStore.progress()"
         ><button>

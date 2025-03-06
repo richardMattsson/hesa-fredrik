@@ -4,8 +4,7 @@ import CryptoJS from 'crypto-js';
 export const useAuthStore = defineStore('auth', {
   state: () => ({
     users: JSON.parse(localStorage.getItem('users')) || [],
-    currentUser: JSON.parse(localStorage.getItem('currentUser')) || null,
-    level: 0
+    currentUser: JSON.parse(localStorage.getItem('currentUser')) || null
   }),
   actions: {
     hashPassword(password) {
@@ -57,21 +56,23 @@ export const useAuthStore = defineStore('auth', {
       localStorage.removeItem('currentUser');
     },
     progress() {
-      console.log(this.users);
-      console.log(this.currentUser);
-      if (this.users && this.currentUser) {
+      if (this.currentUser) {
         this.users.forEach((user) => {
           if (user.username === this.currentUser.username) {
-            if (user.level && user.level === 0) {
+            if (user.level && user.level < 4) {
               user.level += 1;
-              localStorage.setItem('users', JSON.stringify(this.users));
-              // console.log(JSON.parse(localStorage.getItem('users')));
-            } else {
+              console.log('ökar level med 1', user.level);
+            } else if (!user.level) {
               user.level = 1;
+              console.log('skapar level och sätter till 1', user.level);
             }
+            this.currentUser.level = user.level;
           }
-          console.log(user);
         });
+        console.log(this.users);
+        localStorage.setItem('users', JSON.stringify(this.users));
+
+        console.log('currentUser level', this.currentUser.level);
       }
     }
   }
