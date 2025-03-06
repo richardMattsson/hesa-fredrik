@@ -87,17 +87,17 @@ input {
 
 button {
     border-style: none;
-    color: whitesmoke;
+    color: white;
     font-weight: 750;
     font-size: small;
 }
 
 #login-button {
-    background: linear-gradient(to bottom, #ff9a3e, #e06b00);
+    background-color: #0145E6;
 }
 
 #create-account-nav-btn {
-    background: linear-gradient(to bottom, #3eea3e, #2ca02c);
+    background-color: #28800C;
 }
 
 hr {
