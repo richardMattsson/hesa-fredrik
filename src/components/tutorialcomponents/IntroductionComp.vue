@@ -1,14 +1,14 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
   import { mapStores } from 'pinia';
-  import { useTutorialProgressStore } from '../../stores/store';
+  import { useAuthStore } from '../../stores/useAuthStore';
 
   export default {
     components: {
       HeaderTutorialComp
     },
     computed: {
-      ...mapStores(useTutorialProgressStore)
+      ...mapStores(useAuthStore)
     },
     data() {
       return {
@@ -29,7 +29,7 @@
   <article class="container-color article-tutorial">
     <section class="section-intro">
       <section
-        v-if="tutorialProgressStore.value > 3"
+        v-if="authStore.currentUser && authStore.currentUser.level > 3"
         class="container-white section-info"
       >
         <h2 class="tutorial-h2">
