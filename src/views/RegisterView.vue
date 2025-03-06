@@ -2,7 +2,9 @@
   <article class="container-result">
     <section class="section-form">
       <form id="container-form" action="">
-        <p id="quiz-result">{{ quizStore.score }} rätta svar av 7</p>
+        <p id="quiz-result">
+          {{ points }} rätta svar av {{ numberOfQuestions }}
+        </p>
         <label id="container-input-name" for="">
           Vill du spara ditt resultat?
           <input
