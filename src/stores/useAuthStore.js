@@ -46,7 +46,15 @@ export const useAuthStore = defineStore('auth', {
         };
       }
 
+      let level;
+      this.users.forEach((u) => {
+        if (u.username === user.username) {
+          level = u.level;
+        }
+      });
+
       this.currentUser = user;
+      this.currentUser.level = level;
       localStorage.setItem('currentUser', JSON.stringify(user));
 
       return { success: true, message: 'Inloggning lyckades!' };

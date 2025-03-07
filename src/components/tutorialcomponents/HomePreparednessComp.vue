@@ -55,7 +55,7 @@
           this.authStore.users.forEach((user) => {
             if (user.username === this.authStore.currentUser.username) {
               if (!user.level) {
-                user.level += 1;
+                user.level = 1;
                 localStorage.setItem(
                   'users',
                   JSON.stringify(this.authStore.users)
