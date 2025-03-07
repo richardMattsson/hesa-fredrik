@@ -1,6 +1,11 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
+  import { mapStores } from 'pinia';
+  import { useAuthStore } from '../../stores/useAuthStore';
   export default {
+    computed: {
+      ...mapStores(useAuthStore)
+    },
     components: {
       HeaderTutorialComp
     },
@@ -16,8 +21,27 @@
           'Mobiltelefon och laddare.',
           'Karta, kompass.',
           'Viktiga uppgifter på papper, exempelvis telefonnummer och försäkringsbevis.'
-        ]
+        ],
+        showChecklist: false
       };
+    },
+    methods: {
+      addToSum() {
+        this.showChecklist = true;
+        this.authStore.users.forEach((user) => {
+          if (user.username === this.authStore.currentUser.username) {
+            console.log(user);
+            if (user.level > 0 && user.level < 2) {
+              user.level = 2;
+              localStorage.setItem(
+                'users',
+                JSON.stringify(this.authStore.users)
+              );
+              this.authStore.currentUser = user;
+            }
+          }
+        });
+      }
     }
   };
 </script>
@@ -56,7 +80,9 @@
         Idé: Låt användaren skapa/få en egen checklista där vi samlar allt som
         kan vara bra att förbereda sig med.
       </p>
-      <ul class="checklist">
+      <input type="button" value="Visa checklista" @click.once="addToSum()" />
+
+      <ul v-if="showChecklist" class="checklist">
         <li :key="task" v-for="task in checklistEvacuation">{{ task }}</li>
       </ul>
     </section>

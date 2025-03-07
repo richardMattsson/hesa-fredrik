@@ -3,16 +3,19 @@
   import { mapStores } from 'pinia';
   import { useAuthStore } from '../../stores/useAuthStore';
 
+  import { useQuizStore } from '../../stores/quizStore';
+
   export default {
     components: {
       HeaderTutorialComp
     },
     computed: {
-      ...mapStores(useAuthStore)
+      ...mapStores(useAuthStore, useQuizStore)
     },
     data() {
       return {
-        showAnswer: false
+        showAnswer: false,
+        quizStore: useQuizStore()
       };
     }
   };
@@ -37,7 +40,9 @@
         </h2>
         <p>Om du vill kan du nu testa dina nya kunskaper i ett quiz.</p>
         <router-link to="/question"
-          ><button>Starta quiz nu</button></router-link
+          ><button @click="quizStore.resetQuiz">
+            Starta quiz nu
+          </button></router-link
         >
       </section>
       <h2 class="tutorial-h2">Introduktion</h2>

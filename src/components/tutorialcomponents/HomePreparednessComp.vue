@@ -1,14 +1,19 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
+  import { mapStores } from 'pinia';
+  import { useAuthStore } from '../../stores/useAuthStore';
 
   export default {
+    computed: {
+      ...mapStores(useAuthStore)
+    },
     components: {
       HeaderTutorialComp
     },
     data() {
       return {
         showAnswer: null,
-
+        sumOfAnswers: 0,
         itemsGoodToHave: [
           'Radio som drivs med batteri, solceller, eller vev.',
           'Extra batterier',
@@ -41,11 +46,33 @@
           }
         ]
       };
+    },
+    methods: {
+      addToSum(item) {
+        this.showAnswer = item.title;
+        this.sumOfAnswers++;
+        if (this.sumOfAnswers === 3) {
+          this.authStore.users.forEach((user) => {
+            if (user.username === this.authStore.currentUser.username) {
+              console.log(user);
+              if (!user.level) {
+                user.level = 1;
+                localStorage.setItem(
+                  'users',
+                  JSON.stringify(this.authStore.users)
+                );
+                this.authStore.currentUser = user;
+              }
+            }
+          });
+        }
+      }
     }
   };
 </script>
 <template>
   <HeaderTutorialComp
+    :test="sumOfAnswers"
     title="Hemberedskap"
     previous-page="Tillbaka till Introduktion"
     next-page="Starta övning Utrymning"
@@ -86,7 +113,7 @@
           <input
             type="button"
             value="Visa rätt svar"
-            @click="showAnswer = item.title"
+            @click.once="addToSum(item)"
           />
           <p v-if="showAnswer === item.title">
             {{ item.answer }}
