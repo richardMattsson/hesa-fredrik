@@ -1,5 +1,8 @@
 <template>
   <article class="article-resulttable">
+    <div id="scoretable-heading">
+      <h1>Ledartavla</h1>
+    </div>
     <section class="section-resulttable">
       <table class="table-resulttable">
         <thead>
@@ -44,10 +47,25 @@ export default {
 </script>
 
 <style scoped>
+#scoretable-heading {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  background-color: whitesmoke;;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  color: black;
+  font-size: large;
+}
+
+
 .article-resulttable {
   width: 100%;
   height: 80vh;
-  margin: 15px auto;
+  margin: 0 auto;
   height: 100vh;
   margin-bottom: auto;
 }
