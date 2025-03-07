@@ -1,7 +1,12 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
+  import { mapStores } from 'pinia';
+  import { useAuthStore } from '../../stores/useAuthStore';
 
   export default {
+    computed: {
+      ...mapStores(useAuthStore)
+    },
     components: {
       HeaderTutorialComp
     },
@@ -27,6 +32,24 @@
           }
         ]
       };
+    },
+    methods: {
+      addToSum(alternative) {
+        if (alternative.isCorrect) {
+          this.authStore.users.forEach((user) => {
+            if (user.username === this.authStore.currentUser.username) {
+              if (user.level > 1 && user.level < 3) {
+                user.level = 3;
+                localStorage.setItem(
+                  'users',
+                  JSON.stringify(this.authStore.users)
+                );
+                this.authStore.currentUser = user;
+              }
+            }
+          });
+        }
+      }
     }
   };
 </script>
@@ -75,6 +98,7 @@
         <form action="" class="radiobuttons">
           <label
             v-for="alternative in questionAlternatives"
+            @click="addToSum(alternative)"
             :key="alternative.text"
             :class="{
               falseColor:

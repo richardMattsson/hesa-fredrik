@@ -4,6 +4,7 @@
 
   export default {
     props: {
+      test: { type: Number, default: 0 },
       title: { type: String, default: 'Rubrik 1' },
       previousPage: { type: String, default: 'Föregående sida' },
       nextPage: { type: String, default: 'Nästa sida' },
@@ -29,11 +30,12 @@
           :max="4"
         />
         <p v-if="authStore.currentUser">
+          Genomfört
           {{ authStore.currentUser.level ? authStore.currentUser.level : 0 }} /
-          4
+          4 övningar
         </p>
       </section>
-      <router-link :to="navigateForward" @click="authStore.progress()"
+      <router-link :to="navigateForward"
         ><button>
           {{ nextPage }}
         </button></router-link
