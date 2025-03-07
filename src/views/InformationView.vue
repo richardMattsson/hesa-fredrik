@@ -6,7 +6,7 @@ data() {
     linkData: []
   }
 },
-created(){
+mounted(){
   this.linkData = [
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/",
@@ -36,7 +36,7 @@ created(){
 <template>
   <article id="information-page">
     <div id="information-page-heading">
-      <h1>Här hittar du mer information</h1>
+      <h1>Här hittar du länkar till mer information</h1>
     </div>
     <section class="wrapper-information" v-for="(data, index) in linkData" :key="index">
       <a :href="data.link" :style="{ backgroundImage: data.image ? 'url(' + data.image + ')' : 'none'}"><span>{{data.value}}</span></a>
