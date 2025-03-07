@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 import HomeView from './views/HomeView.vue';
-import CreateUserView from './views/CreateUserView.vue';
+import RegistrationView from './views/RegistrationView.vue';
 import LoginView from './views/LoginView.vue';
 import QuestionView from './views/QuestionView.vue';
 import RegisterView from './views/RegisterView.vue';
@@ -14,6 +14,7 @@ import CivilDefenceShelterComp from './components/tutorialcomponents/CivilDefenc
 import WarningSystemsComp from './components/tutorialcomponents/WarningSystemsComp.vue';
 import IntroductionComp from './components/tutorialcomponents/IntroductionComp.vue';
 
+
 export default createRouter({
   history: createWebHashHistory(),
   routes: [
@@ -22,8 +23,8 @@ export default createRouter({
       path: '/'
     },
     {
-      component: CreateUserView,
-      path: '/createuser'
+      component: RegistrationView,
+      path: '/registration'
     },
     {
       component: LoginView,

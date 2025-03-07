@@ -50,7 +50,7 @@ export default {
             <p v-if="message">{{ message }}</p>
         </form>
         <hr>
-        <router-link to="/createuser"><button id="create-account-nav-btn">Skapa nytt konto</button></router-link>
+        <router-link to="/registration"><button id="create-account-nav-btn">Skapa nytt konto</button></router-link>
     </article>
 </template>
 <style scoped>
