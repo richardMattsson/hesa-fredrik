@@ -48,7 +48,7 @@ export default {
       </li>
     </ul>
   </nav>
-  <main :class="{'main-desktop': !isMobile}">
+  <main :class="{'main-desktop': !isMobile, 'main-mobile': isMobile}">
     <RouterView />
   </main>
 </template>
@@ -56,6 +56,10 @@ export default {
 <style scoped>
 .main-desktop{
 margin-top: 3rem;
+}
+
+.main-mobile{
+  margin-bottom: 3rem;
 }
 
 nav {
