@@ -54,9 +54,8 @@
         if (this.sumOfAnswers === 3) {
           this.authStore.users.forEach((user) => {
             if (user.username === this.authStore.currentUser.username) {
-              console.log(user);
               if (!user.level) {
-                user.level = 1;
+                user.level += 1;
                 localStorage.setItem(
                   'users',
                   JSON.stringify(this.authStore.users)
@@ -73,7 +72,7 @@
 <template>
   <HeaderTutorialComp
     :test="sumOfAnswers"
-    title="Hemberedskap"
+    title="Övning 1 - Hemberedskap"
     previous-page="Tillbaka till Introduktion"
     next-page="Starta övning Utrymning"
     navigate-back="/tutorial/introduktion"

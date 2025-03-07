@@ -39,7 +39,7 @@
           this.authStore.users.forEach((user) => {
             if (user.username === this.authStore.currentUser.username) {
               if (user.level > 1 && user.level < 3) {
-                user.level = 3;
+                user.level += 1;
                 localStorage.setItem(
                   'users',
                   JSON.stringify(this.authStore.users)
@@ -55,7 +55,7 @@
 </script>
 <template>
   <HeaderTutorialComp
-    title="Skyddsrum"
+    title="Övning 3 - Skyddsrum"
     previous-page="Tillbaka till Utrymning"
     next-page="Starta övning Varningssystem"
     navigate-back="/tutorial/utrymning"
