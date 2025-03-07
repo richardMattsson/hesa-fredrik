@@ -30,16 +30,16 @@ export default {
 <template>
   <nav :class="{ 'nav-top': !isMobile, 'nav-bottom': isMobile }">
     <ul id="nav-ul">
-      <li class="nav-links" id="nav-home">
+      <li class="nav-links" >
         <RouterLink to="/">Hem</RouterLink>
       </li>
-      <li class="nav-links" id="nav-information">
+      <li class="nav-links">
         <RouterLink to="/information">Information</RouterLink>
       </li>
-      <li class="nav-links" id="nav-leaderboard">
+      <li class="nav-links">
         <RouterLink to="/scoretable">Ledartavla</RouterLink>
       </li>
-      <li class="nav-links" id="nav-tutorial">
+      <li class="nav-links">
         <RouterLink to="/tutorial/introduktion">Övningar</RouterLink>
       </li>
       <li>
@@ -48,9 +48,16 @@ export default {
       </li>
     </ul>
   </nav>
-
+  <main :class="{'main-desktop': !isMobile}">
+    <RouterView />
+  </main>
 </template>
+
 <style scoped>
+.main-desktop{
+margin-top: 3rem;
+}
+
 nav {
   position: fixed;
   width: 100%;
