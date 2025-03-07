@@ -14,6 +14,7 @@
     height: 100vh;
     margin-top: auto;
     overflow: auto;
+    background-color: rgb(231, 226, 226);
   }
   .tutorial-h1 {
     font-size: 1.5rem;
@@ -22,13 +23,22 @@
   .tutorial-h2 {
     font-size: 1.2rem;
   }
+
   .container-color {
     background-color: #ffda00;
 
     padding: 10px;
   }
+  .buttonColor {
+    background-color: #ffda00;
+    /* border-style: none; */
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+  }
   .container-white {
-    background-color: whitesmoke;
+    background-color: rgb(231, 226, 226);
 
     padding: 10px;
   }

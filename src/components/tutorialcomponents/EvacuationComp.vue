@@ -53,8 +53,8 @@
     navigate-forward="/tutorial/skyddsrum"
   />
 
-  <article class="container-color article-tutorial">
-    <section class="container-color section-intro">
+  <article class="container-white article-tutorial">
+    <section class="container-white section-intro">
       <h2 class="tutorial-h2">Utrymning</h2>
       <p>
         Du kan snabbt behöva lämna ett område vid exempelvis ett hotande
@@ -75,7 +75,12 @@
         Planera vad just du behöver ta med om du snabbt måste lämna din bostad
         en kortare eller längre tid. Här är några tips:
       </p>
-      <input type="button" value="Visa checklista" @click.once="addToSum()" />
+      <input
+        class="buttonColor"
+        type="button"
+        value="Visa checklista"
+        @click.once="addToSum()"
+      />
 
       <ul v-if="showChecklist" class="checklist">
         <li :key="task" v-for="task in checklistEvacuation">{{ task }}</li>
@@ -88,14 +93,16 @@
     margin-top: 20px;
     margin-left: 2rem;
     margin-right: 2rem;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
 
   .section-info {
     margin-top: 20px;
     padding-left: 2rem;
     padding-right: 2rem;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
   .checklist {
     list-style-type: square;

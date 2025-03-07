@@ -79,7 +79,7 @@
     navigate-forward="/tutorial/utrymning"
   />
 
-  <article class="container-color article-tutorial">
+  <article class="container-white article-tutorial">
     <section class="section-intro">
       <h2 class="tutorial-h2">Hemberedskap</h2>
       <p>
@@ -107,9 +107,10 @@
       </section>
       <section class="container-white container-example">
         <h3>Exempelfråga</h3>
-        <div class="container-color container-div">
+        <div class="container-white container-div">
           <p>{{ item.question }}</p>
           <input
+            class="buttonColor"
             type="button"
             value="Visa rätt svar"
             @click.once="addToSum(item)"
@@ -127,11 +128,13 @@
     margin-top: 20px;
     margin-left: 2rem;
     margin-right: 2rem;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
   .section-info {
     margin-top: 20px;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
   .checklist {
     list-style-type: circle;
