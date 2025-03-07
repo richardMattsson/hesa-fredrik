@@ -66,7 +66,6 @@
           />
         </label>
         <section class="quiz-summary">
-          <h3>Frågor och svar:</h3>
           <ul>
             <li v-for="(question, index) in randomizedQuestions" :key="index">
               <p>
@@ -108,8 +107,8 @@
   .container-result {
     background-color: #ffda00;
     display: grid;
-    gap: 5px;
-    padding: 5px;
+    /* gap: 5px; */
+    /* padding: 5px; */
     grid: auto auto / auto auto auto;
     height: 100vh;
     overflow: auto;
@@ -126,14 +125,21 @@
 
   #quiz-result {
     grid-area: 1 / 1 / span 1 / span 2;
+    display: flex;
+    height: 40px;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    font-weight: 900;
+    background-color: whitesmoke;
+    margin: 0%;
+    padding: 0%;
   }
 
   #container-input-name {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: space-evenly;
-    grid-area: 2 / 1 / span 1 / span 1;
+    margin-left: 5vh;
   }
 
   #input-name {
@@ -151,9 +157,18 @@
   }
 
   #save-button {
-    width: 80px;
-    height: 40px;
+    width: 10vh;
+    height: 5vh;
+    border-style: none;
     border-radius: 4px;
+    font-weight: 750;
+    background-color: #333;
+    /* margin: 1rem 0; */
+    font-size: medium;
+    color: whitesmoke;
+    margin-right: 10vh;
+    margin-bottom: auto;
+    justify-items: flex-start;
   }
 
   .section-link {
@@ -166,18 +181,35 @@
   }
 
   .restart-button {
-    width: 100px;
-    height: 40px;
+    width: 20vh;
+    height: 5vh;
+    border-style: none;
     border-radius: 4px;
+    font-weight: 750;
+    background-color: #333;
+    /* margin: 1rem 0; */
+    font-size: medium;
+    color: whitesmoke;
+    margin-right: 10vh;
+    margin-bottom: auto;
+    justify-items: flex-start;
   }
 
   .quiz-summary {
-    margin-top: 20px;
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
+    width: 100%;
+    margin-left: 5vh;
+    margin-right: auto;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0px;
+  }
+  li {
+    background-color: whitesmoke;
   }
   .correct {
     color: green;
@@ -186,5 +218,17 @@
   .incorrect {
     color: red;
     font-weight: bold;
+  }
+
+  @media screen and (min-width: 1080px) {
+    .quiz-summary {
+      margin-left: 10vh;
+    }
+    #container-input-name {
+      margin-left: 70vh;
+    }
+    #save-button {
+      width: 20vh;
+    }
   }
 </style>
