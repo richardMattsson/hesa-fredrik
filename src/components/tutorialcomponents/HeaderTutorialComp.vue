@@ -17,11 +17,11 @@
   };
 </script>
 <template>
-  <header class="container-white">
+  <header class="container-color">
     <h1 class="tutorial-h1">{{ title }}</h1>
     <nav class="container-flex tutorial-nav">
       <router-link :to="navigateBack"
-        ><button>{{ previousPage }}</button></router-link
+        ><button class="buttonDark">{{ previousPage }}</button></router-link
       >
       <section class="progress-bar">
         <progress
@@ -36,7 +36,7 @@
         </p>
       </section>
       <router-link :to="navigateForward"
-        ><button>
+        ><button class="buttonDark">
           {{ nextPage }}
         </button></router-link
       >
@@ -57,20 +57,33 @@
   }
   progress {
     width: 80%;
+    border: 1px solid #333;
+
+    border-radius: 5px;
   }
   progress::-webkit-progress-bar {
     background-color: #ddd;
-    border-radius: 5px;
   }
   progress::-webkit-progress-value {
-    background-color: #4caf50;
+    background-color: #333;
     border-radius: 5px;
   }
   progress::-moz-progress-bar {
-    background-color: #4caf50;
-    border-radius: 5px;
+    background-color: #333;
   }
   a > button {
     padding: 5px 5px;
+  }
+  .buttonDark {
+    /* width: 100%; */
+    /* height: 40px; */
+    border-style: none;
+    border-radius: 4px;
+    /* font-weight: 750; */
+    background-color: #333;
+    margin: 1rem 0;
+    /* font-size: medium; */
+    color: whitesmoke;
+    cursor: pointer;
   }
 </style>

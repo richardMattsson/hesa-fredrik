@@ -65,10 +65,10 @@
     navigate-forward="/tutorial/introduktion"
   />
 
-  <article class="container-color article-tutorial">
-    <!-- <section class="section-intro">
-      <h2>Lyssna på alarmen:</h2>
-    </section> -->
+  <article class="container-white article-tutorial">
+    <section class="section-intro">
+      <h2>Klicka för mer information</h2>
+    </section>
     <figure
       :key="audio.src"
       v-for="audio in audioArray"
@@ -86,15 +86,13 @@
   </article>
 </template>
 <style scoped>
-  .progress-indicator {
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 2px;
+  .section-intro {
+    text-align: center;
   }
 
   figcaption {
     width: 60%;
-    /* height: 40px; */
+
     border-style: none;
     border-radius: 4px;
     font-weight: 750;

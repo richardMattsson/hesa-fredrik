@@ -62,7 +62,7 @@
     navigate-forward="/tutorial/varningssystem"
   />
 
-  <article class="container-color article-tutorial">
+  <article class="container-white article-tutorial">
     <section class="section-intro">
       <h2 class="tutorial-h2">Skyddsrum</h2>
       <p>
@@ -89,8 +89,8 @@
     </section>
     <section class="container-white container-example">
       <h3>Exempelfråga</h3>
-      <div class="container-color container-radiobuttons">
-        <p class="question-paragraph">
+      <div class="container-white container-radiobuttons">
+        <p class="question-paragraph container-color">
           Välj det påstående angående skyddsrum som inte gäller vid en krisfull
           situation.
         </p>
@@ -143,11 +143,13 @@
     margin-top: 20px;
     margin-left: 2rem;
     margin-right: 2rem;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
   .section-info {
     margin-top: 20px;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
   .container-radiobuttons {
     display: flex;
@@ -162,6 +164,7 @@
   }
   .label-class {
     padding: 5px;
+    cursor: pointer;
   }
   .correctColor {
     /* background-color: green; */

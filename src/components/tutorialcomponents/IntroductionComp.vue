@@ -2,7 +2,6 @@
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
   import { mapStores } from 'pinia';
   import { useAuthStore } from '../../stores/useAuthStore';
-
   import { useQuizStore } from '../../stores/quizStore';
 
   export default {
@@ -29,7 +28,7 @@
     navigate-forward="/tutorial/hemberedskap"
   />
 
-  <article class="container-color article-tutorial">
+  <article class="container-white article-tutorial">
     <section class="section-intro">
       <section
         v-if="authStore.currentUser && authStore.currentUser.level > 3"
@@ -40,7 +39,7 @@
         </h2>
         <p>Om du vill kan du nu testa dina nya kunskaper i ett quiz.</p>
         <router-link to="/question"
-          ><button @click="quizStore.resetQuiz">
+          ><button @click="quizStore.resetQuiz" class="buttonColor">
             Starta quiz nu
           </button></router-link
         >
@@ -56,7 +55,7 @@
         du ska göra om krisen kommer.
       </p>
       <router-link to="/tutorial/hemberedskap"
-        ><button>Starta övningar nu</button></router-link
+        ><button class="buttonColor">Starta övningar nu</button></router-link
       >
     </section>
     <section class="container-white section-info">
@@ -68,10 +67,10 @@
     </section>
     <section class="container-white container-example">
       <h3>Exempel</h3>
-      <div class="container-color">
+      <div class="container-white">
         <h4>Hemberedskap - vatten</h4>
         <p>Hur många liter vatten behöver en person i genomsnitt per dag?</p>
-        <button @click="showAnswer = !showAnswer">
+        <button class="buttonColor" @click="showAnswer = !showAnswer">
           Klicka här för rätt svar
         </button>
         <p v-if="showAnswer">
@@ -87,10 +86,12 @@
     margin-top: 20px;
     margin-left: 2rem;
     margin-right: 2rem;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
   .section-info {
     margin-top: 20px;
-    border: 1px dotted black;
+    border: 1px solid #333;
+    border-radius: 4px;
   }
 </style>
