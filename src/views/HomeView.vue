@@ -27,7 +27,7 @@ export default {
     <p class="inloggningsstatus" v-else>Du är inte inloggad</p>
     <div><router-link to="/question"><button id="start-button">Starta Quiz</button></router-link></div>
     <div v-if="!currentUser"><router-link to="/login" class="navigation-link">Logga in här</router-link></div>
-    <div v-if="!currentUser"><router-link to="/createuser" class="navigation-link">Skapa nytt konto</router-link></div>
+    <div v-if="!currentUser"><router-link to="/registration" class="navigation-link">Skapa nytt konto</router-link></div>
   </article>
 </template>
 

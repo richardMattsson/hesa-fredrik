@@ -20,11 +20,12 @@ export default {
             try {
                 const response = this.authStore.register(this.username, this.password, this.confirmPassword)
                 this.message = response.message
-
-                if (response.success) {
+                
+                if (response.success) {   
                     this.username = ''
                     this.password = ''
                     this.confirmPassword = ''
+                    setTimeout(() => {this.$router.push('/login')}, 1800)
                 }
             }
             catch (error) {
