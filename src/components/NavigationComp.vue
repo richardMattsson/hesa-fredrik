@@ -5,68 +5,81 @@ import { useAuthStore } from '../stores/useAuthStore';
 export default {
   data() {
     return {
-      authStore: useAuthStore()
+      authStore: useAuthStore(),
+      isMobile: window.innerWidth <= 470
     }
   },
   computed: {
     currentUser() {
       return this.authStore.currentUser
-    }
+    },
+  },
+  methods: {
+    updateView() {
+      this.isMobile = window.innerWidth <= 470
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.updateView)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateView)
   }
 }
 </script>
 <template>
-  <nav id="container-nav">
-    <ul id="container-ul">
-      <li class="container-links" id="nav-home">
+  <nav :class="{ 'nav-top': !isMobile, 'nav-bottom': isMobile }">
+    <ul id="nav-ul">
+      <li class="nav-links" id="nav-home">
         <RouterLink to="/">Hem</RouterLink>
       </li>
-      <li class="container-links" id="nav-information">
+      <li class="nav-links" id="nav-information">
         <RouterLink to="/information">Information</RouterLink>
       </li>
-      <li class="container-links" id="nav-leaderboard">
+      <li class="nav-links" id="nav-leaderboard">
         <RouterLink to="/scoretable">Ledartavla</RouterLink>
       </li>
-      <li class="container-links" id="nav-tutorial">
+      <li class="nav-links" id="nav-tutorial">
         <RouterLink to="/tutorial/introduktion">Övningar</RouterLink>
       </li>
       <li>
-        <a v-if="currentUser" class="container-links" href="#" @click.prevent="authStore.logout()">Logga ut</a>
-        <a v-else class="container-links" href="#/login">Logga in</a>
+        <a v-if="currentUser" class="nav-links" href="#" @click.prevent="authStore.logout()">Logga ut</a>
+        <a v-else class="nav-links" href="#/login">Logga in</a>
       </li>
     </ul>
   </nav>
 
-  <!--
-  <footer id="container-footer">
-   <p class="info-text">Quiz om förberedelser inför en eventuell kris.</p>
-    <p class="info-text">
-      Av: Richard Mattsson, Kåre Lindqvist, Louise Nensén Lagnefors
-    </p>
-  </footer> 
-  -->
-
 </template>
 <style scoped>
-#container-nav {
+nav {
+  position: fixed;
+  width: 100%;
+  padding: 0.5rem 0;
   background-color: #333;
   color: whitesmoke;
+}
+
+.nav-top {
+  top: 0;
+  left: 0;
+}
+
+.nav-bottom {
+  bottom: 0;
+  left: 0;
+}
+
+#nav-ul {
   display: flex;
   flex-direction: row;
-  padding: 0.5rem 0;
-}
-
-#container-ul {
-  width: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
+  list-style-type: none;
   align-content: center;
   justify-content: space-around;
-  list-style-type: none;
 }
 
-.container-links {
+.nav-links {
   display: flex;
   align-items: center;
   height: 1.5rem;
@@ -74,46 +87,21 @@ export default {
   border-radius: 6px;
 }
 
-.container-links:hover {
+.nav-links:hover {
   cursor: pointer;
-  background-color: #444;
+  background-color: #555;
 }
 
-/*
-  #container-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 1.5rem;
-    padding: 0.5rem;
-    background-color: #333;
-    color: whitesmoke;
+@media screen and (max-width: 470px) {
+
+  #nav-ul {
+    font-size: small;
   }
-*/
 
-.info-text {
-  margin: 0;
-}
-
-
-@media screen and (max-width: 430px) {
-
-  /*
-   container-footer {
-   display: none;
-   }
- */
- #container-ul {
-  font-size: small;
- }
-
- .container-links {
-  height: 1rem;
-  padding: 0.3rem 0.5rem;
-  border-radius: 6px;
-}
+  .nav-links {
+    height: 1rem;
+    padding: 0.3rem 0.5rem;
+  }
 
 }
 </style>
