@@ -7,8 +7,5 @@
 </script>
 
 <template>
-  <main id="container-main">
-    <RouterView />
-    <NavigationComp />
-  </main>
+  <NavigationComp />
 </template>
