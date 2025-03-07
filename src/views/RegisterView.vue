@@ -1,49 +1,41 @@
 <script>
   import { useQuizStore } from '../stores/quizStore';
+  import { useAuthStore } from '../stores/useAuthStore';
+  import { ref, computed } from 'vue';
 
   export default {
-    data() {
-      return {
-        points: JSON.parse(localStorage.getItem('points')),
-        numberOfQuestions: JSON.parse(
-          localStorage.getItem('numberOfQuestions')
-        ),
-        newPlayer: { player: '', result: '' },
-        playerName: '',
-        resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
-        quizStore: useQuizStore()
-      };
-    },
+    setup() {
+      const quizStore = useQuizStore();
+      const authStore = useAuthStore();
+      const playerName = ref('');
+      const currentUser = computed(() => authStore.currentUser);
 
-    computed: {
-      randomizedQuestions() {
-        return this.quizStore.questions;
-      }
-    },
-
-    methods: {
-      onSave() {
-        this.newPlayer.player = this.playerName;
-        this.newPlayer.result = this.points;
-
+      const onSave = () => {
+        const finalPlayer = currentUser.value
+          ? currentUser.value.username
+          : playerName.value;
         let existingResults =
           JSON.parse(localStorage.getItem('savedResult')) || [];
-
-        existingResults.push({
-          player: this.playerName,
-          result: this.quizStore.score
-        });
-
+        existingResults.push({ player: finalPlayer, result: quizStore.score });
         existingResults.sort((a, b) => b.result - a.result);
         localStorage.setItem('savedResult', JSON.stringify(existingResults));
-
         console.log('Updated saved results:', existingResults);
         this.$router.push('/scoretable');
-      },
-      restartQuiz() {
-        this.quizStore.resetQuiz();
+      };
+
+      const restartQuiz = () => {
+        quizStore.resetQuiz();
         this.$router.push('/question');
-      }
+      };
+
+      return {
+        quizStore,
+        playerName,
+        currentUser,
+        onSave,
+        restartQuiz,
+        randomizedQuestions: computed(() => quizStore.questions)
+      };
     }
   };
 </script>
@@ -56,7 +48,7 @@
           {{ quizStore.score }} rätta svar av
           {{ quizStore.currentQuestionIndex + 1 }}
         </p>
-        <label id="container-input-name" for="">
+        <label id="container-input-name" v-if="currentUser == null">
           Vill du spara ditt resultat?
           <input
             id="input-name"
@@ -65,6 +57,7 @@
             placeholder="Namn"
           />
         </label>
+        <p v-else>Vill du spara ditt resultat {{ currentUser.username }}?</p>
         <section class="quiz-summary">
           <ul>
             <li v-for="(question, index) in randomizedQuestions" :key="index">
@@ -86,7 +79,6 @@
             </li>
           </ul>
         </section>
-
         <section id="section-save-button">
           <input id="save-button" type="button" value="Spara" @click="onSave" />
         </section>
