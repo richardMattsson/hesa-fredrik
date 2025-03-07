@@ -30,9 +30,8 @@
         this.showChecklist = true;
         this.authStore.users.forEach((user) => {
           if (user.username === this.authStore.currentUser.username) {
-            console.log(user);
             if (user.level > 0 && user.level < 2) {
-              user.level = 2;
+              user.level += 1;
               localStorage.setItem(
                 'users',
                 JSON.stringify(this.authStore.users)
@@ -47,7 +46,7 @@
 </script>
 <template>
   <HeaderTutorialComp
-    title="Utrymning"
+    title="Övning 2 - Utrymning"
     previous-page="Tillbaka till Hemberedskap"
     next-page="Starta övning Skyddsrum"
     navigate-back="/tutorial/hemberedskap"
@@ -75,10 +74,6 @@
       <p>
         Planera vad just du behöver ta med om du snabbt måste lämna din bostad
         en kortare eller längre tid. Här är några tips:
-      </p>
-      <p>
-        Idé: Låt användaren skapa/få en egen checklista där vi samlar allt som
-        kan vara bra att förbereda sig med.
       </p>
       <input type="button" value="Visa checklista" @click.once="addToSum()" />
 
