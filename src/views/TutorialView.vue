@@ -29,6 +29,11 @@
 
     padding: 10px;
   }
+  .exampleAnswer {
+    /* background-color: #ffda00; */
+    color: darkgreen;
+    font-weight: 600;
+  }
   .buttonColor {
     background-color: #ffda00;
     /* border-style: none; */

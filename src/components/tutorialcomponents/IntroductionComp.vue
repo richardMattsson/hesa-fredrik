@@ -74,7 +74,7 @@
         <button class="buttonColor" @click="showAnswer = !showAnswer">
           Klicka här för rätt svar
         </button>
-        <p v-if="showAnswer">
+        <p class="exampleAnswer" v-if="showAnswer">
           Du behöver minst tre liter varje dag, i första hand för att dricka och
           laga mat.
         </p>

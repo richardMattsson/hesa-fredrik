@@ -122,7 +122,7 @@
             value="Visa rätt svar"
             @click="addToSum(item)"
           />
-          <p v-if="showAnswer.title === item.title">
+          <p class="exampleAnswer" v-if="showAnswer.title === item.title">
             {{ item.answer }}
           </p>
         </div>
