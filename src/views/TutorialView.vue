@@ -14,7 +14,7 @@
     height: 100vh;
     margin-top: auto;
     overflow: auto;
-    background-color: rgb(231, 226, 226);
+    background-color: whitesmoke;
   }
   .tutorial-h1 {
     font-size: 1.5rem;
@@ -46,7 +46,7 @@
     cursor: pointer;
   }
   .container-white {
-    background-color: rgb(231, 226, 226);
+    background-color: whitesmoke;
 
     padding: 10px;
   }
