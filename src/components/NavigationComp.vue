@@ -30,21 +30,21 @@ export default {
 <template>
   <nav :class="{ 'nav-top': !isMobile, 'nav-bottom': isMobile }">
     <ul id="nav-ul">
-      <li class="nav-links" >
-        <RouterLink to="/">Hem</RouterLink>
+      <li>
+        <a v-if="currentUser" class="nav-links" href="#" @click.prevent="authStore.logout()">Logga ut</a>
+        <a v-else class="nav-links" href="#/login">Logga in</a>
       </li>
       <li class="nav-links">
-        <RouterLink to="/information">Information</RouterLink>
+        <RouterLink to="/tutorial/introduktion">Övningar</RouterLink>
+      </li>
+      <li class="nav-links" >
+        <RouterLink to="/">Quiz</RouterLink>
       </li>
       <li class="nav-links">
         <RouterLink to="/scoretable">Ledartavla</RouterLink>
       </li>
       <li class="nav-links">
-        <RouterLink to="/tutorial/introduktion">Övningar</RouterLink>
-      </li>
-      <li>
-        <a v-if="currentUser" class="nav-links" href="#" @click.prevent="authStore.logout()">Logga ut</a>
-        <a v-else class="nav-links" href="#/login">Logga in</a>
+        <RouterLink to="/information">Information</RouterLink>
       </li>
     </ul>
   </nav>

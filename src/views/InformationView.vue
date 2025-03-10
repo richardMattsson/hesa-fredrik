@@ -3,11 +3,7 @@
 export default {
 data() {
   return {
-    linkData: []
-  }
-},
-mounted(){
-  this.linkData = [
+    linkData: [
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/",
       image: "/pexels-mikhail-nilov-7988125.jpg",
@@ -29,6 +25,7 @@ mounted(){
       value: "Skyddsrum"
     }
   ]
+  }
 },
 }
 
@@ -46,21 +43,18 @@ mounted(){
 
 <style scoped>
 #information-page {
-  text-align: center;
   height:100vh;
 }
 
-#information-page-heading {
+h1 {
   width: 100%;
+  margin-top: 0;
   margin-bottom: 20px;
   padding: 20px 0;
-  background-color: whitesmoke;;
-}
-
-h1 {
-  margin: 0;
-  color: black;
+  text-align: center;
   font-size: large;
+  background-color: whitesmoke;
+  color: black;
 }
 
 .wrapper-information {
@@ -93,4 +87,5 @@ h1 {
   padding: 5px 10px;
   border-radius: 4px;
 }
+
 </style>
