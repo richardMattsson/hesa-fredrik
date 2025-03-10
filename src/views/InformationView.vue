@@ -1,35 +1,32 @@
 <script>
-  export default {
-    data() {
-      return {
-        linkData: []
-      };
+export default {
+data() {
+  return {
+    linkData: [
+    {
+      link: "https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/",
+      image: "/pexels-mikhail-nilov-7988125.jpg",
+      value: "Totalförsvaret"
     },
-    mounted() {
-      this.linkData = [
-        {
-          link: 'https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/',
-          image: 'pexels-mikhail-nilov-7988125.jpg',
-          value: 'Totalförsvaret'
-        },
-        {
-          link: 'https://www.msb.se/sv/rad-till-privatpersoner/hemberedskap---preppa-for-minst-en-vecka/grunder-i-hemberedskap/',
-          image: 'pexels-julia-m-cameron-6994945.jpg',
-          value: 'Hemberedskap'
-        },
-        {
-          link: 'https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/viktigt-meddelande-till-allmanheten-vma/',
-          image: 'pexels-bigshowlamar-27577330.jpg',
-          value: 'Varningsystem'
-        },
-        {
-          link: 'https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/bra-att-veta-om-skyddsrum/',
-          image: 'pexels-olavi-anttila-264846761-13153493.jpg',
-          value: 'Skyddsrum'
-        }
-      ];
+    {
+      link: "https://www.msb.se/sv/rad-till-privatpersoner/hemberedskap---preppa-for-minst-en-vecka/grunder-i-hemberedskap/",
+      image: "/pexels-julia-m-cameron-6994945.jpg",
+      value: "Hemberedskap"
+    },
+    {
+      link: "https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/viktigt-meddelande-till-allmanheten-vma/",
+      image: "/pexels-bigshowlamar-27577330.jpg",
+      value: "Varningsystem"
+    },
+    {
+      link: "https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/bra-att-veta-om-skyddsrum/",
+      image: "/pexels-olavi-anttila-264846761-13153493.jpg",
+      value: "Skyddsrum"
     }
-  };
+  ]
+  }
+},
+}
 </script>
 <template>
   <article id="information-page">
@@ -53,23 +50,21 @@
 </template>
 
 <style scoped>
-  #information-page {
-    text-align: center;
-    height: 100vh;
-  }
 
-  #information-page-heading {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 20px 0;
-    background-color: whitesmoke;
-  }
+#information-page {
+  height:100vh;
+}
 
-  h1 {
-    margin: 0;
-    color: black;
-    font-size: large;
-  }
+h1 {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: large;
+  background-color: whitesmoke;
+  color: black;
+}
 
   .wrapper-information {
     display: flex;
@@ -96,9 +91,10 @@
     background-size: cover;
   }
 
-  .wrapper-information a span {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 5px 10px;
-    border-radius: 4px;
-  }
+.wrapper-information a span {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
 </style>

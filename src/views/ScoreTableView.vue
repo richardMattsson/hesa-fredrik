@@ -1,8 +1,8 @@
 <template>
   <article class="article-resulttable">
-    <div id="scoretable-heading">
+    
       <h1>Ledartavla</h1>
-    </div>
+    
     <section class="section-resulttable">
       <table class="table-resulttable">
         <thead>
@@ -32,7 +32,7 @@ import { useQuizStore } from '../stores/quizStore';
 export default {
   data() {
     return {
-      resultData: JSON.parse(localStorage.getItem('savedResult')),
+      resultData: JSON.parse(localStorage.getItem('savedResult')) || [],
       quizStore: useQuizStore()
     };
   },
@@ -47,45 +47,40 @@ export default {
 </script>
 
 <style scoped>
-#scoretable-heading {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 20px 0;
-  background-color: whitesmoke;;
-  text-align: center;
-}
 
 h1 {
-  margin: 0;
-  color: black;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  text-align: center;
   font-size: large;
+  background-color: whitesmoke;
+  color: black;
 }
 
 
 .article-resulttable {
   width: 100%;
-  height: 80vh;
-  margin: 0 auto;
   height: 100vh;
-  margin-bottom: auto;
+  margin: 0 auto;
 }
 
 .section-resulttable {
-  border-radius: 5px;
-  max-height: 88%;
   width: 90%;
-  overflow: scroll;
-  /* hidden eller scroll?  */
+  min-height: 70%;
+  max-height: 70%;
   margin: 0 auto 15px;
+  border-radius: 5px;
+  overflow: scroll;
+  background-color: whitesmoke;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .table-resulttable {
-  background-color: whitesmoke;
-  padding: 10px;
-  table-layout: auto;
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
+  padding: 10px;
 }
 
 th,
@@ -99,6 +94,7 @@ th {
   top: 0;
   width: 33%;
   background-color: whitesmoke;
+  border-bottom: 1px solid #333;
 }
 
 .section-restart {
@@ -109,7 +105,6 @@ th {
 .restart-button {
   height: 40px;
   border-radius: 4px;
-  border-style: none;
   color: #333;
   font-weight: 750;
   font-size: small;
