@@ -52,7 +52,8 @@
       </p>
       <p>
         I dessa övningar får du information om hur du kan förbereda dig, och vad
-        du ska göra om krisen kommer.
+        du ska göra om krisen kommer. Klicka dig genom frågorna för att skaffa
+        poäng.
       </p>
       <router-link to="/tutorial/hemberedskap"
         ><button class="buttonColor">Starta övningar nu</button></router-link

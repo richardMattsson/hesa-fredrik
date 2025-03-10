@@ -12,7 +12,7 @@
     },
     data() {
       return {
-        showAnswer: null,
+        showAnswer: { title: '', points: 0 },
         sumOfAnswers: 0,
         itemsGoodToHave: [
           'Radio som drivs med batteri, solceller, eller vev.',
@@ -28,29 +28,33 @@
             question:
               'Hur många liter vatten behöver en person i genomsnitt per dag?',
             answer:
-              'Du behöver minst tre liter varje dag, i första hand för att dricka och laga mat.'
+              'Fråga 1/3. Du behöver minst tre liter varje dag, i första hand för att dricka och laga mat.'
           },
           {
             title: 'Värme',
             info: 'Din bostad blir snabbt kall om det är strömavbrott på vinter. Välj ett rum att vara i. Häng filtar för fönstren och täck golvet med mattor. Bra att ha hemma:',
             question:
               'När det blir ett elavbrott på vintern, hur lång tid tar det genomsnitt för ett hus att bli utkylt?',
-            answer: 'Tre dagar.'
+            answer: 'Fråga 2/3. Tre dagar.'
           },
           {
             title: 'Kommunikation',
             info: 'Du behöver kunna ta emot nyheter och viktig information frånmyndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
             question:
               'En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?',
-            answer: 'Att lyssna på radio.'
+            answer: 'Fråga 3/3. Att lyssna på radio.'
           }
         ]
       };
     },
     methods: {
       addToSum(item) {
-        this.showAnswer = item.title;
-        this.sumOfAnswers++;
+        this.showAnswer.title = item.title;
+        this.showAnswer.points = 1;
+        if (this.showAnswer.points === 1) {
+          this.sumOfAnswers++;
+        }
+
         if (this.sumOfAnswers === 3) {
           this.authStore.users.forEach((user) => {
             if (user.username === this.authStore.currentUser.username) {
@@ -61,6 +65,10 @@
                   JSON.stringify(this.authStore.users)
                 );
                 this.authStore.currentUser = user;
+                localStorage.setItem(
+                  'currentUser',
+                  JSON.stringify(this.authStore.currentUser)
+                );
               }
             }
           });
@@ -71,7 +79,6 @@
 </script>
 <template>
   <HeaderTutorialComp
-    :test="sumOfAnswers"
     title="Övning 1 - Hemberedskap"
     previous-page="Tillbaka till Introduktion"
     next-page="Starta övning Utrymning"
@@ -113,9 +120,9 @@
             class="buttonColor"
             type="button"
             value="Visa rätt svar"
-            @click.once="addToSum(item)"
+            @click="addToSum(item)"
           />
-          <p v-if="showAnswer === item.title">
+          <p v-if="showAnswer.title === item.title">
             {{ item.answer }}
           </p>
         </div>

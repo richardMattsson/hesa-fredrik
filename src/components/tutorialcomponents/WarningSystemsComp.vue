@@ -49,6 +49,10 @@
                 JSON.stringify(this.authStore.users)
               );
               this.authStore.currentUser = user;
+              localStorage.setItem(
+                'currentUser',
+                JSON.stringify(this.authStore.currentUser)
+              );
             }
           }
         });
@@ -92,7 +96,6 @@
 
   figcaption {
     width: 60%;
-
     border-style: none;
     border-radius: 4px;
     font-weight: 750;
@@ -100,9 +103,7 @@
     margin: 1rem 0;
     font-size: medium;
     color: whitesmoke;
-
     padding: 5px;
-    /* font-size: 1.2rem; */
     cursor: pointer;
     text-align: center;
   }
@@ -118,7 +119,7 @@
     justify-content: space-between;
   }
   .showFigure {
-    height: 30%;
+    height: 40%;
   }
   img {
     width: 100%;

@@ -22,12 +22,13 @@
           'Karta, kompass.',
           'Viktiga uppgifter på papper, exempelvis telefonnummer och försäkringsbevis.'
         ],
-        showChecklist: false
+        showChecklist: false,
+        showHideChecklist: { show: 'Visa checklista', hide: 'Dölj checklista' }
       };
     },
     methods: {
-      addToSum() {
-        this.showChecklist = true;
+      increaseLevel() {
+        this.showChecklist = !this.showChecklist;
         this.authStore.users.forEach((user) => {
           if (user.username === this.authStore.currentUser.username) {
             if (user.level > 0 && user.level < 2) {
@@ -37,6 +38,10 @@
                 JSON.stringify(this.authStore.users)
               );
               this.authStore.currentUser = user;
+              localStorage.setItem(
+                'currentUser',
+                JSON.stringify(this.authStore.currentUser)
+              );
             }
           }
         });
@@ -78,8 +83,8 @@
       <input
         class="buttonColor"
         type="button"
-        value="Visa checklista"
-        @click.once="addToSum()"
+        :value="showChecklist ? showHideChecklist.hide : showHideChecklist.show"
+        @click="increaseLevel()"
       />
 
       <ul v-if="showChecklist" class="checklist">
