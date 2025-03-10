@@ -44,16 +44,6 @@
 </template>
 
 <style>
-  .progress-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .progress-bar > p {
-    margin: 0;
-    margin-top: 5px;
-    width: 80%;
-  }
   progress {
     width: 80%;
     border: 1px solid #333;
@@ -72,17 +62,5 @@
   }
   a > button {
     padding: 5px 5px;
-  }
-  .buttonDark {
-    /* width: 100%; */
-    /* height: 40px; */
-    border-style: none;
-    border-radius: 4px;
-    /* font-weight: 750; */
-    background-color: #333;
-    margin: 1rem 0;
-    /* font-size: medium; */
-    color: whitesmoke;
-    cursor: pointer;
   }
 </style>
