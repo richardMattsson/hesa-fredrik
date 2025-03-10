@@ -2,6 +2,7 @@
   import { useQuizStore } from '../stores/quizStore';
   import { useAuthStore } from '../stores/useAuthStore';
   import { ref, computed } from 'vue';
+  import { useRouter } from 'vue-router';
 
   export default {
     setup() {
@@ -9,6 +10,7 @@
       const authStore = useAuthStore();
       const playerName = ref('');
       const currentUser = computed(() => authStore.currentUser);
+      const router = useRouter();
 
       const onSave = () => {
         const finalPlayer = currentUser.value
@@ -20,12 +22,12 @@
         existingResults.sort((a, b) => b.result - a.result);
         localStorage.setItem('savedResult', JSON.stringify(existingResults));
         console.log('Updated saved results:', existingResults);
-        this.$router.push('/scoretable');
+        router.push('/scoretable');
       };
 
       const restartQuiz = () => {
         quizStore.resetQuiz();
-        this.$router.push('/question');
+        router.push('/question');
       };
 
       return {
@@ -77,7 +79,6 @@
             v-model="playerName"
             type="text"
             placeholder="Namn"
-            @click="onSave"
           />
         </label>
         <p v-else>Vill du spara ditt resultat {{ currentUser.username }}?</p>

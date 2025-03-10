@@ -194,9 +194,11 @@
     height: 40px;
     font-size: 1.2rem;
     border-radius: 5px;
+    background-color: #333;
+    color: whitesmoke;
   }
   #answer-button:disabled {
-    background-color: white;
+    background-color: #555;
     border-radius: 5px;
   }
   .correct {
