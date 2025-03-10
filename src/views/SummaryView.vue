@@ -141,11 +141,11 @@
     height: 80%;
   }
   .button-container {
-    grid-row: 4; /* Keep them in the same row */
+    grid-row: 4;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Space between buttons */
+    gap: 15px;
   }
   #save-button,
   .restart-button {

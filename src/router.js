@@ -4,7 +4,7 @@ import HomeView from './views/HomeView.vue';
 import RegistrationView from './views/RegistrationView.vue';
 import LoginView from './views/LoginView.vue';
 import QuestionView from './views/QuestionView.vue';
-import RegisterView from './views/RegisterView.vue';
+import SummaryView from './views/SummaryView.vue';
 import ScoreTableView from './views/ScoreTableView.vue';
 import InformationView from './views/InformationView.vue';
 import TutorialView from './views/TutorialView.vue';
@@ -35,8 +35,8 @@ export default createRouter({
       path: '/question'
     },
     {
-      component: RegisterView,
-      path: '/register'
+      component: SummaryView,
+      path: '/summary'
     },
     {
       component: ScoreTableView,

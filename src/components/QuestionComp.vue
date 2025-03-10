@@ -133,7 +133,7 @@
             quizStore.nextQuestion();
           } else {
             quizStore.updateScore(quizStore.score, results.value.length);
-            router.push('/register');
+            router.push('/summary');
           }
         }, 2500);
       };
