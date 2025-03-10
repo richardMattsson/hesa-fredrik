@@ -44,6 +44,7 @@
 
 <template>
   <article class="container-result">
+    <h1>Sammanställning av resultat</h1>
     <section class="quiz-summary">
       <ul>
         <li v-for="(question, index) in randomizedQuestions" :key="index">
@@ -65,23 +66,20 @@
         </li>
       </ul>
     </section>
-
     <section class="section-form">
-      <form id="container-form" action="">
+      <form id="registration-form">
         <p id="quiz-result">
           {{ quizStore.score }} rätta svar av
           {{ quizStore.currentQuestionIndex + 1 }}
         </p>
-        <label id="container-input-name" v-if="currentUser == null">
-          Vill du spara ditt resultat?
-          <input
+        <label id="container-input-name" for="input-name" v-if="currentUser == null">Vill du spara ditt resultat?</label>
+          <input v-if="!currentUser"
             id="input-name"
             v-model="playerName"
             type="text"
             placeholder="Namn"
           />
-        </label>
-        <p v-else>Vill du spara ditt resultat {{ currentUser.username }}?</p>
+        <p v-if="currentUser">Vill du spara ditt resultat {{ currentUser.username }}?</p>
       </form>
       <section class="button-container">
         <input id="save-button" type="button" value="Spara" @click="onSave" />
@@ -98,35 +96,49 @@
 
 <style scoped>
   .container-result {
-    background-color: #ffda00;
     display: grid;
-    grid-template-rows: auto auto auto auto auto;
-    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
     height: 100vh;
     overflow: auto;
     justify-items: center;
   }
 
   .section-form {
-    grid-row: 3;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 80%;
+    border-radius: 4px;
+    max-width: 800px;
   }
-  #container-form {
+
+  #registration-form {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  h1 {
+  grid-row: 1;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+  font-size: large;
+  background-color: whitesmoke;
+  color: black;
+}
+
   #quiz-result {
-    grid-row: 1;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 900;
-    background-color: whitesmoke;
     padding: 10px;
   }
 
@@ -141,95 +153,60 @@
     width: 250px;
     height: 80%;
   }
+
   .button-container {
-    grid-row: 4;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
   }
+
   #save-button,
   .restart-button {
-    width: 15vh;
-    height: 5vh;
-    border-style: none;
-    border-radius: 4px;
-    font-weight: 750;
-    background-color: #333;
-    font-size: medium;
-    color: whitesmoke;
-    cursor: pointer;
-  }
-
-  #save-button {
-    width: 10vh;
-    height: 5vh;
-    border-style: none;
-    border-radius: 4px;
-    font-weight: 750;
-    background-color: #333;
-    font-size: medium;
-    color: whitesmoke;
-    margin-left: 10vh;
-    margin-bottom: auto;
-    justify-items: flex-start;
-  }
-
-  .restart-button {
-    width: 20vh;
-    height: 5vh;
-    border-style: none;
-    border-radius: 4px;
-    font-weight: 750;
-    background-color: #333;
-    font-size: medium;
-    color: whitesmoke;
-    margin-right: 10vh;
-    margin-bottom: auto;
-    justify-items: flex-start;
-  }
-
-  .section-link {
-    grid-area: 2 / 1 / span 1 / span 1;
+  height: 40px;
+  width: 100px;
+  border-radius: 4px;
+  border-style: none;
+  background-color: #333;
+  color: whitesmoke;
+  font-weight: 750;
+  font-size: small;
+  margin-top: 1rem;
+  cursor: pointer;
   }
 
   .quiz-summary {
-    grid-row: 2;
+    grid-row: 3;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    
   }
+
   ul {
     list-style: none;
-    padding: 0px;
+    padding: 0;
   }
+
   li {
+    width: 90%;
+    max-width: 800px;
+    padding: 10px;
+    margin: 10px auto;
     background-color: whitesmoke;
-    margin-right: 2vh;
-    margin-left: 2vh;
-    /* padding: 10px; */
-    /* gap: 10px; */
+    border-radius: 4px;
   }
+
   .correct {
     color: green;
     font-weight: bold;
   }
+
   .incorrect {
     color: red;
     font-weight: bold;
   }
 
-  @media screen and (min-width: 1080px) {
-    .quiz-summary {
-      margin-left: 10vh;
-    }
-    #container-input-name {
-      margin-left: 70vh;
-    }
-    #save-button {
-      width: 20vh;
-    }
-  }
 </style>
