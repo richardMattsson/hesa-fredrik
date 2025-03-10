@@ -6,21 +6,25 @@ data() {
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/",
       image: "/pexels-mikhail-nilov-7988125.jpg",
+      alt: "A picture on a desk, where a person are sitting and writing code on a laptop and a tablet",
       value: "Totalförsvaret"
     },
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/hemberedskap---preppa-for-minst-en-vecka/grunder-i-hemberedskap/",
       image: "/pexels-julia-m-cameron-6994945.jpg",
+      alt: "A picture of a table with water bottles, plasticbags with pasta and a preserve tin",
       value: "Hemberedskap"
     },
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/viktigt-meddelande-till-allmanheten-vma/",
       image: "/pexels-bigshowlamar-27577330.jpg",
+      alt: "A picture of a warning horn",
       value: "Varningsystem"
     },
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/skyddsrum-utrymning-och-varningssystem/bra-att-veta-om-skyddsrum/",
       image: "/pexels-olavi-anttila-264846761-13153493.jpg",
+      alt: "A picture of a swedish fighter jet",
       value: "Skyddsrum"
     }
   ]
@@ -40,6 +44,7 @@ data() {
     >
       <a
         :href="data.link"
+        :alt="data.alt"
         :style="{
           backgroundImage: data.image ? 'url(' + data.image + ')' : 'none'
         }"
