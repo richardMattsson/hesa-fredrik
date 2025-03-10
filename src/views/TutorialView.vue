@@ -37,6 +37,14 @@
     padding: 5px;
     cursor: pointer;
   }
+  .buttonDark {
+    border-style: none;
+    border-radius: 4px;
+    background-color: #333;
+    margin: 1rem 0;
+    color: whitesmoke;
+    cursor: pointer;
+  }
   .container-white {
     background-color: rgb(231, 226, 226);
 
@@ -48,14 +56,39 @@
   .tutorial-nav {
     justify-content: space-evenly;
   }
-  .progress-indicator {
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 2px;
+  .progress-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .progress-bar > p {
+    margin: 0;
+    margin-top: 5px;
+    width: 80%;
   }
   .section-intro {
     padding: 0.5rem;
     margin-top: 10px;
+  }
+  @media screen and (max-width: 420px) {
+    .tutorial-h1 {
+      font-size: 1rem;
+      text-align: center;
+    }
+    .buttonDark {
+      font-size: 0.7rem;
+    }
+    .progress-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .progress-bar > p {
+      margin: 0;
+      margin-top: 5px;
+      width: 80%;
+      font-size: 0.8rem;
+    }
   }
   @media screen and (min-width: 900px) {
     .article-tutorial {
