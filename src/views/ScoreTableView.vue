@@ -105,10 +105,14 @@ th {
 .restart-button {
   height: 40px;
   border-radius: 4px;
-  color: #333;
+  border-style: none;
+  background-color: #333;
+  color: whitesmoke;
   font-weight: 750;
   font-size: small;
-  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
   margin-top: 1rem;
 }
+
+
+
 </style>
