@@ -16,22 +16,22 @@
           {
             img: 'viktigt-meddelande-till-allmanheten-vma.png',
             title: 'Viktigt meddelande:',
-            src: '/01-viktigt-meddelande.mp3'
+            src: '01-viktigt-meddelande.mp3'
           },
           {
             img: 'faran-over.png',
             title: 'Faran över:',
-            src: '/02-faran-over-.mp3'
+            src: '02-faran-over-.mp3'
           },
           {
             img: 'flyglarm.png',
             title: 'Flyglarm:',
-            src: '/03-flyglarm.mp3'
+            src: '03-flyglarm.mp3'
           },
           {
             img: 'beredskapslarm.png',
             title: 'Beredskapslarm:',
-            src: '/04-beredskapslarm.mp3'
+            src: '04-beredskapslarm.mp3'
           }
         ],
         showMessage: false

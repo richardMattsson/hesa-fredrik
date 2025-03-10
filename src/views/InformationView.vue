@@ -1,5 +1,4 @@
 <script>
-
 export default {
 data() {
   return {
@@ -28,20 +27,30 @@ data() {
   }
 },
 }
-
 </script>
 <template>
   <article id="information-page">
     <div id="information-page-heading">
       <h1>Här hittar du länkar till mer information</h1>
     </div>
-    <section class="wrapper-information" v-for="(data, index) in linkData" :key="index">
-      <a :href="data.link" :style="{ backgroundImage: data.image ? 'url(' + data.image + ')' : 'none'}"><span>{{data.value}}</span></a>
+    <section
+      class="wrapper-information"
+      v-for="(data, index) in linkData"
+      :key="index"
+    >
+      <a
+        :href="data.link"
+        :style="{
+          backgroundImage: data.image ? 'url(' + data.image + ')' : 'none'
+        }"
+        ><span>{{ data.value }}</span></a
+      >
     </section>
   </article>
 </template>
 
 <style scoped>
+
 #information-page {
   height:100vh;
 }
@@ -57,30 +66,30 @@ h1 {
   color: black;
 }
 
-.wrapper-information {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 10px 0;
-}
+  .wrapper-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+  }
 
-.wrapper-information a {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  width: 80%;
-  max-width: 600px;
-  height: 15vh;
-  text-decoration: none;
-  font-size: 24px;
-  color: white;
-  border-radius: 8px;
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: white;
-  background-size: cover;
-}
+  .wrapper-information a {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 80%;
+    max-width: 600px;
+    height: 15vh;
+    text-decoration: none;
+    font-size: 24px;
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+    background-size: cover;
+  }
 
 .wrapper-information a span {
   background: rgba(0, 0, 0, 0.6);

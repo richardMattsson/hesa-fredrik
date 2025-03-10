@@ -4,7 +4,7 @@ export const useQuizStore = defineStore('quizStore', {
   state: () => ({
     questions: [],
     currentQuestionIndex: 0,
-    score: 0,
+    score: 0
   }),
   actions: {
     updateScore(score, total) {
@@ -14,7 +14,7 @@ export const useQuizStore = defineStore('quizStore', {
 
     async fetchQuestions() {
       try {
-        const response = await fetch('/quizData.json');
+        const response = await fetch('quizData.json');
         const data = await response.json();
 
         if (data.results && data.results.length > 0) {
@@ -43,6 +43,6 @@ export const useQuizStore = defineStore('quizStore', {
       this.currentQuestionIndex = 0;
       this.score = 0;
       this.fetchQuestions();
-    },
-  },
+    }
+  }
 });
