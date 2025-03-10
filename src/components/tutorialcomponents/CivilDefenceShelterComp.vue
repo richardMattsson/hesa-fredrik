@@ -34,7 +34,7 @@
       };
     },
     methods: {
-      addToSum(alternative) {
+      answerQuestion(alternative) {
         if (alternative.isCorrect) {
           this.authStore.users.forEach((user) => {
             if (user.username === this.authStore.currentUser.username) {
@@ -45,6 +45,10 @@
                   JSON.stringify(this.authStore.users)
                 );
                 this.authStore.currentUser = user;
+                localStorage.setItem(
+                  'currentUser',
+                  JSON.stringify(this.authStore.currentUser)
+                );
               }
             }
           });
@@ -98,7 +102,7 @@
         <form action="" class="radiobuttons">
           <label
             v-for="alternative in questionAlternatives"
-            @click="addToSum(alternative)"
+            @click="answerQuestion(alternative)"
             :key="alternative.text"
             :class="{
               falseColor:

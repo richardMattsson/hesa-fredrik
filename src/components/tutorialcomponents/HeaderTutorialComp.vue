@@ -4,7 +4,6 @@
 
   export default {
     props: {
-      test: { type: Number, default: 0 },
       title: { type: String, default: 'Rubrik 1' },
       previousPage: { type: String, default: 'Föregående sida' },
       nextPage: { type: String, default: 'Nästa sida' },
