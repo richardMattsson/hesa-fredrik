@@ -207,6 +207,10 @@
   }
   li {
     background-color: whitesmoke;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    /* padding: 10px; */
+    /* gap: 10px; */
   }
   .correct {
     color: green;
