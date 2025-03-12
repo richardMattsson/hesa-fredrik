@@ -63,6 +63,10 @@ export const useAuthStore = defineStore('auth', {
     logout() {
       this.currentUser = null;
       localStorage.removeItem('currentUser');
+      localStorage.removeItem('Vatten');
+      localStorage.removeItem('Värme');
+      localStorage.removeItem('Kommunikation');
+      localStorage.removeItem('savedSumOfAnswers');
     },
     progress() {
       if (this.currentUser) {
