@@ -12,8 +12,9 @@
     },
     data() {
       return {
-        showAnswer: { title: '', points: 0 },
-        sumOfAnswers: 0,
+        showAnswer: null,
+        sumOfAnswers:
+          JSON.parse(localStorage.getItem('savedSumOfAnswers')) || 0,
         itemsGoodToHave: [
           'Radio som drivs med batteri, solceller, eller vev.',
           'Extra batterier',
@@ -23,6 +24,7 @@
         ],
         items: [
           {
+            amountOfClicks: JSON.parse(localStorage.getItem('Vatten')) || 0,
             title: 'Vatten',
             info: 'Du behöver minst tre liter vatten per dygn, i första hand för att dricka och laga mat. Om det blir brist på dricksvatten kan kommunen ställa vattentankar, men du behöver ändå ha vatten hemma.',
             question:
@@ -31,6 +33,7 @@
               'Fråga 1/3. Du behöver minst tre liter varje dag, i första hand för att dricka och laga mat.'
           },
           {
+            amountOfClicks: JSON.parse(localStorage.getItem('Värme')) || 0,
             title: 'Värme',
             info: 'Din bostad blir snabbt kall om det är strömavbrott på vinter. Välj ett rum att vara i. Häng filtar för fönstren och täck golvet med mattor. Bra att ha hemma:',
             question:
@@ -38,6 +41,8 @@
             answer: 'Fråga 2/3. Tre dagar.'
           },
           {
+            amountOfClicks:
+              JSON.parse(localStorage.getItem('Kommunikation')) || 0,
             title: 'Kommunikation',
             info: 'Du behöver kunna ta emot nyheter och viktig information frånmyndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
             question:
@@ -49,10 +54,19 @@
     },
     methods: {
       addToSum(item) {
-        this.showAnswer.title = item.title;
-        this.showAnswer.points = 1;
-        if (this.showAnswer.points === 1) {
+        this.showAnswer = item.title;
+
+        if (item.amountOfClicks === 0) {
+          item.amountOfClicks++;
           this.sumOfAnswers++;
+          localStorage.setItem(
+            [item.title],
+            JSON.stringify(item.amountOfClicks)
+          );
+          localStorage.setItem(
+            'savedSumOfAnswers',
+            JSON.stringify(this.sumOfAnswers)
+          );
         }
 
         if (this.sumOfAnswers === 3) {
@@ -122,7 +136,7 @@
             value="Visa rätt svar"
             @click="addToSum(item)"
           />
-          <p class="exampleAnswer" v-if="showAnswer.title === item.title">
+          <p class="exampleAnswer" v-if="showAnswer === item.title">
             {{ item.answer }}
           </p>
         </div>
