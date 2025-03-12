@@ -1,5 +1,9 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
+
+  import IntroParagraphComp from './IntroParagraphComp.vue';
+  import InfoQuestionComp from './InfoQuestionComp.vue';
+
   import { mapStores } from 'pinia';
   import { useAuthStore } from '../../stores/useAuthStore';
 
@@ -8,20 +12,22 @@
       ...mapStores(useAuthStore)
     },
     components: {
-      HeaderTutorialComp
+      HeaderTutorialComp,
+      InfoQuestionComp,
+      IntroParagraphComp
     },
     data() {
       return {
         showAnswer: null,
         sumOfAnswers:
           JSON.parse(localStorage.getItem('savedSumOfAnswers')) || 0,
-        itemsGoodToHave: [
-          'Radio som drivs med batteri, solceller, eller vev.',
-          'Extra batterier',
-          'Mobil och laddade extra batterier (powerbank)',
-          'Mobilladdare att använda i bilen.',
-          'Viktiga telefonnummer på papper.'
-        ],
+        introText: {
+          title: 'Hemberedskap',
+          text: 'Du bidrar till hela samhällets beredskap om du har hemberedskap för minst en vecka. Anpassa råden efter dina behov och förutsättningar. Vissa saker kanske du kan dela med andra, exempelvis dina grannar. I kris och krig måste vi alla hjälpa varandra.',
+          text2:
+            'Förbered dig så du inte måste skaffa allt på en gång om något allvarligt händer.'
+        },
+
         items: [
           {
             amountOfClicks: JSON.parse(localStorage.getItem('Vatten')) || 0,
@@ -35,7 +41,7 @@
           {
             amountOfClicks: JSON.parse(localStorage.getItem('Värme')) || 0,
             title: 'Värme',
-            info: 'Din bostad blir snabbt kall om det är strömavbrott på vinter. Välj ett rum att vara i. Häng filtar för fönstren och täck golvet med mattor. Bra att ha hemma:',
+            info: 'Din bostad blir snabbt kall om det är strömavbrott på vinter. Välj ett rum att vara i. Häng filtar för fönstren och täck golvet med mattor.',
             question:
               'När det blir ett elavbrott på vintern, hur lång tid tar det genomsnitt för ett hus att bli utkylt?',
             answer: 'Fråga 2/3. Tre dagar.'
@@ -44,10 +50,17 @@
             amountOfClicks:
               JSON.parse(localStorage.getItem('Kommunikation')) || 0,
             title: 'Kommunikation',
-            info: 'Du behöver kunna ta emot nyheter och viktig information frånmyndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
+            info: 'Du behöver kunna ta emot nyheter och viktig information från myndigheter. Du behöver också kunna ha kontakt med anhöriga och vänner. Bra att ha hemma:',
             question:
               'En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?',
-            answer: 'Fråga 3/3. Att lyssna på radio.'
+            answer: 'Fråga 3/3. Att lyssna på radio.',
+            itemsGoodToHave: [
+              'Radio som drivs med batteri, solceller, eller vev.',
+              'Extra batterier',
+              'Mobil och laddade extra batterier (powerbank)',
+              'Mobilladdare att använda i bilen.',
+              'Viktiga telefonnummer på papper.'
+            ]
           }
         ]
       };
@@ -101,31 +114,11 @@
   />
 
   <article class="container-white article-tutorial">
-    <section class="section-intro">
-      <h2 class="tutorial-h2">Hemberedskap</h2>
-      <p>
-        Du bidrar till hela samhällets beredskap om du har hemberedskap för
-        minst en vecka. Anpassa råden efter dina behov och förutsättningar.
-        Vissa saker kanske du kan dela med andra, exempelvis dina grannar. I
-        kris och krig måste vi alla hjälpa varandra.
-      </p>
-      <p>
-        Förbered dig så du inte måste skaffa allt på en gång om något allvarligt
-        händer.
-      </p>
-    </section>
-    <div :key="item.title" v-for="item in items">
-      <section class="container-white section-info">
-        <h2 class="tutorial-h2">{{ item.title }}</h2>
-        <p>
-          {{ item.info }}
-        </p>
-        <ul v-if="item.title === 'Kommunikation'">
-          <li :key="index" v-for="(itemGoodToHave, index) in itemsGoodToHave">
-            {{ itemGoodToHave }}
-          </li>
-        </ul>
-      </section>
+    <IntroParagraphComp :input-text="introText" />
+
+    <div :key="index" v-for="(item, index) in items">
+      <InfoQuestionComp :item="items[index]" />
+
       <section class="container-white container-example">
         <h3>Exempelfråga</h3>
         <div class="container-white container-div">

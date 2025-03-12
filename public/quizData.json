@@ -1,17 +1,6 @@
 {
   "results": [
     {
-      "question": "Hur många liter vatten behöver du för att klara dig en vecka?",
-      "correctAnswer": "5-6 liter",
-      "answerAlternatives": [
-        "1-2 liter",
-        "2-3 liter",
-        "5-6 liter",
-        "3-4 liter"
-      ],
-      "id": 1
-    },
-    {
       "question": "En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?",
       "correctAnswer": "Att lyssna på radio",
       "answerAlternatives": [
@@ -20,17 +9,13 @@
         "Att identifiera sig med bank-id",
         "Att ta kontakt med grannskapet"
       ],
-      "id": 2
+      "id": 1
     },
     {
       "question": "När det blir ett elavbrott på vintern, hur lång tid tar det i genomsnitt för ett hus att bli utkylt?",
       "correctAnswer": "Tre dagar",
-      "answerAlternatives": [
-        "En dag",
-        "Två dagar",
-        "Tre dagar",
-        "Fyra dagar" ],
-      "id": 3
+      "answerAlternatives": ["En dag", "Två dagar", "Tre dagar", "Fyra dagar"],
+      "id": 2
     },
     {
       "question": "Vårt vatten kan förorenas eller vid elavbrott sluta rinna ur kranen. Därför är det bra att ha fyllda reservdunkar hemma. Hur mycket vatten behöver en vuxen person till dryck, matlagning och hygien per dag?",
@@ -41,7 +26,7 @@
         "Två liter",
         "Tre liter"
       ],
-      "id": 4
+      "id": 3
     },
     {
       "question": "Vilket av följande uttalanden är alltid sant?",
@@ -52,7 +37,7 @@
         "Om Sverige blir angripet kommer vi bedriva offensig krigsföring som svar",
         "Om ett nordiskt land blir angripet kommer den Nordiska unionen enas i försvar"
       ],
-      "id": 5
+      "id": 4
     },
     {
       "question": "Vilket av följande uttalanden är falskt?",
@@ -63,7 +48,7 @@
         "Vid höjd beredskap fortsätter du att gå till din arbetsplats",
         "Syftet med NATO-alliansen är att avskräcka potentiella angripare"
       ],
-      "id": 6
+      "id": 5
     },
     {
       "question": "Välj det påstående angående skyddsrum som inte gäller vid en krisfull situation",
@@ -74,17 +59,13 @@
         "Det enda kravet på provianter i ett skyddsrum är vatten och enklare toaletter",
         "En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen"
       ],
-      "id": 7
+      "id": 6
     },
     {
       "question": "Hur mycket av det livsmedel som konsumeras i Sverige är importerat och skulle ha svårt att nå Sverige vid en kris eller ett krig?",
       "correctAnswer": "50 %",
-      "answerAlternatives": [
-        "15 %",
-        "30 %",
-        "50 %",
-        "75%"],
-      "id": 8
+      "answerAlternatives": ["15 %", "30 %", "50 %", "75%"],
+      "id": 7
     },
     {
       "question": "Om leveranser av livsmedel inte kan nå fram till din matbutik, hur länge räcker butikens lager av färskvaror som mjölk, kött, frukt, ost och ägg?",
@@ -93,8 +74,9 @@
         "En till två dagar",
         "Fem dagar",
         "Tio dagar",
-        "En månad"],
-      "id": 9
+        "En månad"
+      ],
+      "id": 8
     },
     {
       "question": "Om något händer som gör att man inte kan handla livsmedel på några dagar, är det bra att ha tänkt i förväg. Vilken typ av mat är bra att alltid ha hemma?",
@@ -105,17 +87,18 @@
         "Mat med lång hållbarhet",
         "Mat med hög kalorihalt"
       ],
-      "id": 10
+      "id": 9
     },
     {
       "question": "Förr fanns det i Sverige större lager av bränsle, mat och annat. Hur många kaffepaket hade Sverige i beredskapslager under kalla kriget?",
       "correctAnswer": "13 miljoner",
       "answerAlternatives": [
-       "13 miljoner",
-       "6 miljoner",
-       "1 miljon",
-       "20 miljoner"],
-      "id": 11
+        "13 miljoner",
+        "6 miljoner",
+        "1 miljon",
+        "20 miljoner"
+      ],
+      "id": 10
     },
     {
       "question": "En kris kan göra vem som helst orolig och man kan då reagera på olika sätt. Hur brukar de flesta av oss människor agera vid kriser?",
@@ -126,7 +109,7 @@
         "Vi får panik och räddar oss själva",
         "Vi klagar och gnäller över allt nytt"
       ],
-      "id": 12
+      "id": 11
     },
     {
       "question": "När man fyller 16 år blir man totalförsvarspliktig om man bor i Sverige, oavsett om man är svensk medborgare eller inte. Vad innebär totalförsvarsplikt?",
@@ -137,7 +120,7 @@
         "Att man kan bli inkallad för att hjälpa till vid en kris",
         "Att man kan bli skyldig att betala extra för försvaret"
       ],
-      "id": 13
+      "id": 12
     },
     {
       "question": "En cyberattack betyder att angripare försöker komma åt data, information eller kontakter i it-system, ibland för att göra skada eller utpressa. Hur många cyberattacker inträffar mot svenska myndigheter och kommuner varje månad?",
@@ -146,8 +129,9 @@
         "100-150",
         "1 000-1500",
         "10 000-15 000",
-        "15 000-25 000"],
-      "id": 14
+        "15 000-25 000"
+      ],
+      "id": 13
     }
   ]
 }

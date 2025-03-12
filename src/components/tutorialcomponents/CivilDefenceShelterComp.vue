@@ -3,16 +3,25 @@
   import { mapStores } from 'pinia';
   import { useAuthStore } from '../../stores/useAuthStore';
 
+  import IntroParagraphComp from './IntroParagraphComp.vue';
+
   export default {
     computed: {
       ...mapStores(useAuthStore)
     },
     components: {
-      HeaderTutorialComp
+      HeaderTutorialComp,
+      IntroParagraphComp
     },
     data() {
       return {
         chosenAlternative: null,
+        introText: {
+          title: 'Skyddsrum',
+          text: ' Du tillhör inget särskilt skyddsrum utan använder det som är närmast. På msb.se finns en karta över skyddsrum.',
+          text2:
+            'I skyddsrum ska det finnas vatten och enklare toaletter. Om du hinner bör du ha med dig något att äta, varma kläder och hygienartiklar. Var beredd på att du kan behöva stanna i skyddsrumet några dagar.'
+        },
         questionAlternatives: [
           {
             isCorrect: false,
@@ -67,18 +76,8 @@
   />
 
   <article class="container-white article-tutorial">
-    <section class="section-intro">
-      <h2 class="tutorial-h2">Skyddsrum</h2>
-      <p>
-        Du tillhör inget särskilt skyddsrum utan använder det som är närmast. På
-        msb.se finns en karta över skyddsrum.
-      </p>
-      <p>
-        I skyddsrum ska det finnas vatten och enklare toaletter. Om du hinner
-        bör du ha med dig något att äta, varma kläder och hygienartiklar. Var
-        beredd på att du kan behöva stanna i skyddsrumet några dagar.
-      </p>
-    </section>
+    <IntroParagraphComp :input-text="introText" />
+
     <section class="container-white section-info">
       <h2 class="tutorial-h2">Närmaste skydd</h2>
       <p>
