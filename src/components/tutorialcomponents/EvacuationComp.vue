@@ -2,12 +2,15 @@
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
   import { mapStores } from 'pinia';
   import { useAuthStore } from '../../stores/useAuthStore';
+  import IntroParagraphComp from './IntroParagraphComp.vue';
+
   export default {
     computed: {
       ...mapStores(useAuthStore)
     },
     components: {
-      HeaderTutorialComp
+      HeaderTutorialComp,
+      IntroParagraphComp
     },
     data() {
       return {
@@ -22,6 +25,14 @@
           'Karta, kompass.',
           'Viktiga uppgifter på papper, exempelvis telefonnummer och försäkringsbevis.'
         ],
+        introText: {
+          title: 'Utrymning',
+          text: 'Du kan snabbt behöva lämna ett område vid exempelvis ett hotande militärt angrepp, naturolyckor eller farliga utsläpp.',
+          text2:
+            'Du får veta att du ska utrymma genom bland annar VMA. Lyssna på Sveriges Radio P4 och följ myndigheternas instruktioner.',
+          text3:
+            'Du som inte klarar dig på egen hand kan få hjälp att utrymma, samt akut boeden och mat på platsen du kommer till.'
+        },
         showChecklist: false,
         showHideChecklist: { show: 'Visa checklista', hide: 'Dölj checklista' }
       };
@@ -59,21 +70,8 @@
   />
 
   <article class="container-white article-tutorial">
-    <section class="container-white section-intro">
-      <h2 class="tutorial-h2">Utrymning</h2>
-      <p>
-        Du kan snabbt behöva lämna ett område vid exempelvis ett hotande
-        militärt angrepp, naturolyckor eller farliga utsläpp.
-      </p>
-      <p>
-        Du får veta att du ska utrymma genom bland annar VMA. Lyssna på Sveriges
-        Radio P4 och följ myndigheternas instruktioner.
-      </p>
-      <p>
-        Du som inte klarar dig på egen hand kan få hjälp att utrymma, samt akut
-        boeden och mat på platsen du kommer till.
-      </p>
-    </section>
+    <IntroParagraphComp :input-text="introText" />
+
     <section class="container-white section-info">
       <h2 class="tutorial-h2">Bra att ha med</h2>
       <p>
