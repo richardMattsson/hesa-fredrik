@@ -1,8 +1,8 @@
 <script>
   import HeaderTutorialComp from './HeaderTutorialComp.vue';
-
   import IntroParagraphComp from './IntroParagraphComp.vue';
   import InfoQuestionComp from './InfoQuestionComp.vue';
+  import QuestionTutorialComp from './QuestionTutorialComp.vue';
 
   import { mapStores } from 'pinia';
   import { useAuthStore } from '../../stores/useAuthStore';
@@ -14,7 +14,8 @@
     components: {
       HeaderTutorialComp,
       InfoQuestionComp,
-      IntroParagraphComp
+      IntroParagraphComp,
+      QuestionTutorialComp
     },
     data() {
       return {
@@ -116,25 +117,14 @@
   <article class="container-white article-tutorial">
     <IntroParagraphComp :input-text="introText" />
 
-    <div :key="index" v-for="(item, index) in items">
-      <InfoQuestionComp :item="items[index]" />
-
-      <section class="container-white container-example">
-        <h3>Exempelfråga</h3>
-        <div class="container-white container-div">
-          <p>{{ item.question }}</p>
-          <input
-            class="buttonColor"
-            type="button"
-            value="Visa rätt svar"
-            @click="addToSum(item)"
-          />
-          <p class="exampleAnswer" v-if="showAnswer === item.title">
-            {{ item.answer }}
-          </p>
-        </div>
-      </section>
-    </div>
+    <template v-for="item in items" :key="item.title">
+      <InfoQuestionComp :item="item" />
+      <QuestionTutorialComp
+        title="Exempelfråga"
+        :item="item"
+        @clicked-question="addToSum"
+      />
+    </template>
   </article>
 </template>
 <style scoped>

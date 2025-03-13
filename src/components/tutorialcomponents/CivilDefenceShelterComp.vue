@@ -4,6 +4,7 @@
   import { useAuthStore } from '../../stores/useAuthStore';
 
   import IntroParagraphComp from './IntroParagraphComp.vue';
+  import InfoQuestionComp from './InfoQuestionComp.vue';
 
   export default {
     computed: {
@@ -11,11 +12,18 @@
     },
     components: {
       HeaderTutorialComp,
-      IntroParagraphComp
+      IntroParagraphComp,
+      InfoQuestionComp
     },
     data() {
       return {
         chosenAlternative: null,
+        infoQuestion: {
+          title: 'Närmaste skydd',
+          info: 'Är du i behov av skydd vid höjd beredskap, har du rätt att komma in i närmaste skyddsrum.',
+          info2:
+            ' I fredstid får skyddsrum användas till annat, men de ska kunna ställas iordning inom 48 timmar. Vid höjd beredskap ansvarar fastighetsägaren för iordningsställandet.'
+        },
         introText: {
           title: 'Skyddsrum',
           text: ' Du tillhör inget särskilt skyddsrum utan använder det som är närmast. På msb.se finns en karta över skyddsrum.',
@@ -78,18 +86,8 @@
   <article class="container-white article-tutorial">
     <IntroParagraphComp :input-text="introText" />
 
-    <section class="container-white section-info">
-      <h2 class="tutorial-h2">Närmaste skydd</h2>
-      <p>
-        Är du i behov av skydd vid höjd beredskap, har du rätt att komma in i
-        närmaste skyddsrum.
-      </p>
-      <p>
-        I fredstid får skyddsrum användas till annat, men de ska kunna ställas
-        iordning inom 48 timmar. Vid höjd beredskap ansvarar fastighetsägaren
-        för iordningsställandet.
-      </p>
-    </section>
+    <InfoQuestionComp :item="infoQuestion" />
+
     <section class="container-white container-example">
       <h3>Exempelfråga</h3>
       <div class="container-white container-radiobuttons">
@@ -120,8 +118,7 @@
             <p
               class="answer-message-text"
               v-if="
-                alternative.text === chosenAlternative &&
-                alternative.isCorrect === false
+                alternative.text === chosenAlternative && !alternative.isCorrect
               "
             >
               Fel svar. ×
@@ -129,8 +126,7 @@
             <p
               class="answer-message-text"
               v-else-if="
-                alternative.text === chosenAlternative &&
-                alternative.isCorrect === true
+                alternative.text === chosenAlternative && alternative.isCorrect
               "
             >
               Rätt svar! ✓

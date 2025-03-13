@@ -11,6 +11,9 @@
     <p>
       {{ item.info }}
     </p>
+    <p>
+      {{ item.info2 }}
+    </p>
     <ul v-if="item.title === 'Kommunikation'">
       <li :key="index" v-for="(itemGoodToHave, index) in item.itemsGoodToHave">
         {{ itemGoodToHave }}
