@@ -34,9 +34,7 @@ data() {
 </script>
 <template>
   <article id="information-page">
-    <div id="information-page-heading">
       <h1>Här hittar du länkar till mer information</h1>
-    </div>
     <section
       class="wrapper-information"
       v-for="(data, index) in linkData"
@@ -55,10 +53,6 @@ data() {
 </template>
 
 <style scoped>
-
-#information-page {
-  height:100vh;
-}
 
 h1 {
   width: 100%;
