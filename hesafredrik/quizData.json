@@ -1,0 +1,137 @@
+{
+  "results": [
+    {
+      "question": "En större samhällskris inträffar som gör att det inte finns ström. Vad är viktigast att göra direkt?",
+      "correctAnswer": "Att lyssna på radio",
+      "answerAlternatives": [
+        "Att värma upp huset",
+        "Att lyssna på radio",
+        "Att identifiera sig med bank-id",
+        "Att ta kontakt med grannskapet"
+      ],
+      "id": 1
+    },
+    {
+      "question": "När det blir ett elavbrott på vintern, hur lång tid tar det i genomsnitt för ett hus att bli utkylt?",
+      "correctAnswer": "Tre dagar",
+      "answerAlternatives": ["En dag", "Två dagar", "Tre dagar", "Fyra dagar"],
+      "id": 2
+    },
+    {
+      "question": "Vårt vatten kan förorenas eller vid elavbrott sluta rinna ur kranen. Därför är det bra att ha fyllda reservdunkar hemma. Hur mycket vatten behöver en vuxen person till dryck, matlagning och hygien per dag?",
+      "correctAnswer": "Tre liter",
+      "answerAlternatives": [
+        "En halvliter",
+        "En liter",
+        "Två liter",
+        "Tre liter"
+      ],
+      "id": 3
+    },
+    {
+      "question": "Vilket av följande uttalanden är alltid sant?",
+      "correctAnswer": "Om Sverige blir angripet kommer vi aldrig att ge upp.",
+      "answerAlternatives": [
+        "Om Sverige blir angripet kommer vi aldrig att ge upp.",
+        "Om Norge blir angripet kommer vi skicka militärt stöd",
+        "Om Sverige blir angripet kommer vi bedriva offensig krigsföring som svar",
+        "Om ett nordiskt land blir angripet kommer den Nordiska unionen enas i försvar"
+      ],
+      "id": 4
+    },
+    {
+      "question": "Vilket av följande uttalanden är falskt?",
+      "correctAnswer": "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer",
+      "answerAlternatives": [
+        "Du är totalförsvarspliktig från 16 års ålder upp till 70 års ålder.",
+        "Beredskapslarm betyder att du måste vara förberedd för vad som än kommer",
+        "Vid höjd beredskap fortsätter du att gå till din arbetsplats",
+        "Syftet med NATO-alliansen är att avskräcka potentiella angripare"
+      ],
+      "id": 5
+    },
+    {
+      "question": "Välj det påstående angående skyddsrum som inte gäller vid en krisfull situation",
+      "correctAnswer": "En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen",
+      "answerAlternatives": [
+        "Ifall du är i behov av skydd vid höjd beredskap så har du rätt att komma in i närmaste skyddsrum.",
+        "Skyddsrum ska kunna ställas i verkstad inom ett 48 timmars spann",
+        "Det enda kravet på provianter i ett skyddsrum är vatten och enklare toaletter",
+        "En källarlokal är alltid godtycklig som ett skyddsrum och erbjuder gott skydd i de flesta lägen"
+      ],
+      "id": 6
+    },
+    {
+      "question": "Hur mycket av det livsmedel som konsumeras i Sverige är importerat och skulle ha svårt att nå Sverige vid en kris eller ett krig?",
+      "correctAnswer": "50 %",
+      "answerAlternatives": ["15 %", "30 %", "50 %", "75%"],
+      "id": 7
+    },
+    {
+      "question": "Om leveranser av livsmedel inte kan nå fram till din matbutik, hur länge räcker butikens lager av färskvaror som mjölk, kött, frukt, ost och ägg?",
+      "correctAnswer": "En till två dagar",
+      "answerAlternatives": [
+        "En till två dagar",
+        "Fem dagar",
+        "Tio dagar",
+        "En månad"
+      ],
+      "id": 8
+    },
+    {
+      "question": "Om något händer som gör att man inte kan handla livsmedel på några dagar, är det bra att ha tänkt i förväg. Vilken typ av mat är bra att alltid ha hemma?",
+      "correctAnswer": "Mat med lång hållbarhet",
+      "answerAlternatives": [
+        "Mat som man kan äta upp snabbt",
+        "Mat som har hårda förpackningar",
+        "Mat med lång hållbarhet",
+        "Mat med hög kalorihalt"
+      ],
+      "id": 9
+    },
+    {
+      "question": "Förr fanns det i Sverige större lager av bränsle, mat och annat. Hur många kaffepaket hade Sverige i beredskapslager under kalla kriget?",
+      "correctAnswer": "13 miljoner",
+      "answerAlternatives": [
+        "13 miljoner",
+        "6 miljoner",
+        "1 miljon",
+        "20 miljoner"
+      ],
+      "id": 10
+    },
+    {
+      "question": "En kris kan göra vem som helst orolig och man kan då reagera på olika sätt. Hur brukar de flesta av oss människor agera vid kriser?",
+      "correctAnswer": "Vi hjälps åt och samarbetar",
+      "answerAlternatives": [
+        "Vi hjälps åt och samarbetar",
+        "Vi plundrar butiker och stjäl från varandra",
+        "Vi får panik och räddar oss själva",
+        "Vi klagar och gnäller över allt nytt"
+      ],
+      "id": 11
+    },
+    {
+      "question": "När man fyller 16 år blir man totalförsvarspliktig om man bor i Sverige, oavsett om man är svensk medborgare eller inte. Vad innebär totalförsvarsplikt?",
+      "correctAnswer": "Att man kan bli inkallad för att hjälpa till vid ett krig",
+      "answerAlternatives": [
+        "Att man måste genomföra värnplikt",
+        "Att man kan bli inkallad för att hjälpa till vid ett krig",
+        "Att man kan bli inkallad för att hjälpa till vid en kris",
+        "Att man kan bli skyldig att betala extra för försvaret"
+      ],
+      "id": 12
+    },
+    {
+      "question": "En cyberattack betyder att angripare försöker komma åt data, information eller kontakter i it-system, ibland för att göra skada eller utpressa. Hur många cyberattacker inträffar mot svenska myndigheter och kommuner varje månad?",
+      "correctAnswer": "10 000-15 000",
+      "answerAlternatives": [
+        "100-150",
+        "1 000-1500",
+        "10 000-15 000",
+        "15 000-25 000"
+      ],
+      "id": 13
+    }
+  ]
+}
