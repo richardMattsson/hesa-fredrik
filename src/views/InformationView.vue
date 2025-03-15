@@ -6,13 +6,13 @@ data() {
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/sa-fungerar-vart-forsvar/totalforsvaret---du-ar-en-del-av-sveriges-beredskap/",
       image: "/pexels-mikhail-nilov-7988125.jpg",
-      alt: "A picture on a desk, where a person are sitting and writing code on a laptop and a tablet",
+      alt: "A picture on a desk, where a person is sitting and writing code on a laptop and a tablet",
       value: "Totalförsvaret"
     },
     {
       link: "https://www.msb.se/sv/rad-till-privatpersoner/hemberedskap---preppa-for-minst-en-vecka/grunder-i-hemberedskap/",
       image: "/pexels-julia-m-cameron-6994945.jpg",
-      alt: "A picture of a table with water bottles, plasticbags with pasta and a preserve tin",
+      alt: "A picture of a table with water bottles, plastic bags with pasta and a preserve tin",
       value: "Hemberedskap"
     },
     {
